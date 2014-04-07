@@ -17,10 +17,18 @@ var VODKA = 15;
 var CAVIAR = 16;
 var CIGARETTE = 17;
 
-function room(id)  {
+function room(id, objects, doors)  {
     this.id = id;
-    
+    this.objects = objects;
+    this.doors = doors;
 }
-function object(type) {
+function object(type, spec) {
     this.type = type;
+    this.spec = spec;
+}
+function door(id, arrival, color, lock) {
+    this.id = id;
+    this.arrival = arrival;
+    this.color = color;
+    this.lock = lock;
 }
