@@ -4,7 +4,6 @@ var Game = {
     'context': null,
     'timer': null
 };
-var player;
 
 function Initialize() {
     Game.canvas = document.getElementById('canvas');
