@@ -1,7 +1,21 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+var Game = {
+    'canvas': null,
+    'canvasPosition': null,
+    'context': null,
+    'timer': null
+};
+
+function Initialize() {
+    Game.canvas = document.getElementById('canvas');
+    Game.context = Game.canvas.getContext('2d');
+    
+    Game.timer = setInterval("mainLoop();", 40);
+}
 
 
+function mainLoop()
+{
+    Game.canvasPosition = Game.canvas.getBoundingClientRect();
+    clearCanvas();
+    
+}
