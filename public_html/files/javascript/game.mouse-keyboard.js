@@ -1,7 +1,35 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//ETAT CLAVIER
+var KeyState = {
+    'w': false,
+    's': false,
+    'a': false,
+    'd': false,
+    'up': false,
+    'down': false,
+    'left': false,
+    'right': false,
+    'space': false
+};
 
+//JQUERY
+//KeyDown
+$(function() {
+    $(document).keydown(function(e) {
+        setKeyState(e, true);
+    });
+    //KeyUp
+    $(document).keyup(function(e) {
+        setKeyState(e, false);
+    });
+});
 
+//Gestion des touches du clavier
+function setKeyState(e, state) {
+    var key = e.keyCode;
+
+    switch (key) {
+        case 17:
+            vgKeyState.ctrlLeft = state;
+            break;
+    }
+}
