@@ -1,12 +1,9 @@
-var maps = new Array();
+var 
 
-maps.push();
-
-
-var objects = {
+function room(id)  {
+    this.id = id;
     
-};
-
-var zone = {
-    
-};
+}
+function object(type) {
+    this.type = type;
+}
