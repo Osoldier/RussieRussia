@@ -26,15 +26,33 @@ var RIGHT = 3;
 var DOORWIDTH = 40;
 var DOORHEIGHT = 40;
 
+//MODEL
+var LONGER = 100;
+var LARGER = 200;
+var SQUARED = 300;
+
 //Ground
 var GroundMap = [
-    new room(1000, 500, [new object(100, 100, 32, 32, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
-    new room(700, 700, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 16, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)])
+    new room(LONGER, [new object(100, 100, 32, 32, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
+    new room(SQUARED, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 16, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)]),
+    new room(LONGER, [new object(100, 100, 16, 16, false, TABLEAU, null)], [new door(LEFT, 4, 3, null, false), new door(RIGHT, 5, 6, null, false)])
 ];
 
-function room(width, height, objects, doors) {
-    this.width = width;
-    this.height = height;
+function room(model, objects, doors) {
+    switch (model) {
+        case LONGER:
+            this.width = 800;
+            this.height = 500;
+            break;
+        case LARGER:
+            this.width = 500;
+            this.height = 800;
+            break;
+        case SQUARED:
+            this.width = 700;
+            this.height = 700;
+            break;
+    }
     this.objects = objects;
     this.doors = doors;
 }
@@ -84,7 +102,7 @@ function getDoorWithId(id) {
 }
 
 function initRoom(map, id) {
-    var roomX = Game.canvas.width/2-(map[id].width/2), roomY = Game.canvas.height/2-(map[id].height/2);
+    var roomX = Game.canvas.width / 2 - (map[id].width / 2), roomY = Game.canvas.height / 2 - (map[id].height / 2);
     map[id].doors.forEach(function(entry) {
         Game.context.beginPath();
         var x = 0;

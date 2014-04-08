@@ -29,14 +29,13 @@ function mainLoop()
     CheckCollisions();
     player.Update();
     score.Update();
-
 }
 
 function CheckCollisions() {
     for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
         if ((getAllDoorsInRoom(player.room)[i].x + DOORWIDTH >= player.x && getAllDoorsInRoom(player.room)[i].x <= player.x + player.width) || (getAllDoorsInRoom(player.room)[i].x <= player.x + player.width && getAllDoorsInRoom(player.room)[i].x + DOORWIDTH >= player.x)) {
             if ((getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y)) {
-                initRoom(GroundMap, getAllDoorsInRoom(player.room)[i].arrival)
+                initRoom(player.Map, getAllDoorsInRoom(player.room)[i].arrival);
                 switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                     case TOP:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
