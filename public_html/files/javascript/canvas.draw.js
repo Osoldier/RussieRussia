@@ -6,7 +6,7 @@ function clearCanvas()
 function drawMap(map) {
     Game.context.lineWidth = "1";
     Game.context.strokeStyle = "red";
-    var roomX = 20, roomY = 20;
+    var roomX = Game.canvas.width/2-(map[player.room].width/2), roomY = Game.canvas.height/2-(map[player.room].height/2);
     Game.context.beginPath();
     Game.context.rect(roomX, roomY, map[player.room].width, map[player.room].height);
     Game.context.stroke();
