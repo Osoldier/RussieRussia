@@ -73,3 +73,41 @@ function getAllObjectsInRoom(id) {
     return GroundMap[id].objects;
 }
 
+function getDoorWithId(id) {
+    for (var i = 0; i < GroundMap.length; i++) {
+        for (var j = 0; j < GroundMap[i].doors.length; j++) {
+            if (GroundMap[i].doors[j].id == id)
+                return GroundMap[i].doors[j];
+        }
+    }
+    return null;
+}
+
+function initRoom(map, id) {
+    var roomX = Game.canvas.width/2-(map[id].width/2), roomY = Game.canvas.height/2-(map[id].height/2);
+    map[id].doors.forEach(function(entry) {
+        Game.context.beginPath();
+        var x = 0;
+        var y = 0;
+        switch (entry.place) {
+            case TOP:
+                y = roomY;
+                x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
+                break;
+            case LEFT:
+                y = roomY + (map[id].height / 2) - (DOORHEIGHT / 2);
+                x = roomX;
+                break;
+            case BOTTOM:
+                y = roomY + map[id].height - DOORHEIGHT;
+                x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
+                break;
+            case RIGHT:
+                y = roomY + (map[id].height / 2) - DOORHEIGHT / 2;
+                x = roomX + (map[id].width) - DOORHEIGHT;
+                break;
+        }
+        entry.x = x;
+        entry.y = y;
+    });
+}
