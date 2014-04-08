@@ -39,6 +39,6 @@ function door(id, arrival, color, lock) {
 }
 
 //Ground
-var GroundMap = [
-   new room(1, 0, 0, new Array[new object(100, 100, PUIT, "A")], new door(0, 1, null, false))
-];
+var GroundMap = new Array();
+GroundMap.push( new room(1, 0, 0,200,200, new Array[new object(100, 100, PUIT, "A")], new door(0, 1, null, false)));
+  
