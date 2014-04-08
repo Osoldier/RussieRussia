@@ -16,18 +16,17 @@ var VODKA = 15;
 var CAVIAR = 16;
 var CIGARETTE = 17;
 
-function room(id, x, y, width, height, objects, doors)  {
+function room(width, height, objects, doors) {
+    this.width = width;
+    this.height = height;
+    this.objects = objects;
+    this.doors = doors;
+}
+function object(x, y, width, height, type, spec) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
-    this.id = id;
-    this.objects = objects;
-    this.doors = doors;
-}
-function object(x, y, type, spec) {
-    this.x = x;
-    this.y = y;
     this.type = type;
     this.spec = spec;
 }
@@ -39,6 +38,7 @@ function door(id, arrival, color, lock) {
 }
 
 //Ground
-var GroundMap = new Array();
-GroundMap.push( new room(1, 0, 0,200,200, new Array[new object(100, 100, PUIT, "A")], new door(0, 1, null, false)));
-  
+var GroundMap = [
+    new room(200, 200, [new object(100, 100, 32, 32, PUIT, "A")], new door(0, 1, null, false))
+    ];
+
