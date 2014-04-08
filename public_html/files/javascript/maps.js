@@ -23,8 +23,15 @@ var BOTTOM = 2;
 var RIGHT = 3;
 
 //PORTES
-var DOORWIDTH = 20;
-var DOORHEIGHT = 20;
+var DOORWIDTH = 40;
+var DOORHEIGHT = 40;
+
+//Ground
+var GroundMap = [
+    new room(1000, 500, [new object(100, 100, 32, 32, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
+    new room(600, 600, [new object(100, 100, 32, 32, TABLE, null), new object(200, 200, 32, 16, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)])
+];
+
 function room(width, height, objects, doors) {
     this.width = width;
     this.height = height;
@@ -40,15 +47,20 @@ function object(x, y, width, height, type, spec) {
     this.spec = spec;
 }
 function door(place, id, arrival, color, lock) {
-    this.place = place
+    this.place = place;
     this.id = id;
     this.arrival = arrival;
     this.color = color;
     this.lock = lock;
 }
 
-//Ground
-var GroundMap = [
-    new room(600, 200, [new object(100, 100, 32, 32, PUIT, "A")], [new door(RIGHT, null, false)])
-];
+function getRoomIdWithDoor(id) {
+    for (var i = 0; i < GroundMap.length; i++) {
+        for (var j = 0; j < GroundMap[i].doors.length; j++) {
+            if (GroundMap[i].doors[j].id == id)
+                return i;
+        }
+    }
+    return null;
+}
 
