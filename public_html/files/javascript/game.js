@@ -5,6 +5,13 @@ var Game = {
     'timer': null
 };
 
+var Direction = {
+    'UP': 0,
+    'RIGHT': 1,
+    'DOWN': 2,
+    'LEFT': 3
+};
+
 function Initialize() {
     Game.canvas = document.getElementById('canvas');
     Game.context = Game.canvas.getContext('2d');
