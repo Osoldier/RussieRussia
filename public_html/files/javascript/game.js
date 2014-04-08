@@ -17,6 +17,7 @@ function Initialize() {
     Game.context = Game.canvas.getContext('2d');
     
     Game.timer = setInterval("mainLoop();", 40);
+    console.log(getRoomIdWithDoor(0));
 }
 
 
