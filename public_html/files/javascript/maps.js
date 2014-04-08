@@ -30,7 +30,9 @@ function object(x, y, width, height, type, spec) {
     this.type = type;
     this.spec = spec;
 }
-function door(id, arrival, color, lock) {
+function door(x, y, id, arrival, color, lock) {
+    this.x = x;
+    this.y = y;
     this.id = id;
     this.arrival = arrival;
     this.color = color;
@@ -39,6 +41,6 @@ function door(id, arrival, color, lock) {
 
 //Ground
 var GroundMap = [
-    new room(200, 200, [new object(100, 100, 32, 32, PUIT, "A")], new door(0, 1, null, false))
-    ];
+    new room(200, 200, [new object(100, 100, 32, 32, PUIT, "A")], [new door(20, 20, null, false)])
+];
 

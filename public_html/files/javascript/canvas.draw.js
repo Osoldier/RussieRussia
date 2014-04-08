@@ -14,4 +14,9 @@ function drawMap(map) {
         Game.context.rect(entry.x, entry.y, entry.width, entry.height);
         Game.context.fill();
     });
+    map[player.room].doors.forEach(function(entry) {
+        Game.context.beginPath();
+        Game.context.rect(entry.x, entry.y, 20, 20);
+        Game.context.fill();
+    });
 }
