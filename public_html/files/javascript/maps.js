@@ -16,6 +16,15 @@ var VODKA = 15;
 var CAVIAR = 16;
 var CIGARETTE = 17;
 
+//DIRECTIONS
+var TOP = 0;
+var LEFT = 1;
+var BOTTOM = 2;
+var RIGHT = 3;
+
+//PORTES
+var DOORWIDTH = 20;
+var DOORHEIGHT = 20;
 function room(width, height, objects, doors) {
     this.width = width;
     this.height = height;
@@ -30,9 +39,8 @@ function object(x, y, width, height, type, spec) {
     this.type = type;
     this.spec = spec;
 }
-function door(x, y, id, arrival, color, lock) {
-    this.x = x;
-    this.y = y;
+function door(place, id, arrival, color, lock) {
+    this.place = place
     this.id = id;
     this.arrival = arrival;
     this.color = color;
@@ -41,6 +49,6 @@ function door(x, y, id, arrival, color, lock) {
 
 //Ground
 var GroundMap = [
-    new room(200, 200, [new object(100, 100, 32, 32, PUIT, "A")], [new door(20, 20, null, false)])
+    new room(600, 200, [new object(100, 100, 32, 32, PUIT, "A")], [new door(RIGHT, null, false)])
 ];
 
