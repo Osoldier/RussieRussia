@@ -19,34 +19,42 @@ function player() {
     this.Move = function() {
         if (KeyState.w || KeyState.up)
         {
-            if (this.y > 0)
-                this.y -= this.speed;
+            if (this.y > 0) {
+                if (!WouldCollide(0, -this.speed))
+                    this.y -= this.speed;
+            }
             else
                 this.y = 0;
             this.direction = Direction.UP;
         }
         if (KeyState.d || KeyState.right)
         {
-            if (this.x + this.width < Game.canvas.width)
-                this.x += this.speed;
+            if (this.x + this.width < Game.canvas.width) {
+                if (!WouldCollide(this.speed, 0))
+                    this.x += this.speed;
+            }
             else
                 this.x = Game.canvas.width - this.width;
             this.direction = Direction.RIGHT;
         }
         if (KeyState.s || KeyState.down)
         {
-            if (this.y + this.height < Game.canvas.height)
-                this.y += this.speed;
+            if (this.y + this.height < Game.canvas.height) {
+                if (!WouldCollide(0, this.speed))
+                    this.y += this.speed;
+            }
             else
                 this.y = Game.canvas.height - this.height;
             this.direction = Direction.DOWN;
         }
         if (KeyState.a || KeyState.left)
         {
-            if (this.x > 0)
-                this.x -= this.speed;
-            else
-                this.x = 0;
+            if (this.x > 0){
+                if (!WouldCollide(-this.speed, 0)) 
+                    this.x -= this.speed;
+                }
+                else
+                    this.x = 0;
             this.direction = Direction.LEFT;
         }
     };
