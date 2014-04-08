@@ -1,6 +1,8 @@
 var player = new player();
 
 function player() {
+    this.sprite = new Image();
+    this.sprite.src = 'files/images/sprite_homme.png'
     this.room = 0;
     this.time = 0;
     this.score = 0;
@@ -10,12 +12,20 @@ function player() {
     this.life = 0;
     this.x = 0;
     this.y = 0;
-    this.width = 16;
+    this.width = 32;
     this.height = 32;
-    this.speed = 10;
+    this.speed = 8;
     this.direction = 0;
     this.type = 0;
     this.frame = 0;
+    this.direction = 0;
+    this.directionDEF = {
+        'DOWN': 0,
+        'LEFT': 1,
+        'RIGHT': 2,
+        'UP': 3
+    };
+
     this.Move = function() {
         if (KeyState.w || KeyState.up)
         {
@@ -25,7 +35,7 @@ function player() {
             }
             else
                 this.y = 0;
-            this.direction = Direction.UP;
+            this.direction = this.directionDEF.UP;
         }
         if (KeyState.d || KeyState.right)
         {
@@ -35,7 +45,7 @@ function player() {
             }
             else
                 this.x = Game.canvas.width - this.width;
-            this.direction = Direction.RIGHT;
+            this.direction = this.directionDEF.RIGHT;
         }
         if (KeyState.s || KeyState.down)
         {
@@ -45,23 +55,36 @@ function player() {
             }
             else
                 this.y = Game.canvas.height - this.height;
-            this.direction = Direction.DOWN;
+            this.direction = this.directionDEF.DOWN;
         }
         if (KeyState.a || KeyState.left)
         {
-            if (this.x > 0){
-                if (!WouldCollide(-this.speed, 0)) 
+            if (this.x > 0) {
+                if (!WouldCollide(-this.speed, 0))
                     this.x -= this.speed;
-                }
-                else
-                    this.x = 0;
-            this.direction = Direction.LEFT;
+            }
+            else
+                this.x = 0;
+            this.direction = this.directionDEF.LEFT;
         }
     };
 
     this.Afficher = function() {
-        Game.context.beginPath();
-        Game.context.rect(this.x, this.y, this.width, this.height);
-        Game.context.fill();
+        if (KeyState.a || KeyState.left || KeyState.s || KeyState.down || KeyState.d || KeyState.right || KeyState.w || KeyState.up)
+        {
+            if (this.frame >= 2)
+                this.frame = 0;
+            else
+                this.frame++;
+
+        } else {
+            this.frame = 1;
+        }
+        Game.context.drawImage(this.sprite, this.width * this.frame, this.height * this.direction, this.height, this.width, this.x, this.y, this.height, this.width);
+    };
+
+    this.Update = function() {
+        this.Move();
+        this.Afficher();        
     };
 }

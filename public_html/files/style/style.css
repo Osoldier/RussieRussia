@@ -2,10 +2,9 @@ body {
     background-color: lightskyblue;    
 }
 
-#canvas {
-    /* border: 1px black solid; */
+#game {    
     background-color: white;  
 }
 #score {
-    background-color: red;
+    background-color: white;
 }

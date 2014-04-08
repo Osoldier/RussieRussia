@@ -1,7 +1,19 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+var score = new score();
 
+function score() {
+    this.canvas = null;
+    this.context = null;
+    this.background = new Image();
+    this.background.src = 'files/images/parchemin_score.jpg';
+
+    this.Initialize = function() {
+        this.canvas = document.getElementById('score');
+        this.context = this.canvas.getContext('2d');       
+    };
+    
+    this.Update = function()
+    {
+        this.context.drawImage(this.background,0,0,200,768);
+    };
+};
 

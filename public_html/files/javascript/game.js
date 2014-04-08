@@ -5,17 +5,19 @@ var Game = {
     'timer': null
 };
 
-var Direction = {
-    'UP': 0,
-    'RIGHT': 1,
-    'DOWN': 2,
-    'LEFT': 3
+var Game = {
+    'canvas': null,
+    'canvasPosition': null,
+    'context': null,
+    'timer': null
 };
 
+
 function Initialize() {
-    Game.canvas = document.getElementById('canvas');
+    Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
     Game.timer = setInterval("mainLoop();", 40);
+    score.Initialize();
 }
 
 
@@ -25,8 +27,9 @@ function mainLoop()
     clearCanvas();
     drawMap(GroundMap);
     CheckCollisions();
-    player.Move();
-    player.Afficher();
+    player.Update();
+    score.Update();
+
 }
 
 function CheckCollisions() {
@@ -34,9 +37,9 @@ function CheckCollisions() {
         if ((getAllDoorsInRoom(player.room)[i].x + DOORWIDTH >= player.x && getAllDoorsInRoom(player.room)[i].x <= player.x + player.width) || (getAllDoorsInRoom(player.room)[i].x <= player.x + player.width && getAllDoorsInRoom(player.room)[i].x + DOORWIDTH >= player.x)) {
             if ((getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y)) {
                 initRoom(GroundMap, getAllDoorsInRoom(player.room)[i].arrival)
-                switch(getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
+                switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                     case LEFT:
-                        
+
                         break;
                 }
                 player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
@@ -49,7 +52,7 @@ function CheckCollisions() {
         if ((getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x && getAllObjectsInRoom(player.room)[i].x <= player.x + player.width) || (getAllObjectsInRoom(player.room)[i].x <= player.x + player.width && getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x)) {
             if ((getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y && getAllObjectsInRoom(player.room)[i].y <= player.y + player.height) || (getAllObjectsInRoom(player.room)[i].y <= player.y + player.height && getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y)) {
                 if (getAllObjectsInRoom(player.room)[i].collidable)
-                return true;
+                    return true;
             }
         }
     }
