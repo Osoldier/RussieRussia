@@ -1,4 +1,5 @@
 var player = {
+    'room': 0,
     'time': 0,
     'score': 0,
     'object1': 0,

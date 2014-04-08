@@ -17,5 +17,5 @@ function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
     clearCanvas();
-    
+    drawMap(GroundMap);
 }
