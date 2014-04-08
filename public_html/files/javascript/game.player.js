@@ -17,18 +17,34 @@ function player() {
     this.Move = function() {
         if (KeyState.w || KeyState.up)
         {
+            if (this.y > 0)
+                this.y -= this.speed;
+            else
+                this.y = 0;
             this.direction = Direction.UP;
         }
         if (KeyState.d || KeyState.right)
         {
+            if (this.x + vgSpriteSize.width < Game.canvas.width)
+                this.x += this.speed;
+            else
+                this.x = Game.canvas.width - vgSpriteSize.width;
             this.direction = Direction.RIGHT;
         }
         if (KeyState.s || KeyState.down)
         {
+            if (this.y + vgSpriteSize.height < Game.canvas.height)
+                this.y += this.speed;
+            else
+                this.y = G.canvas.height - vgSpriteSize.height;
             this.direction = Direction.DOWN;
         }
         if (KeyState.a || KeyState.left)
         {
+            if (this.x > 0)
+                this.x -= this.speed;
+            else
+                this.x = 0;
             this.direction = Direction.LEFT;
         }
     };
