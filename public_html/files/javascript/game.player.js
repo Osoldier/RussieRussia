@@ -3,6 +3,7 @@ var player = new player();
 function player() {
     this.sprite = new Image();
     this.sprite.src = 'files/images/sprite_homme.png'
+    this.Map = GroundMap;
     this.room = 0;
     this.time = 0;
     this.score = 0;

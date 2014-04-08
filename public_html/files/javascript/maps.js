@@ -56,9 +56,9 @@ function door(place, id, arrival, color, lock) {
 }
 
 function getRoomIdWithDoor(id) {
-    for (var i = 0; i < GroundMap.length; i++) {
-        for (var j = 0; j < GroundMap[i].doors.length; j++) {
-            if (GroundMap[i].doors[j].id == id)
+    for (var i = 0; i < player.Map.length; i++) {
+        for (var j = 0; j < player.Map[i].doors.length; j++) {
+            if (player.Map[i].doors[j].id == id)
                 return i;
         }
     }
@@ -66,18 +66,18 @@ function getRoomIdWithDoor(id) {
 }
 
 function getAllDoorsInRoom(id) {
-    return GroundMap[id].doors;
+    return player.Map[id].doors;
 }
 
 function getAllObjectsInRoom(id) {
-    return GroundMap[id].objects;
+    return player.Map[id].objects;
 }
 
 function getDoorWithId(id) {
-    for (var i = 0; i < GroundMap.length; i++) {
-        for (var j = 0; j < GroundMap[i].doors.length; j++) {
-            if (GroundMap[i].doors[j].id == id)
-                return GroundMap[i].doors[j];
+    for (var i = 0; i < player.Map.length; i++) {
+        for (var j = 0; j < player.Map[i].doors.length; j++) {
+            if (player.Map[i].doors[j].id == id)
+                return player.Map[i].doors[j];
         }
     }
     return null;
