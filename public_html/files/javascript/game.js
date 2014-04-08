@@ -25,7 +25,7 @@ function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
     clearCanvas();
-    drawMap(GroundMap);
+    drawMap(player.Map);
     CheckCollisions();
     player.Update();
     score.Update();
@@ -38,12 +38,23 @@ function CheckCollisions() {
             if ((getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y)) {
                 initRoom(GroundMap, getAllDoorsInRoom(player.room)[i].arrival)
                 switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
+                    case TOP:
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y-DOORHEIGHT-2;
+                        break;
                     case LEFT:
-
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x+DOORWIDTH+2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
+                        break;
+                    case RIGHT:
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x-DOORWIDTH-2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
+                        break;
+                    case BOTTOM:
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y+DOORHEIGHT+2;
                         break;
                 }
-                player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                 player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
             }
         }
