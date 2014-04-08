@@ -29,7 +29,7 @@ var DOORHEIGHT = 40;
 //Ground
 var GroundMap = [
     new room(1000, 500, [new object(100, 100, 32, 32, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
-    new room(1000, 1000, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 16, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)])
+    new room(700, 700, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 16, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)])
 ];
 
 function room(width, height, objects, doors) {

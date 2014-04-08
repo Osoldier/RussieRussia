@@ -4,7 +4,7 @@ function clearCanvas()
     Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
 }
 function drawMap(map) {
-    Game.context.lineWidth = "1";
+    Game.context.lineWidth = "2";
     Game.context.strokeStyle = "red";
     var roomX = Game.canvas.width/2-(map[player.room].width/2), roomY = Game.canvas.height/2-(map[player.room].height/2);
     Game.context.beginPath();
@@ -22,15 +22,15 @@ function drawMap(map) {
         switch (entry.place) {
             case TOP:
                 y = roomY;
-                x = roomX + (map[player.room].width/2);
+                x = roomX + (map[player.room].width/2)-(DOORWIDTH/2);
                 break;
             case LEFT:
-                y = roomY + (map[player.room].height/2);
+                y = roomY + (map[player.room].height/2)-(DOORHEIGHT/2);
                 x = roomX;
                 break;
             case BOTTOM:
                 y = roomY + map[player.room].height-DOORHEIGHT;
-                x = roomX + (map[player.room].width/2);
+                x = roomX + (map[player.room].width/2)-(DOORWIDTH/2);
                 break;
             case RIGHT:
                 y = roomY + (map[player.room].height/2)-DOORHEIGHT/2;
