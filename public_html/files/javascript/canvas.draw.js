@@ -37,6 +37,8 @@ function drawMap(map) {
                 x = roomX + (map[player.room].width)-DOORHEIGHT;
                 break;
         }
+        entry.x = x;
+        entry.y = y;
         Game.context.rect(x, y, DOORWIDTH, DOORHEIGHT);
         Game.context.fill();
     });

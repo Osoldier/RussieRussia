@@ -28,8 +28,8 @@ var DOORHEIGHT = 40;
 
 //Ground
 var GroundMap = [
-    new room(1000, 500, [new object(100, 100, 32, 32, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
-    new room(600, 600, [new object(100, 100, 32, 32, TABLE, null), new object(200, 200, 32, 16, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)])
+    new room(1000, 500, [new object(100, 100, 32, 32, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
+    new room(1000, 1000, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 16, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 2, "UNDEFINED", null, false), new door(RIGHT, 3, 4, null, false)])
 ];
 
 function room(width, height, objects, doors) {
@@ -38,8 +38,9 @@ function room(width, height, objects, doors) {
     this.objects = objects;
     this.doors = doors;
 }
-function object(x, y, width, height, type, spec) {
+function object(x, y, width, height, collidable, type, spec) {
     this.x = x;
+    this.collidable = collidable;
     this.y = y;
     this.width = width;
     this.height = height;
@@ -62,5 +63,13 @@ function getRoomIdWithDoor(id) {
         }
     }
     return null;
+}
+
+function getAllDoorsInRoom(id) {
+    return GroundMap[id].doors;
+}
+
+function getAllObjectsInRoom(id) {
+    return GroundMap[id].objects;
 }
 

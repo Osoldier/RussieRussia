@@ -10,6 +10,8 @@ function player() {
     this.life = 0;
     this.x = 0;
     this.y = 0;
+    this.width = 16;
+    this.height = 32;
     this.speed = 10;
     this.direction = 0;
     this.type = 0;
@@ -25,18 +27,18 @@ function player() {
         }
         if (KeyState.d || KeyState.right)
         {
-            if (this.x + vgSpriteSize.width < Game.canvas.width)
+            if (this.x + this.width < Game.canvas.width)
                 this.x += this.speed;
             else
-                this.x = Game.canvas.width - vgSpriteSize.width;
+                this.x = Game.canvas.width - this.width;
             this.direction = Direction.RIGHT;
         }
         if (KeyState.s || KeyState.down)
         {
-            if (this.y + vgSpriteSize.height < Game.canvas.height)
+            if (this.y + this.height < Game.canvas.height)
                 this.y += this.speed;
             else
-                this.y = G.canvas.height - vgSpriteSize.height;
+                this.y = Game.canvas.height - this.height;
             this.direction = Direction.DOWN;
         }
         if (KeyState.a || KeyState.left)
@@ -50,6 +52,8 @@ function player() {
     };
 
     this.Afficher = function() {
-
+        Game.context.beginPath();
+        Game.context.rect(this.x, this.y, this.width, this.height);
+        Game.context.fill();
     };
 }
