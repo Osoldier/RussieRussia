@@ -39,6 +39,7 @@ function Player() {
     this.Update = function() {
         this.Move();
         this.Afficher();
+       
     };
 
     this.Afficher = function() {        
