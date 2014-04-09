@@ -10,6 +10,8 @@ var groundIMG = new Image();
 function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
+    //#####PLAYER#####//    
+    player.Initialize();
     groundIMG.src = 'files/images/ground.png';
     score.Initialize();
     loadSprites();
