@@ -5,19 +5,15 @@ var Game = {
     'timer': null
 };
 
-var Game = {
-    'canvas': null,
-    'canvasPosition': null,
-    'context': null,
-    'timer': null
-};
-
+var groundIMG = new Image();
 
 function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
+    groundIMG.src = 'files/images/ground.png';
     Game.timer = setInterval("mainLoop();", 40);
     score.Initialize();
+
 }
 
 
@@ -39,19 +35,19 @@ function CheckCollisions() {
                 switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                     case TOP:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y+DOORHEIGHT+2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + DOORHEIGHT + 2;
                         break;
                     case LEFT:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x+DOORWIDTH+2;
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + DOORWIDTH + 2;
                         player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                         break;
                     case RIGHT:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x-DOORWIDTH-2;
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - DOORWIDTH - 2;
                         player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                         break;
                     case BOTTOM:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y-DOORHEIGHT-2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - DOORHEIGHT - 2;
                         break;
                 }
                 player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);

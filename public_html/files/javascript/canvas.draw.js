@@ -1,13 +1,16 @@
+
+
 //Clear Canvas
 function clearCanvas()
 {
     Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
 }
 function drawMap(map) {
+    drawGround();
     Game.context.lineWidth = "2";
     Game.context.strokeStyle = "red";
-    var roomX = Game.canvas.width/2-(map[player.room].width/2), roomY = Game.canvas.height/2-(map[player.room].height/2);
-    player.roomInfo = [roomX,roomY,map[player.room].width,map[player.room].height];
+    var roomX = Game.canvas.width / 2 - (map[player.room].width / 2), roomY = Game.canvas.height / 2 - (map[player.room].height / 2);
+    player.roomInfo = [roomX, roomY, map[player.room].width, map[player.room].height];
     Game.context.beginPath();
     Game.context.rect(roomX, roomY, map[player.room].width, map[player.room].height);
     Game.context.stroke();
@@ -23,24 +26,46 @@ function drawMap(map) {
         switch (entry.place) {
             case TOP:
                 y = roomY;
-                x = roomX + (map[player.room].width/2)-(DOORWIDTH/2);
+                x = roomX + (map[player.room].width / 2) - (DOORWIDTH / 2);
                 break;
             case LEFT:
-                y = roomY + (map[player.room].height/2)-(DOORHEIGHT/2);
+                y = roomY + (map[player.room].height / 2) - (DOORHEIGHT / 2);
                 x = roomX;
                 break;
             case BOTTOM:
-                y = roomY + map[player.room].height-DOORHEIGHT;
-                x = roomX + (map[player.room].width/2)-(DOORWIDTH/2);
+                y = roomY + map[player.room].height - DOORHEIGHT;
+                x = roomX + (map[player.room].width / 2) - (DOORWIDTH / 2);
                 break;
             case RIGHT:
-                y = roomY + (map[player.room].height/2)-DOORHEIGHT/2;
-                x = roomX + (map[player.room].width)-DOORHEIGHT;
+                y = roomY + (map[player.room].height / 2) - DOORHEIGHT / 2;
+                x = roomX + (map[player.room].width) - DOORHEIGHT;
                 break;
         }
         entry.x = x;
         entry.y = y;
+
+
+
         Game.context.rect(x, y, DOORWIDTH, DOORHEIGHT);
         Game.context.fill();
+
     });
+}
+
+function drawGround()
+{
+    var x = player.roomInfo[0];
+    var y = player.roomInfo[1];
+
+    while (y < player.roomInfo[1] + player.roomInfo[2])
+    {
+        x = player.roomInfo[0];
+        while (x < player.roomInfo[0] + player.roomInfo[3])
+        {
+            Game.context.drawImage(this.groundIMG, x, y);
+
+            x = x + 20;
+        }
+        y = y + 20;
+    }
 }
