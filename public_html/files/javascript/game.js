@@ -7,7 +7,9 @@ var Game = {
 
 var groundIMG = new Image();
 var border = {
-    "SQUARED": new Image()
+    "SQUARED": new Image(),
+    "LONGER": new Image(),
+    "LARGER": new Image()
 }
 
 function Initialize() {
@@ -16,6 +18,8 @@ function Initialize() {
     //#####PLAYER#####//    
     player.Initialize();
     border.SQUARED.src = 'files/images/room_squared.png';
+    border.LONGER.src = 'files/images/room_longer.png';
+    border.LARGER.src = 'files/images/room_larger.png';
     groundIMG.src = 'files/images/ground.png';
     score.Initialize();
     loadSprites();

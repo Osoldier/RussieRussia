@@ -79,9 +79,11 @@ function drawBorder() {
         case 700: //SQUARED
             Game.context.drawImage(this.border.SQUARED, x - 91, y - 91);
             break;
-        case 800: //LONGER    
+        case 500: //LONGER   
+            Game.context.drawImage(this.border.LONGER, x - 91aaw, y - 91);
             break;
-        case 500: //LARGER
+        case 800: //LARGER
+            Game.context.drawImage(this.border.LARGER, x - 91, y - 91);
             break;
     }
     
