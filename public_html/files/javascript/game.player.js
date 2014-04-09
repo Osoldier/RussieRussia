@@ -28,6 +28,17 @@ function player() {
         'UP': 3
     };
 
+    this.testDirection = function(direction) {
+        switch (direction) {
+            case this.directionDEF.down:
+               if (KeyState.s || KeyState.down)
+               return true;
+           else
+               return false;
+                break;
+        }
+    };
+
     this.Move = function() {
         if (KeyState.w || KeyState.up)
         {
