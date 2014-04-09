@@ -5,14 +5,15 @@ function player() {
     this.sprite.src = 'files/images/sprite_homme.png'
     this.Map = GroundMap;
     this.room = 0;
+    this.roomInfo = new Array();
     this.time = 0;
     this.score = 0;
     this.object1 = 0;
     this.object2 = 0;
     this.object3 = 0;
     this.life = 0;
-    this.x = 0;
-    this.y = 0;
+    this.x = 300;
+    this.y = 300;
     this.width = 32;
     this.height = 32;
     this.speed = 8;
@@ -30,42 +31,42 @@ function player() {
     this.Move = function() {
         if (KeyState.w || KeyState.up)
         {
-            if (this.y > 0) {
+            if (this.y > this.roomInfo[1]) {
                 if (!WouldCollide(0, -this.speed))
                     this.y -= this.speed;
             }
             else
-                this.y = 0;
+                this.y = this.roomInfo[1];
             this.direction = this.directionDEF.UP;
         }
         if (KeyState.d || KeyState.right)
         {
-            if (this.x + this.width < Game.canvas.width) {
+            if (this.x + this.width < this.roomInfo[0] + this.roomInfo[2]) {
                 if (!WouldCollide(this.speed, 0))
                     this.x += this.speed;
             }
             else
-                this.x = Game.canvas.width - this.width;
+                this.x = this.roomInfo[0] + this.roomInfo[2] - this.width;
             this.direction = this.directionDEF.RIGHT;
         }
         if (KeyState.s || KeyState.down)
         {
-            if (this.y + this.height < Game.canvas.height) {
+            if (this.y + this.height < this.roomInfo[1] + this.roomInfo[3]) {
                 if (!WouldCollide(0, this.speed))
                     this.y += this.speed;
             }
             else
-                this.y = Game.canvas.height - this.height;
+                this.y = this.roomInfo[1] + this.roomInfo[3] - this.height;
             this.direction = this.directionDEF.DOWN;
         }
         if (KeyState.a || KeyState.left)
         {
-            if (this.x > 0) {
+            if (this.x > this.roomInfo[0]) {
                 if (!WouldCollide(-this.speed, 0))
                     this.x -= this.speed;
             }
             else
-                this.x = 0;
+                this.x = this.roomInfo[0];
             this.direction = this.directionDEF.LEFT;
         }
     };
@@ -86,6 +87,6 @@ function player() {
 
     this.Update = function() {
         this.Move();
-        this.Afficher();        
+        this.Afficher();
     };
 }
