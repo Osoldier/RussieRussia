@@ -4,11 +4,14 @@
 // PLAYER
 
 var player = new Player();
+var PUTIN = 0;
+var STALINE = 1;
+var LENINE = 2;
 
-function Player() {
+function Player(type) {
     this.sprite = new Image();
     this.Map = GroundMap;
-    this.room = 9;    
+    this.room = 9;
     this.roomInfo = new Array();
     this.time = 0;
     this.score = 0;
@@ -22,7 +25,8 @@ function Player() {
     this.height = 32;
     this.speed = 8;
     this.direction = 0;
-    this.type = 0;
+    this.Projectile = null;
+    this.type = type;
     this.frame = 0;
     this.direction = 0;
     this.directionDEF = {
@@ -39,16 +43,32 @@ function Player() {
     this.Update = function() {
         this.Move();
         this.Afficher();
-       
+        if(this.Projectile != null) {
+            this.Projectile.Update();
+        }
     };
 
-    this.Afficher = function() {        
+    this.Shoot = function() {
+        switch (type) {
+            case PUTIN:
+                this.Projectile = new vodka(this.x, this.y, this.direction);
+                break;
+            case STALINE:
+                this.Projectile = new machette(this.x, this.y, this.direction);
+                break;
+            case LENINE:
+                this.Projectile = new faucile(this.x, this.y, this.direction);
+                break;
+        }
+    }
+
+    this.Afficher = function() {
         Game.context.drawImage(this.sprite, this.width * this.frame, this.height * this.direction, this.height, this.width, this.x, this.y, this.height, this.width);
     };
 
     this.UseKeyboard = function(e) {
         switch (e) {
-            case this.directionDEF.DOWN:               
+            case this.directionDEF.DOWN:
                 return (KeyState.s || KeyState.down) ? true : false;
                 break;
 
@@ -109,7 +129,7 @@ function Player() {
             this.direction = this.directionDEF.LEFT;
             this.directionCount = false;
         }
-        
+
         //#####SPRITE#ANIMATION#####//  
         if (this.UseKeyboard(this.directionDEF.UP) || this.UseKeyboard(this.directionDEF.LEFT) || this.UseKeyboard(this.directionDEF.RIGHT) || this.UseKeyboard(this.directionDEF.DOWN))
         {
