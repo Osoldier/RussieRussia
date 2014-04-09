@@ -1,3 +1,4 @@
+//ELEMENTS
 var TAPIS = 0;
 var TABLE = 1;
 var TABLEAU = 2;
