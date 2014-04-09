@@ -31,25 +31,25 @@ function mainLoop()
 
 function CheckCollisions() {
     for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
-        if ((getAllDoorsInRoom(player.room)[i].x + DOORWIDTH >= player.x && getAllDoorsInRoom(player.room)[i].x <= player.x + player.width) || (getAllDoorsInRoom(player.room)[i].x <= player.x + player.width && getAllDoorsInRoom(player.room)[i].x + DOORWIDTH >= player.x)) {
-            if ((getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + DOORHEIGHT >= player.y)) {
+        if ((getAllDoorsInRoom(player.room)[i].x + getAllDoorsInRoom(player.room)[i].width >= player.x && getAllDoorsInRoom(player.room)[i].x <= player.x + player.width) || (getAllDoorsInRoom(player.room)[i].x <= player.x + player.width && getAllDoorsInRoom(player.room)[i].x + getAllDoorsInRoom(player.room)[i].width >= player.x)) {
+            if ((getAllDoorsInRoom(player.room)[i].y + getAllDoorsInRoom(player.room)[i].height >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + getAllDoorsInRoom(player.room)[i].height >= player.y)) {
                 initRoom(player.Map, getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival));
                 switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                     case TOP:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + DOORHEIGHT + 2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].width + 2;
                         break;
                     case LEFT:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + DOORWIDTH + 2;
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 2;
                         player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                         break;
                     case RIGHT:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - DOORWIDTH - 2;
+                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 2;
                         player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                         break;
                     case BOTTOM:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - DOORHEIGHT - 2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].width - 2;
                         break;
                 }
                 player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
