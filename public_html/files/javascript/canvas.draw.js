@@ -42,6 +42,7 @@ function drawMap(map) {
             case RIGHT:
                 y = roomY + (map[player.room].height / 2) - (entry.height / 2);
                 x = roomX + (map[player.room].width) - entry.width;
+                Game.context.rect(x, y, entry.width, entry.height);
                 break;
         }
         entry.x = x;
