@@ -17,6 +17,7 @@ var VODKA = 15;
 var CAVIAR = 16;
 var CIGARETTE = 17;
 var PORTECRIMEA = 18;
+var PEAUOURS = 19;
 
 //DIRECTIONS
 var TOP = 0;
@@ -45,7 +46,10 @@ var GroundMap = [
     new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, "FIRSTFLOOR", null, false), new door(LEFT, 26, 25, null, false)]),
     new room(SQUARED, [new object(100, 100, 32, 32, false, LIVRE)], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, "blue", true)]),
     new room(SQUARED, [new object(100, 100, 40, 40, true, PORTECRIMEA)], [new door(TOP, 18, 17, "blue", false), new door(LEFT, 19, 20, null, false), new door(BOTTOM, 37, 38, null, false)]),
-    new room(LONGER, [], [new door(RIGHT, 20, 19, null, false), new door(LEFT, 21, 22, null, false)])
+    new room(LONGER, [], [new door(RIGHT, 20, 19, null, false), new door(LEFT, 21, 22, null, false)]),
+    new room(LARGER, [], [new door(RIGHT, 22, 21, null, false), new door(TOP, 23, 24, null, false), new door(BOTTOM, 76, 45, null, false)]),
+    new room(SQUARED, [new object(100, 100, 32, 32, true, PUIT), new object(200, 200, 64, 64, false, PEAUOURS)], [new door(BOTTOM, 24, 23, null, false), new door(RIGHT, 25, 26, null, false), new door(LEFT, 28, 29, "blue", true)]),
+    new room(SQUARED, [new object(600, 400, 64, 64, false, PEAUOURS), new object(600, 10, 32, 16, true, LIVRE)], [new door(RIGHT, 29, 28, "blue", true), new door(LEFT, 30, 31, null, false)])
 ];
 
 function room(model, objects, doors) {
