@@ -39,7 +39,7 @@ function CheckCollisions() {
                 switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                     case TOP:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y-DOORHEIGHT-2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y+DOORHEIGHT+2;
                         break;
                     case LEFT:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x+DOORWIDTH+2;
@@ -51,7 +51,7 @@ function CheckCollisions() {
                         break;
                     case BOTTOM:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y+DOORHEIGHT+2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y-DOORHEIGHT-2;
                         break;
                 }
                 player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
