@@ -16,7 +16,7 @@ function drawMap(map) {
     Game.context.stroke();
     map[player.room].objects.forEach(function(entry) {
         Game.context.beginPath();
-        Game.context.drawImage(Sprites[entry.type], entry.x, entry.y);        
+        Game.context.drawImage(Sprites[entry.type], entry.x, entry.y);
 
     });
     map[player.room].doors.forEach(function(entry) {
@@ -26,27 +26,26 @@ function drawMap(map) {
         switch (entry.place) {
             case TOP:
                 y = roomY;
-                x = roomX + (map[player.room].width / 2) - (DOORWIDTH / 2);
+                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case LEFT:
-                y = roomY + (map[player.room].height / 2) - (DOORHEIGHT / 2);
+                y = roomY + (map[player.room].height / 2) - (entry.height / 2);
                 x = roomX;
+                Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case BOTTOM:
-                y = roomY + map[player.room].height - DOORHEIGHT;
-                x = roomX + (map[player.room].width / 2) - (DOORWIDTH / 2);
+                y = roomY + map[player.room].height - entry.height;
+                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case RIGHT:
-                y = roomY + (map[player.room].height / 2) - DOORHEIGHT / 2;
-                x = roomX + (map[player.room].width) - DOORHEIGHT;
+                y = roomY + (map[player.room].height / 2) - (entry.height / 2);
+                x = roomX + (map[player.room].width) - entry.width;
                 break;
         }
         entry.x = x;
         entry.y = y;
-
-
-
-        Game.context.rect(x, y, DOORWIDTH, DOORHEIGHT);
         Game.context.fill();
 
     });

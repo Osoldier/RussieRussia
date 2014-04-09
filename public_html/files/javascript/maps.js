@@ -27,8 +27,8 @@ var BOTTOM = 2;
 var RIGHT = 3;
 
 //PORTES
-var DOORWIDTH = 40;
-var DOORHEIGHT = 40;
+var DOORWIDTH = 70;
+var DOORHEIGHT = 10;
 
 //MODEL
 var LONGER = 100;
@@ -43,7 +43,7 @@ var GroundMap = [
     new room(LONGER, [new object(100, 100, 32, 32, true, PUIT, "B")], [new door(LEFT, 6, 5, null, false), new door(RIGHT, 7, 8, null, false)]),
     new room(LONGER, [new object(100, 100, 16, 16, false, TANK, null)], [new door(LEFT, 8, 7, null, false), new door(RIGHT, 9, 10, "red", true)]),
     new room(SQUARED, [new object(100, 100, 16, 16, false, DRAPCOM, null)], [new door(LEFT, 10, 9, "red", true), new door(BOTTOM, 11, 12, "green", true)]),
-    new room(LARGER, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 32, true,TABLE, null)], [new door(TOP, 12, 11, "green", true), new door(BOTTOM, 13, 14, null, false)]),
+    new room(LARGER, [new object(100, 100, 32, 32, true, TABLE, null), new object(200, 200, 32, 32, true, TABLE, null)], [new door(TOP, 12, 11, "green", true), new door(BOTTOM, 13, 14, null, false)]),
     new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, "FIRSTFLOOR", null, false), new door(LEFT, 26, 25, null, false)]),
     new room(SQUARED, [new object(100, 100, 32, 32, false, LIVRE)], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, "blue", true)]),
     new room(SQUARED, [new object(100, 100, 40, 40, true, PORTECRIMEA)], [new door(TOP, 18, 17, "blue", false), new door(LEFT, 19, 20, null, false), new door(BOTTOM, 37, 38, null, false)]),
@@ -83,6 +83,24 @@ function object(x, y, width, height, collidable, type, spec) {
 }
 function door(place, id, arrival, color, lock) {
     this.place = place;
+    switch (place) {
+        case TOP:
+            this.width = DOORWIDTH
+            this.height = DOORHEIGHT
+            break;
+        case BOTTOM:
+            this.width = DOORWIDTH
+            this.height = DOORHEIGHT
+            break;
+        case LEFT:
+            this.width = DOORHEIGHT
+            this.height = DOORWIDTH
+            break;
+        case RIGHT:
+            this.width = DOORHEIGHT
+            this.height = DOORWIDTH
+            break;
+    }
     this.id = id;
     this.arrival = arrival;
     this.color = color;
@@ -143,5 +161,5 @@ function initRoom(map, id) {
         }
         entry.x = x;
         entry.y = y;
-    });   
+    });
 }
