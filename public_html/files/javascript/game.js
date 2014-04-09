@@ -42,20 +42,16 @@ function CheckCollisions() {
                 initRoom(player.Map, getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival));
                 switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                     case TOP:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 30;
                         break;
                     case LEFT:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 2;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                         break;
                     case RIGHT:
                         player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 100;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y;
                         break;
                     case BOTTOM:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x;
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 2;
+                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 30;
                         break;
                 }
                 player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
