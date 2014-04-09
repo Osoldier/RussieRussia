@@ -71,5 +71,5 @@ function drawGround()
 }
 
 function drawBorder(){
-    
+    Game.context.drawImage(this.groundIMG, x, y);
 }

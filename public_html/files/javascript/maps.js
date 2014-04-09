@@ -63,7 +63,7 @@ function room(model, objects, doors) {
             this.width = 500;
             this.height = 800;
             break;
-        case SQUARED:
+        case SQUARED:            
             this.width = 700;
             this.height = 700;
             break;

@@ -6,12 +6,16 @@ var Game = {
 };
 
 var groundIMG = new Image();
+var border = {
+    "SQUARED": new Image()
+}
 
 function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//    
     player.Initialize();
+    border.SQUARED.src = 'files/images/room_squared.png';
     groundIMG.src = 'files/images/ground.png';
     score.Initialize();
     loadSprites();
