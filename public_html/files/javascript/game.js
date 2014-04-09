@@ -11,20 +11,22 @@ function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
     groundIMG.src = 'files/images/ground.png';
-    Game.timer = setInterval("mainLoop();", 40);
     score.Initialize();
-
+    loadSprites();
+    Game.timer = setInterval("mainLoop();", 40);
 }
 
 
 function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
+
     clearCanvas();
     drawMap(player.Map);
     CheckCollisions();
     player.Update();
     score.Update();
+
 }
 
 function CheckCollisions() {
