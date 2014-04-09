@@ -48,7 +48,7 @@ function Player() {
 
     this.UseKeyboard = function(e) {
         switch (e) {
-            case this.directionDEF.DOWN:
+            case this.directionDEF.DOWN:               
                 return (KeyState.s || KeyState.down) ? true : false;
                 break;
 

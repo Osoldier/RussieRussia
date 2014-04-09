@@ -69,3 +69,7 @@ function drawGround()
         y = y + 20;
     }
 }
+
+function drawBorder(){
+    
+}
