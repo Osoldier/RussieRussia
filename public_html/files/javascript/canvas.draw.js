@@ -16,8 +16,8 @@ function drawMap(map) {
     Game.context.stroke();
     map[player.room].objects.forEach(function(entry) {
         Game.context.beginPath();
-        Game.context.rect(entry.x, entry.y, entry.width, entry.height);
-        Game.context.fill();
+        Game.context.drawImage(Sprites[entry.type], entry.x, entry.y);        
+
     });
     map[player.room].doors.forEach(function(entry) {
         Game.context.beginPath();
