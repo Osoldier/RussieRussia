@@ -4,7 +4,7 @@ function player() {
     this.sprite = new Image();
     this.sprite.src = 'files/images/sprite_homme.png'
     this.Map = GroundMap;
-    this.room = 0;
+    this.room = 9;
     this.roomInfo = new Array();
     this.time = 0;
     this.score = 0;
@@ -12,8 +12,8 @@ function player() {
     this.object2 = 0;
     this.object3 = 0;
     this.life = 0;
-    this.x = 300;
-    this.y = 300;
+    this.x = 600;
+    this.y = 400;
     this.width = 32;
     this.height = 32;
     this.speed = 8;
