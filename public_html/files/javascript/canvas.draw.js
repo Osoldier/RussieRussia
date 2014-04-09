@@ -57,10 +57,10 @@ function drawGround()
     var x = player.roomInfo[0];
     var y = player.roomInfo[1];
 
-    while (y < player.roomInfo[1] + player.roomInfo[2])
+    while (y < player.roomInfo[1] + player.roomInfo[3])
     {
         x = player.roomInfo[0];
-        while (x < player.roomInfo[0] + player.roomInfo[3])
+        while (x < player.roomInfo[0] + player.roomInfo[2])
         {
             Game.context.drawImage(this.groundIMG, x, y);
 
