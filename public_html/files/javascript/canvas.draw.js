@@ -6,14 +6,15 @@ function clearCanvas()
     Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
 }
 function drawMap(map) {
+    drawBorder();
     drawGround();
-    Game.context.lineWidth = "2";
-    Game.context.strokeStyle = "red";
+    //Game.context.lineWidth = "2";
+    //Game.context.strokeStyle = "red";
     var roomX = Game.canvas.width / 2 - (map[player.room].width / 2), roomY = Game.canvas.height / 2 - (map[player.room].height / 2);
     player.roomInfo = [roomX, roomY, map[player.room].width, map[player.room].height];
     Game.context.beginPath();
     Game.context.rect(roomX, roomY, map[player.room].width, map[player.room].height);
-    Game.context.stroke();
+    //Game.context.stroke();
     map[player.room].objects.forEach(function(entry) {
         Game.context.beginPath();
         Game.context.drawImage(Sprites[entry.type], entry.x, entry.y);
@@ -70,6 +71,18 @@ function drawGround()
     }
 }
 
-function drawBorder(){
-    Game.context.drawImage(this.groundIMG, x, y);
+function drawBorder() {
+    var x = player.roomInfo[0];
+    var y = player.roomInfo[1];
+    switch (player.roomInfo[2])
+    {
+        case 700: //SQUARED
+            Game.context.drawImage(this.border.SQUARED, x - 91, y - 91);
+            break;
+        case 800: //LONGER    
+            break;
+        case 500: //LARGER
+            break;
+    }
+    
 }

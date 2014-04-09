@@ -8,7 +8,7 @@ var player = new Player();
 function Player() {
     this.sprite = new Image();
     this.Map = GroundMap;
-    this.room = 9;
+    this.room = 9;    
     this.roomInfo = new Array();
     this.time = 0;
     this.score = 0;
