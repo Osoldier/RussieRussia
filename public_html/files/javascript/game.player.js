@@ -43,6 +43,9 @@ function Player(type) {
     this.Update = function() {
         this.Move();
         this.Afficher();
+        if(KeyState.space) {
+            Shoot();
+        }
         if(this.Projectile != null) {
             this.Projectile.Update();
         }

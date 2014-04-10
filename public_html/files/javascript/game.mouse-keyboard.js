@@ -41,14 +41,13 @@ function setKeyState(e, state) {
             KeyState.w = state;
             break;
         case 'S'.charCodeAt():
-            KeyState.s = state;              
+            KeyState.s = state;
             break;
-
         case 38 :
             KeyState.up = state;
             break;
         case 39 :
-            KeyState.right = state;            
+            KeyState.right = state;
             break;
         case 40 :
             KeyState.down = state;
@@ -61,8 +60,8 @@ function setKeyState(e, state) {
             KeyState.space = state;
             break;
         case 27 :
-            KeyState.escape = state;     
-            break;               
+            KeyState.escape = state;
+            break;
         case 17:
             KeyState.ctrlLeft = state;
             break;
