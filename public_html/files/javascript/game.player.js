@@ -10,14 +10,13 @@ var LENINE = 2;
 var player = new Player(PUTIN);
 
 var PlayerException = {
-    
 };
 
 function Player(type) {
     this.sprite = new Image();
     this.Map = GroundMap;
     this.room = 9;
-    this.roomInfo = new Array();   
+    this.roomInfo = new Array();
     this.time = 0;
     this.score = 0;
     this.object1 = 0;
@@ -51,24 +50,28 @@ function Player(type) {
         if (KeyState.space) {
             this.Shoot();
         }
-        if (this.Projectile != 0) {
-            this.Projectile.Update();
+        if (this.Projectile !== 0) {
+            if(this.Projectile.Update()) {
+                this.Projectile = 0;
+            }
         }
     };
 
     this.Shoot = function() {
-        switch (this.type) {
-            case PUTIN:
-                this.Projectile = new vodka(this.x, this.y, this.direction);
-                break;
-            case STALINE:
-                this.Projectile = new machette(this.x, this.y, this.direction);
-                break;
-            case LENINE:
-                this.Projectile = new faucile(this.x, this.y, this.direction);
-                break;
-            default:
-                throw PlayerException;
+        if (this.Projectile === 0) {
+            switch (this.type) {
+                case PUTIN:
+                    this.Projectile = new vodka(this.x, this.y, this.direction);
+                    break;
+                case STALINE:
+                    this.Projectile = new machette(this.x, this.y, this.direction);
+                    break;
+                case LENINE:
+                    this.Projectile = new faucile(this.x, this.y, this.direction);
+                    break;
+                default:
+                    throw PlayerException;
+            }
         }
     }
 
