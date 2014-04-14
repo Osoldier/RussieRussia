@@ -7,12 +7,6 @@ var PUTIN = 0;
 var STALINE = 1;
 var LENINE = 2;
 
-var BLUE = 8;
-var RED = 9;
-var GREEN = 10;
-var JAUNE = 11;
-var CRIMEE = 12;
-
 var player = new Player(PUTIN);
 
 var PlayerException = {
