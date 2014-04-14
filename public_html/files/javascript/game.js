@@ -11,7 +11,7 @@ function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//    
-    player.Initialize();    
+    player.Initialize();
     sounds.Initialize();
     score.Initialize();
     loadSprites();
@@ -34,23 +34,29 @@ function CheckCollisions() {
     for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
         if ((getAllDoorsInRoom(player.room)[i].x + getAllDoorsInRoom(player.room)[i].width >= player.x && getAllDoorsInRoom(player.room)[i].x <= player.x + player.width) || (getAllDoorsInRoom(player.room)[i].x <= player.x + player.width && getAllDoorsInRoom(player.room)[i].x + getAllDoorsInRoom(player.room)[i].width >= player.x)) {
             if ((getAllDoorsInRoom(player.room)[i].y + getAllDoorsInRoom(player.room)[i].height >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + getAllDoorsInRoom(player.room)[i].height >= player.y)) {
-                initRoom(player.Map, getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival));
-                player.Projectile = 0;
-                switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
-                    case TOP:
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 2;
-                        break;
-                    case LEFT:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 2;
-                        break;
-                    case RIGHT:
-                        player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 30;
-                        break;
-                    case BOTTOM:
-                        player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 30;
-                        break;
+                if (getAllDoorsInRoom(player.room)[i].lock == false) {
+                    initRoom(player.Map, getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival));
+                    player.Projectile = 0;
+                    switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
+                        case TOP:
+                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 2;
+                            break;
+                        case LEFT:
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 2;
+                            break;
+                        case RIGHT:
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 30;
+                            break;
+                        case BOTTOM:
+                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 30;
+                            break;
+                    }
+                    player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
+                } else {
+                    if(player.object1 === getAllDoorsInRoom(player.room)[i].color || player.object2 === getAllDoorsInRoom(player.room)[i].color || player.object3 === getAllDoorsInRoom(player.room)[i].color) {
+                        
+                    }
                 }
-                player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
             }
         }
     }
@@ -76,5 +82,5 @@ function WouldCollide(dX, dY) {
 }
 
 function tempChangerSalle() {
-   player.room = 1*document.getElementById("salle").value;
+    player.room = 1 * document.getElementById("salle").value;
 }
