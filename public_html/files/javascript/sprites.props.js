@@ -14,8 +14,8 @@ var ImagesSprites = [
     "PaquetC.png", //YANOUKOVIC
     "bear.png",    //FEMINISTE
     "PaquetC.png", //OURS
-    "Caviar.png",  //VODKA
-    "PaquetC.png", //CAVIAR
+    "Vodka.png",  //VODKA
+    "Caviar.png", //CAVIAR
     "PaquetC.png", //CIGARETTE
     "PaquetC.png"  //PORTECRIMEA
 ];
