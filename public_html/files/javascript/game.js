@@ -54,7 +54,8 @@ function CheckCollisions() {
                     player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
                 } else {
                     if(player.object1 === getAllDoorsInRoom(player.room)[i].color || player.object2 === getAllDoorsInRoom(player.room)[i].color || player.object3 === getAllDoorsInRoom(player.room)[i].color) {
-                        
+                        getAllDoorsInRoom(player.room)[i].lock = false;
+                        getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
                     }
                 }
             }
