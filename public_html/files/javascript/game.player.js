@@ -70,7 +70,7 @@ function Player(type) {
                     this.Projectile = new faucile(this.x, this.y, this.direction);
                     break;
                 default:
-                    throw PlayerException;
+                    throw new PlayerException;
             }
         }
     }
