@@ -82,3 +82,7 @@ function WouldCollide(dX, dY) {
         }
     }
 }
+
+function tempChangerSalle() {
+   player.room = 1*document.getElementById("salle").value;
+}

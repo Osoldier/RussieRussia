@@ -43,10 +43,10 @@ function Player(type) {
     this.Update = function() {
         this.Move();
         this.Afficher();
-        if(KeyState.space) {
+        if (KeyState.space) {
             Shoot();
         }
-        if(this.Projectile != null) {
+        if (this.Projectile != null) {
             this.Projectile.Update();
         }
     };
@@ -94,9 +94,10 @@ function Player(type) {
         //#####MOVE#UP#####// 
         if (this.UseKeyboard(this.directionDEF.UP) && this.directionCount)
         {
-            if (this.y > this.roomInfo[1] && !WouldCollide(0, -this.speed))
-                this.y -= this.speed;
-            else
+            if (this.y > this.roomInfo[1]) {
+                if (!WouldCollide(0, -this.speed))
+                    this.y -= this.speed;
+            } else
                 this.y = this.roomInfo[1];
             this.direction = this.directionDEF.UP;
             this.directionCount = false;
@@ -104,9 +105,10 @@ function Player(type) {
         //#####MOVE#RIGHT#####// 
         if (this.UseKeyboard(this.directionDEF.RIGHT) && this.directionCount)
         {
-            if (this.x + this.width < this.roomInfo[0] + this.roomInfo[2] && !WouldCollide(this.speed, 0))
-                this.x += this.speed;
-            else
+            if (this.x + this.width < this.roomInfo[0] + this.roomInfo[2]) {
+                if (!WouldCollide(this.speed, 0))
+                    this.x += this.speed;
+            } else
                 this.x = this.roomInfo[0] + this.roomInfo[2] - this.width;
             this.direction = this.directionDEF.RIGHT;
             this.directionCount = false;
@@ -114,9 +116,10 @@ function Player(type) {
         //#####MOVE#DOWN#####// 
         if (this.UseKeyboard(this.directionDEF.DOWN) && this.directionCount)
         {
-            if (this.y + this.height < this.roomInfo[1] + this.roomInfo[3] && !WouldCollide(0, this.speed))
-                this.y += this.speed;
-            else
+            if (this.y + this.height < this.roomInfo[1] + this.roomInfo[3]) {
+                if (!WouldCollide(0, this.speed))
+                    this.y += this.speed;
+            } else
                 this.y = this.roomInfo[1] + this.roomInfo[3] - this.height;
             this.direction = this.directionDEF.DOWN;
             this.directionCount = false;
@@ -125,9 +128,10 @@ function Player(type) {
         //#####MOVE#LEFT#####//  
         if (this.UseKeyboard(this.directionDEF.LEFT) && this.directionCount)
         {
-            if (this.x > this.roomInfo[0] && !WouldCollide(-this.speed, 0))
-                this.x -= this.speed;
-            else
+            if (this.x > this.roomInfo[0]) {
+                if (!WouldCollide(-this.speed, 0))
+                    this.x -= this.speed;
+            } else
                 this.x = this.roomInfo[0];
             this.direction = this.directionDEF.LEFT;
             this.directionCount = false;
