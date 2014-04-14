@@ -25,8 +25,8 @@
     */
     font-family: 'ChunkFiveRegular';
     src: url('_image/chunk-webfont.woff') format('woff'),
-         url('_image/chunk-webfont.ttf') format('truetype'),
-         url('_image/chunk-webfont.svg#ChunkFiveRegular') format('svg');
+        url('_image/chunk-webfont.ttf') format('truetype'),
+        url('_image/chunk-webfont.svg#ChunkFiveRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }

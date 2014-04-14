@@ -1,23 +1,23 @@
 var ImagesSprites = [
-    "PaquetC.png", //0
-    "Table.png",
-    "PaquetC.png",
-    "PaquetC.png",
-    "PaquetC.png",
-    "PaquetC.png", //5
-    "PaquetC.png",
-    "PaquetC.png",
-    "LivreKarlM.png",
-    "PaquetC.png",
-    "PaquetC.png", //10
-    "PaquetC.png",
-    "PaquetC.png",
-    "bear.png",
-    "PaquetC.png",
-    "Caviar.png", //15
-    "PaquetC.png",
-    "PaquetC.png",
-    "PaquetC.png" //18
+    "PaquetC.png", //TAPIS
+    "Table.png",   //TABLE
+    "PaquetC.png", //TABLEAU
+    "PaquetC.png", //PEAUOURS
+    "PaquetC.png", //CLEF
+    "PaquetC.png", //PUIT
+    "PaquetC.png", //MUR
+    "PaquetC.png", //TANK
+    "DrapeauCom.png", //DRAPCOM
+    "PaquetC.png", //LIVRE
+    "PaquetC.png", //OBAMA
+    "PaquetC.png", //BENLADEN
+    "PaquetC.png", //YANOUKOVIC
+    "bear.png",    //FEMINISTE
+    "PaquetC.png", //OURS
+    "Caviar.png",  //VODKA
+    "PaquetC.png", //CAVIAR
+    "PaquetC.png", //CIGARETTE
+    "PaquetC.png"  //PORTECRIMEA
 ];
 
 var Sprites = new Array();
