@@ -12,8 +12,7 @@ function Player(type) {
     this.sprite = new Image();
     this.Map = GroundMap;
     this.room = 9;
-    this.roomInfo = new Array();
-    this.mapType = 0;
+    this.roomInfo = new Array();   
     this.time = 0;
     this.score = 0;
     this.object1 = 0;
