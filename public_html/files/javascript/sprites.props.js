@@ -4,7 +4,7 @@ var ImagesSprites = [
     "PaquetC.png", //TABLEAU
     "PaquetC.png", //PEAUOURS
     "PaquetC.png", //CLEF
-    "PaquetC.png", //PUIT
+    "puit.png", //PUIT
     "PaquetC.png", //MUR
     "PaquetC.png", //TANK
     "DrapeauCom.png", //DRAPCOM
