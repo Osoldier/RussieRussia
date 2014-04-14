@@ -37,10 +37,9 @@ var ImagesListe = [
     "keyColor",
     "door",
     "sol1",
-    "sol2"
-
-
-
+    "sol2",
+    "ground",
+    "ground2",
 ];
 
 

@@ -5,7 +5,6 @@ var Game = {
     'timer': null
 };
 
-var groundIMG = new Image();
 
 
 function Initialize() {
@@ -13,7 +12,6 @@ function Initialize() {
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//    
     player.Initialize();    
-    groundIMG.src = 'files/images/ground.png';
     sounds.Initialize();
     score.Initialize();
     loadSprites();

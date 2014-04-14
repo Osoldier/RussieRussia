@@ -67,7 +67,7 @@ function drawGround()
         x = player.roomInfo[0];
         while (x < player.roomInfo[0] + player.roomInfo[2])
         {
-            Game.context.drawImage(Images["sol1"], x, y);
+            Game.context.drawImage(Images["ground"], x, y);
 
             x = x + 20;
         }
