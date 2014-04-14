@@ -41,7 +41,7 @@ var GroundMap = [
     new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
     new room(LONGER, [new object(300, 200, 32, 32, false, DRAPCOM, null)], [new door(LEFT, 4, 3, null, false), new door(RIGHT, 5, 6, null, false)]),
     new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "B")], [new door(LEFT, 6, 5, null, false), new door(RIGHT, 7, 8, null, false)]),
-    new room(LONGER, [new object(380, 550, 64, 64, false, TANK, null)], [new door(LEFT, 8, 7, null, false), new door(RIGHT, 9, 10, "red", true)]),
+    new room(LONGER, [new object(380, 550, 64, 64, true, TANK, null)], [new door(LEFT, 8, 7, null, false), new door(RIGHT, 9, 10, "red", true)]),
     new room(SQUARED, [new object(950, 500, 32, 32, false, DRAPCOM, null)], [new door(LEFT, 10, 9, "red", true), new door(BOTTOM, 11, 12, "green", true)]),
     new room(LARGER, [new object(660, 300, 32, 32, true, TABLE, null), new object(500, 500, 32, 32, true, TABLE, null)], [new door(TOP, 12, 11, "green", true), new door(BOTTOM, 13, 14, null, false)]),
     new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, "FIRSTFLOOR", null, false), new door(LEFT, 26, 25, null, false)]),
@@ -51,7 +51,8 @@ var GroundMap = [
     new room(LARGER, [], [new door(RIGHT, 22, 21, null, false), new door(TOP, 23, 24, null, false), new door(BOTTOM, 76, 45, null, false)]),
     new room(SQUARED, [new object(500, 400, 64, 64, true, PUIT, "C"), new object(650, 400, 64, 64, false, PEAUOURS, "E")], [new door(BOTTOM, 24, 23, null, false), new door(RIGHT, 25, 26, null, false), new door(LEFT, 28, 29, "blue", true)]),
     new room(SQUARED, [new object(600, 400, 64, 64, false, PEAUOURS, "F"), new object(600, 780, 32, 16, true, LIVRE)], [new door(RIGHT, 29, 28, "blue", true), new door(LEFT, 30, 31, null, false)]),
-    new room(LARGER, [], [new door(BOTTOM, 35, 34, null, false), new door(TOP, 36, 37, null, false)])
+    new room(LARGER, [], [new door(BOTTOM, 35, 34, null, false), new door(TOP, 36, 37, null, false)]),
+    new room(SQUARED,[new object(600,800,40,30,false,DRAPCOM,null), new object(400,200,60,40,true, CIGARETTE)], [new door(RIGHT,31,30,null,false), new door(LEFT,32,33,null,false)])
 ];
 
 function room(model, objects, doors) {
