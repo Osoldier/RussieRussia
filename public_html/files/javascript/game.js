@@ -31,13 +31,11 @@ function Initialize() {
 function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
-
     clearCanvas();
     drawMap(player.Map);
     CheckCollisions();
     player.Update();
     score.Update();
-
 }
 
 function CheckCollisions() {
