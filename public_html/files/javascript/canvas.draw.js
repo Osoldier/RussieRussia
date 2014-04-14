@@ -74,11 +74,12 @@ function drawBorder() {
     var x = player.roomInfo[0];
     var y = player.roomInfo[1];
     if (player.roomInfo[2] == 700 && player.roomInfo[3] == 700) //SQUARED
-        Game.context.drawImage(this.border.SQUARED, x - 91, y - 91);
+        Game.context.drawImage(Images['border'], 1567, 0, 880, 882, x - 90, y - 91, 880, 882);
 
     if (player.roomInfo[2] == 500 && player.roomInfo[3] == 700) //LONGER
-        Game.context.drawImage(this.border.LONGER, x - 91, y - 92);
+        Game.context.drawImage(Images['border'], 884, 0, 682, 884, x - 91, y - 92, 682, 884);
 
     if (player.roomInfo[2] == 700 && player.roomInfo[3] == 500) //LARGER
-        Game.context.drawImage(this.border.LARGER, x - 92, y - 91);
+        Game.context.drawImage(Images['border'], 0, 0, 884, 682, x - 92, y - 91, 884, 682);
+
 }
