@@ -34,7 +34,8 @@ function loadSprites()
 
 var ImagesListe = [
     "border_door_ground",
-    "keyColor"
+    "keyColor",
+    "door_locked"
 ];
 
 
