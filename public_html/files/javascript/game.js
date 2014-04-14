@@ -6,24 +6,18 @@ var Game = {
 };
 
 var groundIMG = new Image();
-var border = {
-    "SQUARED": new Image(),
-    "LONGER": new Image(),
-    "LARGER": new Image()
-}
+
 
 function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//    
-    player.Initialize();
-    border.SQUARED.src = 'files/images/room_squared.png';
-    border.LONGER.src = 'files/images/room_longer.png';
-    border.LARGER.src = 'files/images/room_larger.png';
+    player.Initialize();    
     groundIMG.src = 'files/images/ground.png';
     sounds.Initialize();
     score.Initialize();
     loadSprites();
+    loadImages();
     Game.timer = setInterval("mainLoop();", 40);
 }
 
