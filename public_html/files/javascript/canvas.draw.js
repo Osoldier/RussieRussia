@@ -30,7 +30,8 @@ function drawMap(map) {
             case TOP:
                 y = roomY;
                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                Game.context.rect(x, y, entry.width, entry.height);
+                Game.context.drawImage(Images['door'], 0, 0, 142, 91, x - 42, y - 91, 142, 91);
+                //Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case LEFT:
                 y = roomY + (map[player.room].height / 2) - (entry.height / 2);
@@ -65,7 +66,7 @@ function drawGround()
         x = player.roomInfo[0];
         while (x < player.roomInfo[0] + player.roomInfo[2])
         {
-            Game.context.drawImage(this.groundIMG, x, y);
+            Game.context.drawImage(Images["sol1"], x, y);
 
             x = x + 20;
         }

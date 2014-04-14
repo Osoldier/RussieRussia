@@ -34,7 +34,10 @@ function loadSprites()
 
 var ImagesListe = [
     "border",
-    "keyColor"
+    "keyColor",
+    "door",
+    "sol1",
+    "sol2"
 
 
 
