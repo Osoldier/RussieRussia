@@ -73,15 +73,15 @@ function drawGround()
 function drawBorder() {
     var x = player.roomInfo[0];
     var y = player.roomInfo[1];
-    switch (player.roomInfo[2])
+    switch (player.room.type)
     {
-        case 700: //SQUARED
+        case SQUARED: //SQUARED
             Game.context.drawImage(this.border.SQUARED, x - 91, y - 91);
             break;
-        case 500: //LONGER   
-            Game.context.drawImage(this.border.LONGER, x - 91, y - 91);
+        case LONGER: //LONGER   
+            Game.context.drawImage(this.border.LONGER, x - 91, y - 92);
             break;
-        case 800: //LARGER
+        case LARGER: //LARGER
             Game.context.drawImage(this.border.LARGER, x - 92, y - 91);
             break;
     }
