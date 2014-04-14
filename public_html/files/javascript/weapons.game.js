@@ -19,6 +19,9 @@ function vodka(x, y, dir) {
                 this.x += 12;
                 break;
         }
+        if(this.x < roomX ||this.y < roomY || this.y > roomY+player.Map[player.room].height-30 || this.x > roomX+player.Map[player.room].width) {
+            return true;
+        }
         Game.context.drawImage(this.sprite, this.x, this.y);
     };
 }

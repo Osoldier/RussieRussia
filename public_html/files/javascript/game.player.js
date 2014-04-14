@@ -51,7 +51,9 @@ function Player(type) {
             this.Shoot();
         }
         if (this.Projectile !== 0) {
-            this.Projectile.Update();
+            if(this.Projectile.Update()) {
+                this.Projectile = 0;
+            }
         }
     };
 

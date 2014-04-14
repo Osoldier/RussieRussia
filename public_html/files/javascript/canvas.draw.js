@@ -1,3 +1,5 @@
+var roomX = 0;
+var roomY = 0;
 
 
 //Clear Canvas
@@ -10,7 +12,8 @@ function drawMap(map) {
     drawGround();
     //Game.context.lineWidth = "2";
     //Game.context.strokeStyle = "red";
-    var roomX = Game.canvas.width / 2 - (map[player.room].width / 2), roomY = Game.canvas.height / 2 - (map[player.room].height / 2);
+    roomX = Game.canvas.width / 2 - (map[player.room].width / 2);
+    roomY = Game.canvas.height / 2 - (map[player.room].height / 2);
     player.roomInfo = [roomX, roomY, map[player.room].width, map[player.room].height];
     Game.context.beginPath();
     Game.context.rect(roomX, roomY, map[player.room].width, map[player.room].height);
