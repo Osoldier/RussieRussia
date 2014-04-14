@@ -3,10 +3,15 @@
 /*########################################################################################################################*/
 // PLAYER
 
-var player = new Player();
 var PUTIN = 0;
 var STALINE = 1;
 var LENINE = 2;
+
+var player = new Player(PUTIN);
+
+var PlayerException = {
+    
+};
 
 function Player(type) {
     this.sprite = new Image();
@@ -25,7 +30,7 @@ function Player(type) {
     this.height = 32;
     this.speed = 8;
     this.direction = 0;
-    this.Projectile = null;
+    this.Projectile = 0;
     this.type = type;
     this.frame = 0;
     this.direction = 0;
@@ -44,15 +49,15 @@ function Player(type) {
         this.Move();
         this.Afficher();
         if (KeyState.space) {
-            Shoot();
+            this.Shoot();
         }
-        if (this.Projectile != null) {
+        if (this.Projectile != 0) {
             this.Projectile.Update();
         }
     };
 
     this.Shoot = function() {
-        switch (type) {
+        switch (this.type) {
             case PUTIN:
                 this.Projectile = new vodka(this.x, this.y, this.direction);
                 break;
@@ -62,6 +67,8 @@ function Player(type) {
             case LENINE:
                 this.Projectile = new faucile(this.x, this.y, this.direction);
                 break;
+            default:
+                throw PlayerException;
         }
     }
 

@@ -3,9 +3,9 @@ function vodka(x, y, dir) {
     this.y = y;
     this.dir = dir;
     this.sprite = new Image();
-    this.sprite.src = "file/images/Faucille.png";
+    this.sprite.src = "file/images/Vodka.png";
     this.Update = function() {
-        switch(dir) {
+        switch (dir) {
             case player.directionDEF.UP:
                 this.y -= 2;
                 break;
@@ -26,6 +26,8 @@ function vodka(x, y, dir) {
 function faucile(x, y, dir) {
     this.x = x;
     this.y = y;
+    this.sprite = new Image();
+    this.sprite.src = "file/images/Vodka.png";
     this.dir = dir;
     this.Update = vodka.Update();
 }
@@ -33,6 +35,8 @@ function faucile(x, y, dir) {
 function machette(x, y, dir) {
     this.x = x;
     this.y = y;
+    this.sprite = new Image();
+    this.sprite.src = "file/images/Vodka.png";
     this.dir = dir;
     this.Update = vodka.Update();
 }
