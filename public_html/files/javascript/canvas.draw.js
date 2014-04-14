@@ -26,8 +26,8 @@ function drawMap(map) {
             case TOP:
                 y = roomY;
                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                //Game.context.drawImage(Images['border_door_ground'], 0, 682, 142, 91, x - 42, y - 91, 142, 91);
-                Game.context.drawImage(Images['door_locked'], x - 42, y - 91);
+               // Game.context.drawImage(Images['border_door_ground'], 0, 682, 142, 91, x - 42, y - 91, 142, 91); 
+                 Game.context.drawImage(Images['border_door_ground'], 0, 975, 142, 91, x - 42, y - 91, 142, 91);
                 //Game.context.rect(x, y, entry.width, entry.height);
 
                 break;
