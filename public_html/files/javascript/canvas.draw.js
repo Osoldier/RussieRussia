@@ -41,7 +41,8 @@ function drawMap(map) {
             case BOTTOM:
                 y = roomY + map[player.room].height - entry.height;
                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                Game.context.rect(x, y, entry.width, entry.height);
+                Game.context.drawImage(Images['door'], 0, 91, 142, 91, x-42, y+10 , 142, 91);
+                //Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case RIGHT:
                 y = roomY + (map[player.room].height / 2) - (entry.height / 2);
