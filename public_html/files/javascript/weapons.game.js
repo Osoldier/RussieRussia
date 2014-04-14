@@ -30,7 +30,7 @@ function faucile(x, y, dir) {
     this.x = x;
     this.y = y;
     this.sprite = new Image();
-    this.sprite.src = "files/images/Vodka.png";
+    this.sprite.src = "files/images/Faucille.png";
     this.dir = dir;
     this.Update = vodka.Update();
 }
@@ -39,7 +39,7 @@ function machette(x, y, dir) {
     this.x = x;
     this.y = y;
     this.sprite = new Image();
-    this.sprite.src = "files/images/Vodka.png";
+    this.sprite.src = "files/images/Machette.png";
     this.dir = dir;
     this.Update = vodka.Update();
 }
