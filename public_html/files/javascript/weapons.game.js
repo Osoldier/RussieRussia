@@ -2,6 +2,7 @@ function vodka(x, y, dir) {
     this.x = x;
     this.y = y;
     this.dir = dir;
+    this.theta = 1;
     this.sprite = new Image();
     this.sprite.src = "files/images/Vodka.png";
     this.Update = function() {
@@ -19,10 +20,15 @@ function vodka(x, y, dir) {
                 this.x += 12;
                 break;
         }
-        if(this.x < roomX ||this.y < roomY || this.y > roomY+player.Map[player.room].height-30 || this.x > roomX+player.Map[player.room].width) {
+        if (this.x < roomX || this.y < roomY || this.y > roomY + player.Map[player.room].height - 30 || this.x > roomX + player.Map[player.room].width) {
             return true;
         }
-        Game.context.drawImage(this.sprite, this.x, this.y);
+        this.theta+=25;
+        Game.context.save();
+        Game.context.translate(this.x, this.y);
+        Game.context.rotate(this.theta * (Math.PI / 180));
+        Game.context.drawImage(this.sprite, 0, 0, 30, 60);
+        Game.context.restore();
     };
 }
 
