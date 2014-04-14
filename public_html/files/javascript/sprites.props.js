@@ -17,7 +17,7 @@ var ImagesSprites = [
     "Vodka.png", //VODKA
     "Caviar.png", //CAVIAR
     "PaquetC.png", //CIGARETTE
-    "PaquetC.png"  //PORTECRIMEA
+    "PORTECRIMEE.png"  //PORTECRIMEA
 ];
 
 var Sprites = new Array();

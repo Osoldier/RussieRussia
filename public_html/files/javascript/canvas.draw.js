@@ -10,14 +10,11 @@ function clearCanvas()
 function drawMap(map) {
     drawBorder();
     drawGround();
-    //Game.context.lineWidth = "2";
-    //Game.context.strokeStyle = "red";
     roomX = Game.canvas.width / 2 - (map[player.room].width / 2);
     roomY = Game.canvas.height / 2 - (map[player.room].height / 2);
     player.roomInfo = [roomX, roomY, map[player.room].width, map[player.room].height];
     Game.context.beginPath();
     Game.context.rect(roomX, roomY, map[player.room].width, map[player.room].height);
-    //Game.context.stroke();
     map[player.room].objects.forEach(function(entry) {
         Game.context.beginPath();
         Game.context.drawImage(Sprites[entry.type], entry.x, entry.y, entry.width, entry.height);
@@ -31,7 +28,6 @@ function drawMap(map) {
                 y = roomY;
                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
                 Game.context.drawImage(Images['door'], 0, 0, 142, 91, x - 42, y - 91, 142, 91);
-                //Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case LEFT:
                 y = roomY + (map[player.room].height / 2) - (entry.height / 2);
