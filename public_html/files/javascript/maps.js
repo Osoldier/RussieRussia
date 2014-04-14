@@ -58,15 +58,15 @@ function room(model, objects, doors) {
     switch (model) {
         case LONGER:
             this.width = 700;
-            this.height = 500;
+            this.height = 500;          
             break;
         case LARGER:
             this.width = 500;
-            this.height = 700;
+            this.height = 700;            
             break;
-        case SQUARED:            
+        case SQUARED:
             this.width = 700;
-            this.height = 700;
+            this.height = 700;          
             break;
     }
     this.objects = objects;
