@@ -21,6 +21,7 @@ function Initialize() {
     border.LONGER.src = 'files/images/room_longer.png';
     border.LARGER.src = 'files/images/room_larger.png';
     groundIMG.src = 'files/images/ground.png';
+    sounds.Initialize();
     score.Initialize();
     loadSprites();
     Game.timer = setInterval("mainLoop();", 40);
