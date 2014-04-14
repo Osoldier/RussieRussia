@@ -1,7 +1,6 @@
 var roomX = 0;
 var roomY = 0;
 
-
 //Clear Canvas
 function clearCanvas()
 {
@@ -27,23 +26,27 @@ function drawMap(map) {
             case TOP:
                 y = roomY;
                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                Game.context.drawImage(Images['door'], 0, 0, 142, 91, x - 42, y - 91, 142, 91);
+                Game.context.drawImage(Images['border_door_ground'], 0, 682, 142, 91, x - 42, y - 91, 142, 91);
+                //Game.context.rect(x, y, entry.width, entry.height);
+
                 break;
             case LEFT:
                 y = roomY + (map[player.room].height / 2) - (entry.height / 2);
                 x = roomX;
-                Game.context.rect(x, y, entry.width, entry.height);
+                Game.context.drawImage(Images['border_door_ground'], 233, 682, 91, 142, x - 91, y - 36, 91, 142);
+                //Game.context.rect(x, y, entry.width, entry.height);                
                 break;
             case BOTTOM:
                 y = roomY + map[player.room].height - entry.height;
                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                Game.context.drawImage(Images['door'], 0, 91, 142, 91, x-42, y+10 , 142, 91);
+                Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, x - 42, y + 10, 142, 91);
                 //Game.context.rect(x, y, entry.width, entry.height);
                 break;
             case RIGHT:
                 y = roomY + (map[player.room].height / 2) - (entry.height / 2);
                 x = roomX + (map[player.room].width) - entry.width;
-                Game.context.rect(x, y, entry.width, entry.height);
+                Game.context.drawImage(Images['border_door_ground'], 142, 682, 91, 142, x + 10, y - 36, 91, 142);
+                //Game.context.rect(x, y, entry.width, entry.height);
                 break;
         }
         entry.x = x;
@@ -63,24 +66,24 @@ function drawGround()
         x = player.roomInfo[0];
         while (x < player.roomInfo[0] + player.roomInfo[2])
         {
-            Game.context.drawImage(Images["ground"], x, y);
+            Game.context.drawImage(Images["border_door_ground"], 142, 824, 50, 50, x, y, 50, 50);
 
-            x = x + 20;
+            x = x + 50;
         }
-        y = y + 20;
+        y = y + 50;
     }
 }
 
 function drawBorder() {
     var x = player.roomInfo[0];
     var y = player.roomInfo[1];
-    if (player.roomInfo[2] == 700 && player.roomInfo[3] == 700) //SQUARED
-        Game.context.drawImage(Images['border'], 1567, 0, 880, 882, x - 90, y - 91, 880, 882);
+    if (player.roomInfo[2] == 700 && player.roomInfo[3] == 700) //SQUARED        
+        Game.context.drawImage(Images['border_door_ground'], 1567, 0, 880, 882, x - 90, y - 91, 880, 882);
 
     if (player.roomInfo[2] == 500 && player.roomInfo[3] == 700) //LONGER
-        Game.context.drawImage(Images['border'], 884, 0, 682, 884, x - 91, y - 92, 682, 884);
+        Game.context.drawImage(Images['border_door_ground'], 884, 0, 682, 884, x - 91, y - 92, 682, 884);
 
     if (player.roomInfo[2] == 700 && player.roomInfo[3] == 500) //LARGER
-        Game.context.drawImage(Images['border'], 0, 0, 884, 682, x - 92, y - 91, 884, 682);
+        Game.context.drawImage(Images['border_door_ground'], 0, 0, 884, 682, x - 92, y - 91, 884, 682);
 
 }
