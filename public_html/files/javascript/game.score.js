@@ -1,6 +1,7 @@
 var score = new score();
 
 function score() {
+    this.value = 0;
     this.canvas = null;
     this.context = null;
     this.background = new Image();

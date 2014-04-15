@@ -39,6 +39,7 @@ var BLUE = 8;
 var RED = 9;
 var GREEN = 10;
 var YELLOW = 11;
+var WHITE = 13;
 var CRIMEE = 12;
 
 //Ground
@@ -64,7 +65,6 @@ var GroundMap = [
     new room(LONGER, [new object(200,350,50,60,false,TABLEAU,null),new object(400,300,30,50,true,CIGARETTE)], [new door(TOP,67,68,null,false), new door(BOTTOM,57,53,null,false), new door(RIGHT,51,50,GREEN,true)]),
     new room(SQUARED, [new object(400, 600, 32, 32, false, TABLE),new object(600,35,50,60,false,DRAPCOM,null),new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
     new room(SQUARED, [new object(600, 100, 32, 32, true, PUIT, "G"),new object(600,35,50,60,false,LIVRE,null),new object(600, 500, 32, 32, false, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
-
 ];
 
 function room(model, objects, doors) {
