@@ -20,19 +20,12 @@ var ImagesSprites = {
     PORTECRIMEA: "PORTECRIMEE.png"  //PORTECRIMEA
 };
 
-var Sprites = new Array();
-
 function loadSprites()
 {
-//    for (var i = 0; i <= 18; i++)
-//   {
-//        Sprites.push(new Image());
-//        Sprites[Sprites.length - 1].src = 'files/images/' + ImagesSprites[i];
-//       
-//    }
     for (var key in ImagesSprites) {
-        Sprites.push(new Image());
-        Sprites[Sprites.length-1].src = 'files/images/' + ImagesSprites[key];
+        var src = "files/images/"+ImagesSprites[key];
+        ImagesSprites[key] = new Image();
+        ImagesSprites[key].src = src;
     }
 }
 

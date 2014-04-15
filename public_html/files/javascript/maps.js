@@ -1,23 +1,23 @@
 //ELEMENTS
-var TAPIS = 0;
-var TABLE = 1;
-var TABLEAU = 2;
-var PEAUOURS = 3;
-var CLEF = 4;
-var PUIT = 5;
-var MUR = 6;
-var TANK = 7;
-var DRAPCOM = 8;
-var LIVRE = 9;
-var OBAMA = 10;
-var BENLADEN = 11;
-var YANOUKOVIC = 12;
-var FEMINISTE = 13;
-var OURS = 14;
-var VODKA = 15;
-var CAVIAR = 16;
-var CIGARETTE = 17;
-var PORTECRIMEA = 18;
+var TAPIS = "TAPIS";
+var TABLE = "TABLE";
+var TABLEAU = "TABLEAU";
+var PEAUOURS = "PEAUOURS";
+var CLEF = "CLEF";
+var PUIT = "PUIT";
+var MUR = "MUR";
+var TANK = "TANK";
+var DRAPCOM = "DRAPCOM";
+var LIVRE = "LIVRE";
+var OBAMA = "OBAMA";
+var BENLADEN = "BENLADEN";
+var YANOUKOVIC = "YANOUKOVIC";
+var FEMINISTE = "FEMINISTE";
+var OURS = "OURS";
+var VODKA = "VODKA";
+var CAVIAR = "CAVIAR";
+var CIGARETTE = "CIGARETTE";
+var PORTECRIMEA = "PORTECRIMEA";
 
 
 //DIRECTIONS
@@ -176,4 +176,8 @@ function initRoom(map, id) {
         entry.x = x;
         entry.y = y;
     });
+}
+//DERNIER RECOURS
+function ToString(item) {
+    
 }
