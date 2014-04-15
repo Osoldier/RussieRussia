@@ -25,13 +25,13 @@ function drawMap(map) {
         var y = 0;
         switch (entry.color) {
             case RED:
-                Game.context.fillStyle = "red";
+                Game.context.fillStyle = "#b20000";
                 break;
             case BLUE:
-                Game.context.fillStyle = "blue";
+                Game.context.fillStyle = "#96CDCD";
                 break;
             case GREEN:
-                Game.context.fillStyle = "green";
+                Game.context.fillStyle = "#458B00";
                 break;
             case YELLOW:
                 Game.context.fillStyle = "yellow";

@@ -14,6 +14,7 @@ function Initialize() {
     player.Initialize();
     sounds.Initialize();
     score.Initialize();
+    //#####Sprites#####//
     loadSprites();
     loadImages();
     Game.timer = setInterval("mainLoop();", 40);

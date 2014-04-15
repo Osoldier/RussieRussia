@@ -8,16 +8,16 @@ function vodka(x, y, dir) {
     this.Update = function() {
         switch (dir) {
             case player.directionDEF.UP:
-                this.y -= 12;
+                this.y -= 16;
                 break;
             case player.directionDEF.DOWN:
-                this.y += 12;
+                this.y += 16;
                 break;
             case player.directionDEF.LEFT:
-                this.x -= 12;
+                this.x -= 16;
                 break;
             case player.directionDEF.RIGHT:
-                this.x += 12;
+                this.x += 16;
                 break;
         }
         if (this.x < roomX || this.y < roomY || this.y > roomY + player.Map[player.room].height - 30 || this.x > roomX + player.Map[player.room].width) {
@@ -27,7 +27,7 @@ function vodka(x, y, dir) {
         Game.context.save();
         Game.context.translate(this.x, this.y);
         Game.context.rotate(this.theta * (Math.PI / 180));
-        Game.context.drawImage(this.sprite, 0, 0, 30, 60);
+        Game.context.drawImage(this.sprite, 0, 0, 15, 30);
         Game.context.restore();
     };
 }
