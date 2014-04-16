@@ -21,9 +21,12 @@ function score() {
         if (this.hunger <= 0) {
             this.hunger = 0;
             player.life--;
+            this.hunger = 200;
+            return;
             if (player.life < 0) {
                 player.room = 9;
                 player.life = 3;
+                this.hunger = 200;
             }
         }
         this.context.drawImage(this.background, 0, 0, 200, 768);
