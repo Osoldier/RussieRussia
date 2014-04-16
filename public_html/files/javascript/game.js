@@ -27,6 +27,7 @@ function mainLoop()
     clearCanvas();
     drawMap(player.Map);
     CheckCollisions();
+    updateNormalDoors();
     player.Update();
     score.Update();
 }
@@ -54,7 +55,7 @@ function CheckCollisions() {
                     }
                     player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
                 } else {
-                    if(player.object1 === getAllDoorsInRoom(player.room)[i].color || player.object2 === getAllDoorsInRoom(player.room)[i].color || player.object3 === getAllDoorsInRoom(player.room)[i].color) {
+                    if (player.object1 === getAllDoorsInRoom(player.room)[i].color || player.object2 === getAllDoorsInRoom(player.room)[i].color || player.object3 === getAllDoorsInRoom(player.room)[i].color) {
                         getAllDoorsInRoom(player.room)[i].lock = false;
                         getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
                     }
@@ -85,4 +86,17 @@ function WouldCollide(dX, dY) {
 
 function tempChangerSalle() {
     player.room = 1 * document.getElementById("salle").value;
+}
+
+function updateNormalDoors() {
+    for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
+        var currentDoor = getAllDoorsInRoom(player.room)[i];
+        if (currentDoor.color == null) {
+            if (Math.floor((Math.random() * 10) + 1) > 7) {
+                if (Math.floor((Math.random() * 10) + 1) > 9) {
+                    currentDoor.lock = !currentDoor.lock;
+                }
+            }
+        }
+    }
 }
