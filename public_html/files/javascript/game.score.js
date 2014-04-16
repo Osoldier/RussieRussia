@@ -12,38 +12,48 @@ function score() {
 
     this.Initialize = function() {
         this.canvas = document.getElementById('score');
-        this.context = this.canvas.getContext('2d');       
+        this.context = this.canvas.getContext('2d');
     };
-    
+
     this.Update = function()
     {
         this.hunger -= 0.1;
-        this.context.drawImage(this.background,0,0,200,768);
-        var ruSize = this.flagSize/3;
+        if (this.hunger <= 0) {
+            this.hunger = 0;
+            player.life--;
+            if (player.life < 0) {
+                player.room = 9;
+                player.life = 3;
+            }
+        }
+        this.context.drawImage(this.background, 0, 0, 200, 768);
+        var ruSize = this.flagSize / 3;
         //RUSSIE
         this.context.fillStyle = "white"
         this.context.beginPath();
-        this.context.rect(20, 650-this.hunger, ruSize,this.hunger);
+        this.context.rect(20, 650 - this.hunger, ruSize, this.hunger);
         this.context.fill();
         this.context.fillStyle = "darkblue"
         this.context.beginPath();
-        this.context.rect(20+ruSize, 650-this.hunger, ruSize,this.hunger);
+        this.context.rect(20 + ruSize, 650 - this.hunger, ruSize, this.hunger);
         this.context.fill();
         this.context.fillStyle = "red"
         this.context.beginPath();
-        this.context.rect(20+ruSize*2, 650-this.hunger, ruSize,this.hunger);
+        this.context.rect(20 + ruSize * 2, 650 - this.hunger, ruSize, this.hunger);
         this.context.fill();
         //FIN_RUSSIE
         //UKRAINE
-        var ukSize = this.flagSize/2;
+        var ukSize = this.flagSize / 2;
         this.context.fillStyle = "darkblue"
         this.context.beginPath();
-        this.context.rect(20, 650-200, ukSize,200-this.hunger);
+        this.context.rect(20, 650 - 200, ukSize, 200 - this.hunger);
         this.context.fill();
         this.context.fillStyle = "yellow"
         this.context.beginPath();
-        this.context.rect(20+ukSize, 650-200, ukSize,200-this.hunger);
+        this.context.rect(20 + ukSize, 650 - 200, ukSize, 200 - this.hunger);
         this.context.fill();
+        //FIN_UKRAINE
     };
-};
+}
+;
 

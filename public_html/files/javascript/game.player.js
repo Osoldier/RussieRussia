@@ -22,7 +22,7 @@ function Player(type) {
     this.object1 = 0;
     this.object2 = 0;
     this.object3 = 0;
-    this.life = 0;
+    this.life = 3;
     this.x = 600;
     this.y = 400;
     this.width = 32;
