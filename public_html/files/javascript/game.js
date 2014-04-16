@@ -5,7 +5,9 @@ var Game = {
     'timer': null
 };
 
-
+var mDoors =  {
+    
+}
 
 function Initialize() {
     Game.canvas = document.getElementById('game');
@@ -91,12 +93,34 @@ function tempChangerSalle() {
 function updateNormalDoors() {
     for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
         var currentDoor = getAllDoorsInRoom(player.room)[i];
-        if (currentDoor.color == null) {
+        if (currentDoor.color == null && (mDoors[currentDoor] > 0 || !containsKey(mDoors, currentDoor))) {
             if (Math.floor((Math.random() * 10) + 1) > 7) {
                 if (Math.floor((Math.random() * 10) + 1) > 9) {
+                    mDoors[currentDoor] = 60;
                     currentDoor.lock = !currentDoor.lock;
                 }
             }
+        } else {
+            if (containsKey(mDoors, currentDoor)) {
+                mDoors[currentDoor]--;
+                if(mDoors[currentDoor] <= 0) {
+                    mDoors[currentDoor] = 0;
+                }
         }
     }
+}
+}
+
+function containsKey(array, key) {
+    for(var v in array) {
+       if(v == key)
+           return true;
+    }
+}
+
+function contains(array, value) {
+    array.forEach(function(entry) {
+        if(entry == value)
+            return true;
+    });
 }
