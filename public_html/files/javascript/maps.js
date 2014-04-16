@@ -66,7 +66,7 @@ var GroundMap = [
     new room(SQUARED, [new object(400, 600, 32, 32, false, TABLE),new object(600,35,50,60,false,DRAPCOM,null),new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
     new room(SQUARED, [new object(600, 250, 64, 64, true, PEAUOURS, "G"),new object(600,35,50,60,false,LIVRE,null),new object(600, 500, 32, 32, false, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
     new room(SQUARED, [new object(600,600, 32,32,false,CAVIAR)],[new door(LEFT,46,47,null,false),new door(TOP,45,76,null,false),new door(RIGHT,44,43,null,false)]),
-    new room(LONGER, [new object(700,300,32,32,false,CLEF)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 666, null, false),new door(LEFT,43,44,WHITE,true), new door(RIGHT,40,39,null,false)]),
+    new room(LONGER, [new object(700,300,32,32,false,CLEF)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 666, null, false),new door(LEFT,43,44,null,true), new door(RIGHT,40,39,null,false)]),
     new room(SQUARED, [],[new door(LEFT,39,40,null,false),new door(TOP,38,76,null,false)]),
     new room(LARGER,[],[new door(TOP,53,52,null,false),new door(BOTTOM,54,55,null,false)]),
     new room(LARGER,[new object(300,450,64,64,false,DRAPCOM)],[new door(TOP,66,42,GREEN,true),new door(BOTTOM,65,64,null,false)]),
