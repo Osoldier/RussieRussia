@@ -1,8 +1,8 @@
 var ImagesSprites = {
-    TAPIS: "PaquetC.png", //TAPIS
+    TAPIS: "tapis.png", //TAPIS
     TABLE: "Table.png", //TABLE
     TABLEAU: "PaquetC.png", //TABLEAU
-    PEAUOURS: "PaquetC.png", //PEAUOURS
+    PEAUOURS: "peauours.png", //PEAUOURS
     CLEF: "PaquetC.png", //CLEF
     PUIT: "puit.png", //PUIT
     MUR: "PaquetC.png", //MUR
