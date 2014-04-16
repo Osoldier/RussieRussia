@@ -27,10 +27,15 @@ function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
     clearCanvas();
+    //MAP
     drawMap(player.Map);
+    //COLLISIONS
     CheckCollisions();
+    //DOORS
     updateNormalDoors();
+    //PLAYER
     player.Update();
+    //SCORE
     score.Update();
 }
 
