@@ -100,6 +100,12 @@ function Player(type) {
     };
 
     this.Move = function() {
+        if (KeyState.ctrlLeft)       
+            this.speed = 16;
+                else
+            this.speed = 8;
+        
+        
         this.directionCount = true;
         //#####MOVE#UP#####// 
         if (this.UseKeyboard(this.directionDEF.UP) && this.directionCount)
