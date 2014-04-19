@@ -1,4 +1,9 @@
+var MENU = 1000;
+var GAME = 1001;
+var PAUSE = 1002;
+
 var Game = {
+    'state': MENU,
     'canvas': null,
     'canvasPosition': null,
     'context': null,
@@ -6,7 +11,7 @@ var Game = {
 };
 
 var mDoors = {
-}
+};
 
 function Initialize() {
     Game.canvas = document.getElementById('game');
@@ -26,16 +31,25 @@ function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
     clearCanvas();
-    //MAP
-    drawMap(player.Map);
-    //COLLISIONS
-    CheckCollisions();
-    //DOORS
-    updateNormalDoors();
-    //PLAYER
-    player.Update();
-    //SCORE
-    score.Update();
+    switch (Game.state) {
+        case GAME:
+            //MAP
+            drawMap(player.Map);
+            //COLLISIONS
+            CheckCollisions();
+            //DOORS
+            updateNormalDoors();
+            //PLAYER
+            player.Update();
+            //SCORE
+            score.Update();
+            break;
+        case MENU:
+            drawMenu();
+            break;
+        case PAUSE:
+            break;
+    }
 }
 
 function CheckCollisions() {

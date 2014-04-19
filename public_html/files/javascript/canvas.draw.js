@@ -131,3 +131,10 @@ function drawBorder() {
         Game.context.drawImage(Images['border_door_ground'], 0, 0, 884, 682, x - 92, y - 91, 884, 682);
 
 }
+
+function drawMenu()  {
+    //dessiner image menu
+    if(KeyState.space) {
+        Game.state = GAME;
+    }
+}
