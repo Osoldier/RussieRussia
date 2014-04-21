@@ -4,6 +4,8 @@ function score() {
     this.value = 0;
     this.hunger = 200;
     this.flagSize = 150;
+    this.lifeSprite = new Image();
+    this.lifeSprite.src = 'files/images/Vodka.png';
     this.inventory = {};
     this.canvas = null;
     this.context = null;
@@ -22,14 +24,16 @@ function score() {
             this.hunger = 0;
             player.life--;
             this.hunger = 200;
-            return;
-            if (player.life < 0) {
+            if (player.life <= 0) {
                 player.room = 9;
                 player.life = 3;
                 this.hunger = 200;
             }
         }
         this.context.drawImage(this.background, 0, 0, 200, 768);
+        for (var i = 1; i <= player.life; i++) {
+            this.context.drawImage(this.lifeSprite, 20 + (i * 32), 400, 32, 32);
+        }
         var ruSize = this.flagSize / 3;
         //RUSSIE
         this.context.fillStyle = "white"
