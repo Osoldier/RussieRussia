@@ -38,7 +38,7 @@ function mainLoop()
             //COLLISIONS
             CheckCollisions();
             //DOORS
-            updateNormalDoors();
+            updateRoom();
             //PLAYER
             player.Update();
             //SCORE
@@ -59,19 +59,21 @@ function CheckCollisions() {
             if ((getAllDoorsInRoom(player.room)[i].y + getAllDoorsInRoom(player.room)[i].height >= player.y && getAllDoorsInRoom(player.room)[i].y <= player.y + player.height) || (getAllDoorsInRoom(player.room)[i].y <= player.y + player.height && getAllDoorsInRoom(player.room)[i].y + getAllDoorsInRoom(player.room)[i].height >= player.y)) {
                 if (getAllDoorsInRoom(player.room)[i].lock == false) {
                     initRoom(player.Map, getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival));
+                    PopCoolDown = 120;
+                    EnemyList = [];
                     player.Projectile = 0;
                     switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
                         case TOP:
-                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 2;
+                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 7;
                             break;
                         case LEFT:
-                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 2;
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 7;
                             break;
                         case RIGHT:
-                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 30;
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 35;
                             break;
                         case BOTTOM:
-                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 30;
+                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 35;
                             break;
                     }
                     player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
@@ -109,7 +111,8 @@ function tempChangerSalle() {
     player.room = 1 * document.getElementById("salle").value;
 }
 
-function updateNormalDoors() {
+function updateRoom() {
+    //#####PORTES#######
     for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
         var currentDoor = getAllDoorsInRoom(player.room)[i];
         if (currentDoor.color == null && (mDoors[currentDoor] <= 0 || !containsKey(mDoors, currentDoor))) {
@@ -123,6 +126,15 @@ function updateNormalDoors() {
             }
         }
     }
+    //#######ENEMIS########
+    PopCoolDown--;
+    if(PopCoolDown <= 0) {
+        EnemyList.push(new enemy(Math.floor(Math.random()*200)+400, Math.floor(Math.random()*200)+400, Math.floor(Math.random()*4), Math.floor(Math.random()*3)));
+        PopCoolDown = 60;
+    }
+    EnemyList.forEach(function(entry) {
+       entry.Update(); 
+    });
 }
 
 function containsKey(array, key) {
@@ -130,6 +142,7 @@ function containsKey(array, key) {
         if (v == key)
             return true;
     }
+    return false;
 }
 
 function contains(array, value) {
@@ -137,4 +150,5 @@ function contains(array, value) {
         if (entry == value)
             return true;
     });
+    return false;
 }

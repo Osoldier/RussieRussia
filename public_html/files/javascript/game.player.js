@@ -25,8 +25,8 @@ function Player(type) {
     this.life = 3;
     this.x = 600;
     this.y = 400;
-    this.width = 32;
-    this.height = 32;
+    this.width = 40;
+    this.height = 40;
     this.speed = 8;
     this.direction = 0;
     this.Projectile = 0;
@@ -76,7 +76,7 @@ function Player(type) {
     }
 
     this.Afficher = function() {
-        Game.context.drawImage(this.sprite, this.width * this.frame, this.height * this.direction, this.height, this.width, this.x, this.y, this.height, this.width);
+        Game.context.drawImage(this.sprite, 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
     };
 
     this.UseKeyboard = function(e) {
