@@ -41,7 +41,7 @@ function enemy(x, y, type, dir) {
          if (this.frame >= 2)
                 this.frame = 0;
             else
-                this.frame++;
+                this.frame+=1;
         switch (this.direction) {
             case player.directionDEF["DOWN"]:
                 if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3])
