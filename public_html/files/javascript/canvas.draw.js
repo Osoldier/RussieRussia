@@ -131,19 +131,3 @@ function drawBorder() {
         Game.context.drawImage(Images['border_door_ground'], 0, 0, 884, 682, x - 92, y - 91, 884, 682);
 
 }
-
-function drawMenu()  {
-    //dessiner image menu
-    switch (menuState)
-    {
-        case 0:
-            //Titre
-             Game.context.drawImage(Images['MenuMain'], 0, 0, 1248, 900, 0, 0, 1248, 900);
-            break;
-        case 1:
-            //Choix Joueur
-            Game.context.drawImage(Images['MenuSelect'], 0, 0, 1248, 900, 0, 0, 1248, 900);
-            break;
-    }     
-    
-}

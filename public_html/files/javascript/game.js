@@ -44,8 +44,7 @@ function mainLoop()
             score.Update();
             break;
         case MENU:
-            useMenu();
-            drawMenu();
+            menu.Use();
             break;
         case PAUSE:
             break;
