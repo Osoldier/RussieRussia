@@ -10,7 +10,7 @@ function score() {
     this.canvas = null;
     this.context = null;
     this.background = new Image();
-    this.background.src = 'files/images/parchemin_score.jpg';
+    this.background.src = 'files/images/paper.png';
 
     this.Initialize = function() {
         this.canvas = document.getElementById('score');
