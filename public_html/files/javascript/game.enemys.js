@@ -1,6 +1,6 @@
-var NINJA = 1;
-var DESERT = 2;
-var GHOST = 3;
+var NINJA = 0;
+var DESERT = 1;
+var GHOST = 2;
 
 var PopCoolDown = 120;
 
