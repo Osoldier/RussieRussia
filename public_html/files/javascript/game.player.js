@@ -22,7 +22,7 @@ function Player() {
     this.speed = 8;
     this.direction = 0;
     this.Projectile = 0;
-    this.type = 0;
+    this.type = 1;
     this.frame = 0;
     this.direction = 0;
     this.directionDEF = {
@@ -35,9 +35,6 @@ function Player() {
         'POUTINE': 0,
         'STALINE': 1,
         'LENINE': 2
-    };
-
-    this.Initialize = function() {
     };
 
     this.Update = function() {
@@ -56,22 +53,22 @@ function Player() {
     this.Shoot = function() {
         if (this.Projectile === 0) {
             switch (this.type) {
-                case player.typeDEF.POUTINE:
+                case this.typeDEF.POUTINE:
                     this.Projectile = new vodka(this.x, this.y, this.direction);
                     break;
-                case player.typeDEF.STALINE:
+                case this.typeDEF.STALINE:                    
                     this.Projectile = new machette(this.x, this.y, this.direction);
                     break;
-                case player.typeDEF.LENINE:
+                case this.typeDEF.LENINE:                   
                     this.Projectile = new faucile(this.x, this.y, this.direction);
                     break;
                 default:
                     throw new PlayerException;
             }
         }
-    }
+    };
 
-    this.Afficher = function() {
+    this.Afficher = function() {       
         switch (this.type)
         {
             case this.typeDEF.POUTINE:
@@ -80,11 +77,10 @@ function Player() {
             case this.typeDEF.STALINE:
                 Game.context.drawImage(Images['spriteStaline'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
-            case this.typeDEF.LENINE:
+            case this.typeDEF.LENINE:                
                 Game.context.drawImage(Images['spriteLenine'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
-        }
-        
+        }        
     };
 
     this.UseKeyboard = function(e) {

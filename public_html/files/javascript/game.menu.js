@@ -11,7 +11,7 @@ function useMenu() {
             //Lénine
             if (KeyState.l)
             {
-                Player.type = player.typeDEF.LENINE;
+                player.type = player.typeDEF.LENINE;
                 Game.state = GAME;
             }
            //Poutine
