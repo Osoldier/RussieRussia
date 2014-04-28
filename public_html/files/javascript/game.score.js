@@ -28,6 +28,7 @@ function score() {
                 player.room = 9;
                 player.life = 3;
                 this.hunger = 200;
+                EnemyList = new Array();
                 menu.state = menu.stateDEF.END;
                 Game.state = MENU;
             }
