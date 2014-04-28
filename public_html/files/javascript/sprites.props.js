@@ -37,6 +37,7 @@ var ImagesListe = [
     "MenuMain",
     "MenuSelect",
     "MenuEnd",
+    "MenuLoading",
     "spriteStaline",
     "spritePoutine",
     "spriteLenine"

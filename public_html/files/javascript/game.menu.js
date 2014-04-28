@@ -5,7 +5,8 @@ function menu() {
         'TITLE': 0,
         'SELECT': 1,
         'PAUSE': 2,
-        'END': 3
+        'LOADING': 3,
+        'END': 4
     };
     this.state = 0;
 
@@ -21,6 +22,9 @@ function menu() {
                 Game.context.drawImage(Images['MenuSelect'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.PAUSE:
+                break;
+            case this.stateDEF.LOADING:
+                Game.context.drawImage(Images['MenuLoading'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.END:
                 Game.context.drawImage(Images['MenuEnd'], 0, 0, 1248, 900, 0, 0, 1248, 900);
@@ -41,21 +45,21 @@ function menu() {
                 {
                     player.type = player.typeDEF.LENINE;
                     Game.state = GAME;
-                    this.state = this.stateDEF.END;
+                    this.state = this.stateDEF.LOADING;
                 }
                 //Poutine
                 if (KeyState.p)
                 {
                     player.type = player.typeDEF.POUTINE;
                     Game.state = GAME;
-                    this.state = this.stateDEF.END;
+                    this.state = this.stateDEF.LOADING;
                 }
                 //Staline
                 if (KeyState.s)
                 {
                     player.type = player.typeDEF.STALINE;
                     Game.state = GAME;
-                    this.state = this.stateDEF.END;
+                    this.state = this.stateDEF.LOADING;
                 }
                 break;
             case this.stateDEF.PAUSE:
