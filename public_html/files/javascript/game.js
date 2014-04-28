@@ -16,8 +16,7 @@ var mDoors = {
 function Initialize() {
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
-    //#####PLAYER#####//    
-    player.Initialize();
+    //#####PLAYER#####//   
     sounds.Initialize();
     score.Initialize();
     //#####Sprites#####//
