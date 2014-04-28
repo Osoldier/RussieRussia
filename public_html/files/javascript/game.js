@@ -128,12 +128,12 @@ function updateRoom() {
     }
     //#######ENEMIS########
     PopCoolDown--;
-    if(PopCoolDown <= 0) {
-        EnemyList.push(new enemy(Math.floor(Math.random()*200)+400, Math.floor(Math.random()*200)+400, Math.floor(Math.random()*4), Math.floor(Math.random()*3)));
+    if (PopCoolDown <= 0) {
+        EnemyList.push(new enemy(Math.floor(Math.random() * 200) + 400, Math.floor(Math.random() * 200) + 400, Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)));
         PopCoolDown = 60;
     }
     EnemyList.forEach(function(entry) {
-       entry.Update(); 
+        entry.Update();
     });
 }
 
