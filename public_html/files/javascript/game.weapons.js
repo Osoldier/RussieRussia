@@ -37,8 +37,9 @@ function vodka(x, y, dir) {
 function faucile(x, y, dir) {
     this.x = x;
     this.y = y;
-    this.width = 15;
-    this.height = 30;
+    this.width = 30;
+    this.height = 45;
+    this.theta = 0;
     this.sprite = new Image();
     this.sprite.src = "files/images/Faucille.png";
     this.dir = dir;
