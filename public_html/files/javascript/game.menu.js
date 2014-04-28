@@ -23,6 +23,7 @@ function menu() {
             case this.stateDEF.PAUSE:
                 break;
             case this.stateDEF.END:
+                Game.context.drawImage(Images['MenuEnd'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
         }
     };
@@ -40,23 +41,30 @@ function menu() {
                 {
                     player.type = player.typeDEF.LENINE;
                     Game.state = GAME;
+                    this.state = this.stateDEF.END;
                 }
                 //Poutine
                 if (KeyState.p)
                 {
                     player.type = player.typeDEF.POUTINE;
                     Game.state = GAME;
+                    this.state = this.stateDEF.END;
                 }
                 //Staline
                 if (KeyState.s)
                 {
                     player.type = player.typeDEF.STALINE;
                     Game.state = GAME;
+                    this.state = this.stateDEF.END;
                 }
                 break;
             case this.stateDEF.PAUSE:
                 break;
             case this.stateDEF.END:
+                if (KeyState.escape)
+                {
+                    this.state = this.stateDEF.TITLE;
+                }
                 break;
         }
 
