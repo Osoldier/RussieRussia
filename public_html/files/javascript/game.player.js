@@ -56,13 +56,13 @@ function Player() {
     this.Shoot = function() {
         if (this.Projectile === 0) {
             switch (this.type) {
-                case PUTIN:
+                case player.typeDEF.POUTINE:
                     this.Projectile = new vodka(this.x, this.y, this.direction);
                     break;
-                case STALINE:
+                case player.typeDEF.STALINE:
                     this.Projectile = new machette(this.x, this.y, this.direction);
                     break;
-                case LENINE:
+                case player.typeDEF.LENINE:
                     this.Projectile = new faucile(this.x, this.y, this.direction);
                     break;
                 default:
