@@ -8,27 +8,24 @@ function useMenu() {
                 menuState = 1;
             break;
         case 1:
+            //Lénine
             if (KeyState.l)
             {
+                Player.type = player.typeDEF.LENINE;
                 Game.state = GAME;
             }
-           
+           //Poutine
             if (KeyState.p)
             {
+                player.type = player.typeDEF.POUTINE;
                 Game.state = GAME;
             }
-           
+           //Staline
             if (KeyState.s)
             {
+                player.type = player.typeDEF.STALINE;
                 Game.state = GAME;
             }
-
-
             break;
-    }
-    if (menuState == 0)
-    {
-
-    }
-
+    }  
 }

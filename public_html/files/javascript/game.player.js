@@ -1,19 +1,11 @@
-/*########################################################################################################################*/
-/*########################################################################################################################*/
-/*########################################################################################################################*/
 // PLAYER
 
-var PUTIN = 0;
-var STALINE = 1;
-var LENINE = 2;
-
-var player = new Player(PUTIN);
+var player = new Player();
 
 var PlayerException = {
 };
 
-function Player(type) {
-    this.sprite = new Image();
+function Player() {
     this.Map = GroundMap;
     this.room = 9;
     this.roomInfo = new Array();
@@ -30,7 +22,7 @@ function Player(type) {
     this.speed = 8;
     this.direction = 0;
     this.Projectile = 0;
-    this.type = type;
+    this.type = 0;
     this.frame = 0;
     this.direction = 0;
     this.directionDEF = {
@@ -39,9 +31,13 @@ function Player(type) {
         'RIGHT': 2,
         'UP': 3
     };
+    this.typeDEF = {
+        'POUTINE': 0,
+        'STALINE': 1,
+        'LENINE': 2
+    };
 
     this.Initialize = function() {
-        this.sprite.src = 'files/images/sprite_homme.png';
     };
 
     this.Update = function() {
@@ -51,7 +47,7 @@ function Player(type) {
             this.Shoot();
         }
         if (this.Projectile !== 0) {
-            if(this.Projectile.Update()) {
+            if (this.Projectile.Update()) {
                 this.Projectile = 0;
             }
         }
@@ -76,7 +72,19 @@ function Player(type) {
     }
 
     this.Afficher = function() {
-        Game.context.drawImage(this.sprite, 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
+        switch (this.type)
+        {
+            case this.typeDEF.POUTINE:
+                Game.context.drawImage(Images['spritePoutine'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
+                break;
+            case this.typeDEF.STALINE:
+                Game.context.drawImage(Images['spriteStaline'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
+                break;
+            case this.typeDEF.LENINE:
+                Game.context.drawImage(Images['spriteLenine'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
+                break;
+        }
+        
     };
 
     this.UseKeyboard = function(e) {
@@ -100,12 +108,12 @@ function Player(type) {
     };
 
     this.Move = function() {
-        if (KeyState.Shift)       
+        if (KeyState.Shift)
             this.speed = 16;
-                else
+        else
             this.speed = 8;
-        
-        
+
+
         this.directionCount = true;
         //#####MOVE#UP#####// 
         if (this.UseKeyboard(this.directionDEF.UP) && this.directionCount)

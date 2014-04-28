@@ -35,7 +35,10 @@ var ImagesListe = [
     "keyColor",
     "door_locked",
     "MenuMain",
-    "MenuSelect"
+    "MenuSelect",
+    "spriteStaline",
+    "spritePoutine",
+    "spriteLenine"
 ];
 
 
