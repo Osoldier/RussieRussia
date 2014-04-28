@@ -35,9 +35,13 @@ function enemy(x, y, type, dir) {
         this.Afficher();
         this.changeDirCD--;
         if (this.changeDirCD <= 0) {
-            this.direction = player.direction;
+            this.direction = Math.floor(Math.random()*4);
             this.changeDirCD = 120;
         }
+         if (this.frame >= 2)
+                this.frame = 0;
+            else
+                this.frame++;
         switch (this.direction) {
             case player.directionDEF["DOWN"]:
                 if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3])
