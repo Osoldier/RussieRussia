@@ -28,6 +28,7 @@ function score() {
                 player.room = 9;
                 player.life = 3;
                 this.hunger = 200;
+                Game.state = MENU;
             }
         }
         this.context.drawImage(this.background, 0, 0, 200, 768);
