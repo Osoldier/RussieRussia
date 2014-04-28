@@ -1,18 +1,28 @@
 var menu = new menu();
 
 function menu() {
+    this.stateDEF = {
+        'TITLE': 0,
+        'SELECT': 1,
+        'PAUSE': 2,
+        'END': 3
+    };
     this.state = 0;
 
     this.Afficher = function() {
         switch (this.state)
         {
-            case 0:
+            case this.stateDEF.TITLE:
                 //Titre
                 Game.context.drawImage(Images['MenuMain'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
-            case 1:
+            case this.stateDEF.SELECT:
                 //Choix Joueur
                 Game.context.drawImage(Images['MenuSelect'], 0, 0, 1248, 900, 0, 0, 1248, 900);
+                break;
+            case this.stateDEF.PAUSE:
+                break;
+            case this.stateDEF.END:
                 break;
         }
     };
@@ -20,11 +30,11 @@ function menu() {
     this.Use = function() {
         switch (this.state)
         {
-            case 0:
+            case this.stateDEF.TITLE:
                 if (KeyState.space)
-                    this.state = 1;
+                    this.state = this.stateDEF.SELECT;
                 break;
-            case 1:
+            case this.stateDEF.SELECT:
                 //Lénine
                 if (KeyState.l)
                 {
@@ -44,8 +54,12 @@ function menu() {
                     Game.state = GAME;
                 }
                 break;
+            case this.stateDEF.PAUSE:
+                break;
+            case this.stateDEF.END:
+                break;
         }
-        
+
         this.Afficher();
     };
 }
