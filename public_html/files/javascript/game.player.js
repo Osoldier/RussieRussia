@@ -104,6 +104,12 @@ function Player() {
     };
 
     this.Move = function() {
+        
+        if(KeyState.y)
+        {
+            menu.state = menu.stateDEF.PAUSE;
+            Game.state = MENU;
+        }
         if (KeyState.Shift)
             this.speed = 16;
         else
