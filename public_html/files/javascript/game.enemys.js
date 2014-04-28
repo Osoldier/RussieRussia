@@ -73,6 +73,11 @@ function enemy(x, y, type, dir) {
                 }
             }
         }
+        if ((this.x + this.width >= player.x && this.x <= player.x + player.width) || (this.x <= player.x + player.width && this.x + this.width >= player.x)) {
+                if ((this.y + this.height >= player.y && this.y <= player.y + player.height) || (this.y <= player.y + player.height && this.y + this.height >= player.y)) {
+                   score.hunger -= 1;
+                }
+            }
     };
 
 
