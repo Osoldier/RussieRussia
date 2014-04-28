@@ -5,7 +5,7 @@ function menu() {
         'TITLE': 0,
         'SELECT': 1,
         'PAUSE': 2,
-        'LOADING': 3,
+        'NOTHING': 3,
         'END': 4
     };
     this.state = 0;
@@ -22,9 +22,9 @@ function menu() {
                 Game.context.drawImage(Images['MenuSelect'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.PAUSE:
+                Game.context.drawImage(Images['MenuPause'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
-            case this.stateDEF.LOADING:
-                Game.context.drawImage(Images['MenuLoading'], 0, 0, 1248, 900, 0, 0, 1248, 900);
+            case this.stateDEF.NOTHING:               
                 break;
             case this.stateDEF.END:
                 Game.context.drawImage(Images['MenuEnd'], 0, 0, 1248, 900, 0, 0, 1248, 900);
@@ -45,24 +45,34 @@ function menu() {
                 {
                     player.type = player.typeDEF.LENINE;
                     Game.state = GAME;
-                    this.state = this.stateDEF.LOADING;
+                    this.state = this.stateDEF.NOTHING;
                 }
                 //Poutine
                 if (KeyState.p)
                 {
                     player.type = player.typeDEF.POUTINE;
                     Game.state = GAME;
-                    this.state = this.stateDEF.LOADING;
+                    this.state = this.stateDEF.NOTHING;
                 }
                 //Staline
                 if (KeyState.s)
                 {
                     player.type = player.typeDEF.STALINE;
                     Game.state = GAME;
-                    this.state = this.stateDEF.LOADING;
+                    this.state = this.stateDEF.NOTHING;
                 }
                 break;
             case this.stateDEF.PAUSE:
+                if (KeyState.escape)
+                {                   
+                    Game.state = GAME;
+                    this.state = this.stateDEF.NOTHING;
+                }
+                if (KeyState.q)
+                {                    
+                    this.state = this.stateDEF.END;
+                }
+                
                 break;
             case this.stateDEF.END:
                 if (KeyState.escape)

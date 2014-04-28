@@ -12,7 +12,9 @@ var KeyState = {
     'escape': false,
     'ctrlLeft': false,
     'l': false,
-    'p': false
+    'p': false,
+    'q': false,
+    'y': false
 
 };
 
@@ -51,6 +53,11 @@ function setKeyState(e, state) {
             break;
         case 'P'.charCodeAt():
             KeyState.p = state;
+            break;
+        case 'Q'.charCodeAt():
+            KeyState.q = state;
+        case 'Y'.charCodeAt():
+            KeyState.y = state;
             break;
         case 38 :
             KeyState.up = state;

@@ -36,8 +36,8 @@ var ImagesListe = [
     "door_locked",
     "MenuMain",
     "MenuSelect",
-    "MenuEnd",
-    "MenuLoading",
+    "MenuEnd",   
+    "MenuPause",
     "spriteStaline",
     "spritePoutine",
     "spriteLenine"
