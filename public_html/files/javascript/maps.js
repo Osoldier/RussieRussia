@@ -89,6 +89,13 @@ var GroundMap = [
    /* 42 */ new room(SQUARED,[new object(500,500,32,32,false,CAVIAR)], [new door(RIGHT,156,157,RED,true),new door(TOP,154,149,BLUE,true),new door(BOTTOM,155,180,null,false)]),
    /* 43 */ new room(SQUARED,[new object(600,700,32,32,false,CAVIAR),new object(550,700,32,32,false,CAVIAR),new object(500,700,32,32,false,CLEF),new object(500,500,64,64,false,PEAUOURS,"B")], [new door(BOTTOM,153,165,YELLOW,true),new door(BOTTOM,152,161,YELLOW,true),new door(TOP,151,140,YELLOW,true),new door(TOP,150,144,YELLOW,true)]),
    /* 44 */ new room(SQUARED,[new object(600,300,32,32,true,TABLE)], [new door(LEFT,136,137,GREEN,true),new door(TOP,134,133,YELLOW,true),new door(BOTTOM,135,168,null,false)]),
+   /* 45 */ new room(SQUARED,[new object(600,300,32,32,true,TABLE)], [new door(LEFT,141,142,RED,true),new door(TOP,138,128,null,false),new door(BOTTOM,140,151,YELLOW,true),new door(BOTTOM,139,166,RED,true),new door(RIGHT,137,136,GREEN,false)]),
+   /* 46 */ new room(SQUARED,[new object(400,300,32,32,true,TABLE),new object(500,500,32,32,true,VODKA)], [new door(LEFT,146,147,null,false),new door(TOP,143,125,null,false),new door(BOTTOM,145,160,GREEN,true),new door(BOTTOM,144,150,YELLOW,true),new door(RIGHT,142,141,RIGHT,true)]),
+   /* 47 */ new room(SQUARED,[], [new door(RIGHT,147,146,null,false),new door(TOP,148,122,null,false),new door(BOTTOM,149,154,BLUE,true)]),
+   /* 48 */ new room(SQUARED,[], [new door(LEFT,130,129,null,false),new door(TOP,131,132,RED,true),new door(BOTTOM,133,134,YELLOW,true)]),
+   /* 49 */ new room(SQUARED,[new object(600,300,32,32,false,CAVIAR)], [new door(LEFT,127,126,GREEN,true),new door(RIGHT,129,130,null,false),new door(BOTTOM,128,138,null,false)]),
+   /* 50 */ new room(SQUARED,[new object(600,300,32,32,false,CAVIAR)], [new door(LEFT,124,123,null,false),new door(RIGHT,126,127,GREEN,true),new door(BOTTOM,125,143,null,false)]),
+   
     
 ];
 
