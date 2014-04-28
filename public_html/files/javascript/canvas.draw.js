@@ -4,7 +4,7 @@ var roomY = 0;
 //Clear Canvas
 function clearCanvas()
 {
-    Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
+    Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);    
 }
 function drawMap(map) {
     drawBorder();
@@ -134,6 +134,7 @@ function drawBorder() {
 
 function drawMenu()  {
     //dessiner image menu
+    Game.context.drawImage(Images['title'], 0, 0, 1248, 900, 0, 0, 1248, 900);
     if(KeyState.space) {
         Game.state = GAME;
     }

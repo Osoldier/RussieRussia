@@ -10,7 +10,8 @@ var KeyState = {
     'right': false,
     'space': false,
     'escape': false,
-    'ctrlLeft': false
+    'ctrlLeft': false,
+    'Shift': false
 };
 
 //JQUERY
@@ -64,6 +65,9 @@ function setKeyState(e, state) {
             break;
         case 17:
             KeyState.ctrlLeft = state;
+            break;
+        case 16:
+            KeyState.Shift = state;
             break;
     }
 }

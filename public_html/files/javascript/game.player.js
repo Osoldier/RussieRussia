@@ -100,7 +100,7 @@ function Player(type) {
     };
 
     this.Move = function() {
-        if (KeyState.ctrlLeft)       
+        if (KeyState.Shift)       
             this.speed = 16;
                 else
             this.speed = 8;
