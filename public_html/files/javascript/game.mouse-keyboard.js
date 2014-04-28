@@ -13,7 +13,7 @@ var KeyState = {
     'ctrlLeft': false,
     'l': false,
     'p': false
-    
+
 };
 
 //JQUERY
@@ -45,6 +45,12 @@ function setKeyState(e, state) {
             break;
         case 'S'.charCodeAt():
             KeyState.s = state;
+            break;
+        case 'L'.charCodeAt():
+            KeyState.l = state;
+            break;
+        case 'P'.charCodeAt():
+            KeyState.p = state;
             break;
         case 38 :
             KeyState.up = state;
