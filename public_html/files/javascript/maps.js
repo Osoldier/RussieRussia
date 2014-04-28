@@ -87,7 +87,9 @@ var GroundMap = [
    /* 40 */ new room(SQUARED,[], [new door(LEFT,162,159,RED,true),new door(TOP,165,153,YELLOW,true),new door(TOP,166,139,RED,true), new door(RIGHT,164,167,null,false),new door(BOTTOM,163,174,BLUE,true)]),
    /* 41 */ new room(SQUARED,[], [new door(LEFT,157,156,RED,true),new door(TOP,160,145,GREEN,true),new door(TOP,161,152,YELLOW,true), new door(RIGHT,159,162,null,false),new door(BOTTOM,158,177,BLUE,true)]),
    /* 42 */ new room(SQUARED,[new object(500,500,32,32,false,CAVIAR)], [new door(RIGHT,156,157,RED,true),new door(TOP,154,149,BLUE,true),new door(BOTTOM,155,180,null,false)]),
-   
+   /* 43 */ new room(SQUARED,[new object(600,700,32,32,false,CAVIAR),new object(550,700,32,32,false,CAVIAR),new object(500,700,32,32,false,CLEF),new object(500,500,64,64,false,PEAUOURS,"B")], [new door(BOTTOM,153,165,YELLOW,true),new door(BOTTOM,152,161,YELLOW,true),new door(TOP,151,140,YELLOW,true),new door(TOP,150,144,YELLOW,true)]),
+   /* 44 */ new room(SQUARED,[new object(600,300,32,32,true,TABLE)], [new door(LEFT,136,137,GREEN,true),new door(TOP,134,133,YELLOW,true),new door(BOTTOM,135,168,null,false)]),
+    
 ];
 
 function room(model, objects, doors) {
