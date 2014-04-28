@@ -34,7 +34,8 @@ var ImagesListe = [
     "border_door_ground",
     "keyColor",
     "door_locked",
-    "title"
+    "MenuMain",
+    "MenuSelect"
 ];
 
 

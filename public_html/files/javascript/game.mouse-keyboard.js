@@ -11,7 +11,9 @@ var KeyState = {
     'space': false,
     'escape': false,
     'ctrlLeft': false,
-    'Shift': false
+    'l': false,
+    'p': false
+    
 };
 
 //JQUERY
