@@ -1,6 +1,7 @@
 var NINJA = 0;
 var DESERT = 1;
 var GHOST = 2;
+var SERPENT = 3;
 
 var PopCoolDown = 60;
 
@@ -27,6 +28,9 @@ function enemy(x, y, type, dir) {
         case GHOST:
             this.sprite.src = 'files/images/Sprite8.png';
             break;
+        case SERPENT:
+            this.sprite.src = 'files/images/spriteOurs.png';
+            break; 
         default:
             this.sprite.src = 'files/images/Sprite4.png';
             break;
@@ -35,13 +39,13 @@ function enemy(x, y, type, dir) {
         this.Afficher();
         this.changeDirCD--;
         if (this.changeDirCD <= 0) {
-            this.direction = Math.floor(Math.random()*4);
+            this.direction = Math.floor(Math.random() * 4);
             this.changeDirCD = 120;
         }
-         if (this.frame >= 2)
-                this.frame = 0;
-            else
-                this.frame+=1;
+        if (this.frame >= 2)
+            this.frame = 0;
+        else
+            this.frame += 1;
         switch (this.direction) {
             case player.directionDEF["DOWN"]:
                 if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3])
@@ -78,10 +82,10 @@ function enemy(x, y, type, dir) {
             }
         }
         if ((this.x + this.width >= player.x && this.x <= player.x + player.width) || (this.x <= player.x + player.width && this.x + this.width >= player.x)) {
-                if ((this.y + this.height >= player.y && this.y <= player.y + player.height) || (this.y <= player.y + player.height && this.y + this.height >= player.y)) {
-                   score.hunger -= 1;
-                }
+            if ((this.y + this.height >= player.y && this.y <= player.y + player.height) || (this.y <= player.y + player.height && this.y + this.height >= player.y)) {
+                score.hunger -= 1;
             }
+        }
     };
 
 
