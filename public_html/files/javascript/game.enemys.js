@@ -39,7 +39,7 @@ function enemy(x, y, type, dir) {
         if (this.frame >= 2)
             this.frame = 0;
         else
-            this.frame += 1;
+            this.frame += 0.25;
         //****Déplacement********
         switch (this.direction) {
             case player.directionDEF["DOWN"]:
@@ -104,7 +104,7 @@ function enemy(x, y, type, dir) {
 
     //Affichage
     this.Afficher = function() {
-        Game.context.drawImage(this.sprite, 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
+        Game.context.drawImage(this.sprite, 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
     };
 }
 
