@@ -79,8 +79,10 @@ function CheckCollisions() {
                     //###############################
                     //définit la position d'arrivée du joueur
                     switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
-                        case TOP || TOPLEFT || TOPRIGHT:
-                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 7;
+                        case TOP:
+                        case TOPLEFT:
+                        case TOPRIGHT:
+                            player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + 14;
                             break;
                         case LEFT:
                             player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 7;
@@ -88,7 +90,9 @@ function CheckCollisions() {
                         case RIGHT:
                             player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 35;
                             break;
-                        case BOTTOM || BOTLEFT || BOTRIGHT:
+                        case BOTTOM:
+                        case BOTLEFT:
+                        case BOTRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 35;
                             break;
                     }

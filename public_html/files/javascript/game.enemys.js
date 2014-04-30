@@ -13,7 +13,7 @@ function enemy(x, y, type, dir) {
     this.y = y;
     this.width = 40;
     this.height = 40;
-    this.speed = 6;
+    this.speed = 4;
     this.direction = dir;
     this.type = type;
     this.frame = 0;

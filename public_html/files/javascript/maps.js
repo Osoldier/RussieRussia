@@ -87,7 +87,7 @@ var GroundMap = [
     /* 36 */ new room(SQUARED, [new object(500, 450, 32, 32, true, TABLE)], [new door(LEFT, 178, 179, null, false), new door(RIGHT, 176, 175, null, false), new door(TOP, 177, 158, BLUE, true)]),
     /* 37 */ new room(SQUARED, [], [new door(LEFT, 181, 182, GREEN, true), new door(RIGHT, 179, 178, null, false), new door(TOP, 180, 155, null, false)]),
     /* 38 */ new room(SQUARED, [new object(800, 750, 32, 32, true, TABLE), new object(550, 35, 64, 64, true, LIVRE), new object(500, 450, 32, 32, false, CAVIAR)], [new door(RIGHT, 182, 181, GREEN, true)]),
-    /* 39 */ new room(SQUARED, [new object(500, 400, 32, 32, true, PUIT, "D")], [new door(LEFT, 167, 164, null, false), new door(TOP, 168, 135, null, false), new door(BOTTOM, 169, 170, null, false)]),
+    /* 39 */ new room(SQUARED, [new object(500, 400, 64, 64, true, PUIT, "D")], [new door(LEFT, 167, 164, null, false), new door(TOP, 168, 135, null, false), new door(BOTTOM, 169, 170, null, false)]),
     /* 40 */ new room(SQUARED, [], [new door(LEFT, 162, 159, RED, true), new door(TOP, 165, 153, YELLOW, true), new door(TOP, 166, 139, RED, true), new door(RIGHT, 164, 167, null, false), new door(BOTTOM, 163, 174, BLUE, true)]),
     /* 41 */ new room(SQUARED, [], [new door(LEFT, 157, 156, RED, true), new door(TOP, 160, 145, GREEN, true), new door(TOP, 161, 152, YELLOW, true), new door(RIGHT, 159, 162, null, false), new door(BOTTOM, 158, 177, BLUE, true)]),
     /* 42 */ new room(SQUARED, [new object(500, 500, 32, 32, false, CAVIAR)], [new door(RIGHT, 156, 157, RED, true), new door(TOP, 154, 149, BLUE, true), new door(BOTTOM, 155, 180, null, false)]),
