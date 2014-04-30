@@ -4,9 +4,9 @@ function menu() {
     this.stateDEF = {
         'TITLE': 0,
         'SELECT': 1,
-        'PAUSE': 2,
-        'NOTHING': 3,
-        'END': 4
+        'PAUSE': 2,        
+        'END': 3,
+        'NOTHING': 4
     };
     this.state = 0;
     this.timer = null;
@@ -27,22 +27,22 @@ function menu() {
         {
             case this.stateDEF.TITLE:
                 //TITLE
-                Game.context.drawImage(Images['MenuMain'], 0, 0, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(Images['menu'], 0, this.stateDEF.TITLE*900, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.SELECT:
                 //PLAYER TYPE SELECTION
-                Game.context.drawImage(Images['MenuSelect'], 0, 0, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(Images['menu'], 0, this.stateDEF.SELECT*900, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.PAUSE:
                 //PAUSE
-                Game.context.drawImage(Images['MenuPause'], 0, 0, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(Images['menu'], 0, this.stateDEF.PAUSE*900, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.NOTHING:
                 //NOTHING
                 break;
             case this.stateDEF.END:
                 //GAME OVER
-                Game.context.drawImage(Images['MenuEnd'], 0, 0, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(Images['menu'], 0, this.stateDEF.END*900, 1248, 900, 0, 0, 1248, 900);
                 break;
         }
     };

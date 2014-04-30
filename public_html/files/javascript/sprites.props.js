@@ -34,10 +34,7 @@ var ImagesListe = [
     "border_door_ground",
     "keyColor",
     "door_locked",
-    "MenuMain",
-    "MenuSelect",
-    "MenuEnd",   
-    "MenuPause",
+    "menu",    
     "spriteStaline",
     "spritePoutine",
     "spriteLenine"
