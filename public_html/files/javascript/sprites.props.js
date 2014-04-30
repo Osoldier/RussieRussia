@@ -29,7 +29,6 @@ function loadSprites()
     }
 }
 
-
 var ImagesListe = [
     "border_door_ground",
     "keyColor",
@@ -43,22 +42,14 @@ var ImagesListe = [
     "spriteLenine"
 ];
 
-
 var Images = new Array();
 
 function loadImages()
 {
-
     ImagesListe.forEach(function(entry) {
         Images[entry] = new Image();
         Images[entry].src = 'files/images/' + entry + '.png';
     });
-    /*
-     for (var i = 0; i <= 1; i++)
-     {
-     Images.push(new Image());
-     Images[Images.length - 1].src = 'files/images/' + ImagesListe[i]+'.png';
-     }*/
 }
 
 
