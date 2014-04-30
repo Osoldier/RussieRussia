@@ -1,3 +1,4 @@
+/** Liste des Sprites du jeu */
 var ImagesSprites = {
     TAPIS: "tapis.png", //TAPIS
     TABLE: "Table.png", //TABLE

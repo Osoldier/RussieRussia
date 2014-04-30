@@ -1,11 +1,19 @@
 var roomX = 0;
 var roomY = 0;
 
-//Clear Canvas
+/**
+ * Effacer la canvas
+ */
 function clearCanvas()
 {
     Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
 }
+
+/**
+ * Dessine la chambre et tout ses elements
+ * @param {Array} map
+ * @returns {null}
+ */
 function drawMap(map) {
     drawBorder();
     drawGround();
@@ -152,6 +160,10 @@ function drawMap(map) {
     });
 }
 
+/**
+ * Dessine la sol
+ * @returns {null}
+ */
 function drawGround()
 {
     var x = player.roomInfo[0];
@@ -170,6 +182,10 @@ function drawGround()
     }
 }
 
+/**
+ * dessine la bord de la map
+ * @returns {null}
+ */
 function drawBorder() {
     var x = player.roomInfo[0];
     var y = player.roomInfo[1];

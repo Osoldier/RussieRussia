@@ -2,7 +2,7 @@ var NINJA = 0;
 var DESERT = 1;
 var GHOST = 2;
 
-var PopCoolDown = 120;
+var PopCoolDown = 60;
 
 var EnemyList = new Array();
 
