@@ -4,7 +4,7 @@ var roomY = 0;
 //Clear Canvas
 function clearCanvas()
 {
-    Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);    
+    Game.context.clearRect(0, 0, Game.canvas.width, Game.canvas.height);
 }
 function drawMap(map) {
     drawBorder();
@@ -35,7 +35,7 @@ function drawMap(map) {
             case YELLOW:
                 Game.context.fillStyle = "yellow";
                 break;
-            case null: 
+            case null:
                 Game.context.fillStyle = "white";
                 break;
         }
@@ -59,10 +59,10 @@ function drawMap(map) {
                 Game.context.drawImage(Images['border_door_ground'], 233, 682, 91, 142, x - 91, y - 36, 91, 142);
                 if (entry.lock) {
                     Game.context.beginPath();
-                    Game.context.rect(x - 49, y+13, 47, 5);
-                    Game.context.rect(x - 49, y+28, 47, 5);
-                    Game.context.rect(x - 49, y+43, 47, 5);
-                    Game.context.rect(x - 49, y+55, 47, 5);
+                    Game.context.rect(x - 49, y + 13, 47, 5);
+                    Game.context.rect(x - 49, y + 28, 47, 5);
+                    Game.context.rect(x - 49, y + 43, 47, 5);
+                    Game.context.rect(x - 49, y + 55, 47, 5);
                     Game.context.fill();
                 }
                 break;
@@ -72,10 +72,10 @@ function drawMap(map) {
                 Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, x - 42, y + 10, 142, 91);
                 if (entry.lock) {
                     Game.context.beginPath();
-                    Game.context.rect(x + 7, y+10, 5, 48);
-                    Game.context.rect(x + 22, y+10, 5, 48);
-                    Game.context.rect(x + 37, y+10, 5, 48);
-                    Game.context.rect(x + 52, y+10, 5, 48);
+                    Game.context.rect(x + 7, y + 10, 5, 48);
+                    Game.context.rect(x + 22, y + 10, 5, 48);
+                    Game.context.rect(x + 37, y + 10, 5, 48);
+                    Game.context.rect(x + 52, y + 10, 5, 48);
                     Game.context.fill();
                 }
                 break;
@@ -85,10 +85,62 @@ function drawMap(map) {
                 Game.context.drawImage(Images['border_door_ground'], 142, 682, 91, 142, x + 10, y - 36, 91, 142);
                 if (entry.lock) {
                     Game.context.beginPath();
-                    Game.context.rect(x+10, y+13, 50, 5);
-                    Game.context.rect(x+10, y+28, 50, 5);
-                    Game.context.rect(x+10, y+43, 50, 5);
-                    Game.context.rect(x+10, y+55, 50, 5);
+                    Game.context.rect(x + 10, y + 13, 50, 5);
+                    Game.context.rect(x + 10, y + 28, 50, 5);
+                    Game.context.rect(x + 10, y + 43, 50, 5);
+                    Game.context.rect(x + 10, y + 55, 50, 5);
+                    Game.context.fill();
+                }
+                break;
+            case TOPLEFT:
+                y = roomY;
+                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                Game.context.drawImage(Images['border_door_ground'], 0, 682, 142, 91, x - 42, y - 91, 142, 91);
+                if (entry.lock) {
+                    Game.context.beginPath();
+                    Game.context.rect(x + 7, y - 48, 5, 48);
+                    Game.context.rect(x + 22, y - 48, 5, 48);
+                    Game.context.rect(x + 37, y - 48, 5, 48);
+                    Game.context.rect(x + 50, y - 48, 5, 48);
+                    Game.context.fill();
+                }
+                break;
+            case TOPRIGHT:
+                y = roomY;
+                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                Game.context.drawImage(Images['border_door_ground'], 0, 682, 142, 91, x - 42, y - 91, 142, 91);
+                if (entry.lock) {
+                    Game.context.beginPath();
+                    Game.context.rect(x + 7, y - 48, 5, 48);
+                    Game.context.rect(x + 22, y - 48, 5, 48);
+                    Game.context.rect(x + 37, y - 48, 5, 48);
+                    Game.context.rect(x + 50, y - 48, 5, 48);
+                    Game.context.fill();
+                }
+                break;
+            case BOTLEFT:
+                y = roomY + map[player.room].height - entry.height;
+                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, x - 42, y + 10, 142, 91);
+                if (entry.lock) {
+                    Game.context.beginPath();
+                    Game.context.rect(x + 7, y + 10, 5, 48);
+                    Game.context.rect(x + 22, y + 10, 5, 48);
+                    Game.context.rect(x + 37, y + 10, 5, 48);
+                    Game.context.rect(x + 52, y + 10, 5, 48);
+                    Game.context.fill();
+                }
+                break;
+            case BOTRIGHT:
+                y = roomY + map[player.room].height - entry.height;
+                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, x - 42, y + 10, 142, 91);
+                if (entry.lock) {
+                    Game.context.beginPath();
+                    Game.context.rect(x + 7, y + 10, 5, 48);
+                    Game.context.rect(x + 22, y + 10, 5, 48);
+                    Game.context.rect(x + 37, y + 10, 5, 48);
+                    Game.context.rect(x + 52, y + 10, 5, 48);
                     Game.context.fill();
                 }
                 break;
