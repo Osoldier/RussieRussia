@@ -1,6 +1,7 @@
 var NINJA = 0;
 var DESERT = 1;
 var GHOST = 2;
+var SERPENT = 3;
 
 var PopCoolDown = 60;
 
@@ -26,6 +27,9 @@ function enemy(x, y, type, dir) {
         case GHOST:
             this.sprite.src = 'files/images/Sprite8.png';
             break;
+        case SERPENT:
+            this.sprite.src = 'files/images/spriteOurs.png';
+            break; 
         default:
             this.sprite.src = 'files/images/Sprite4.png';
             break;
