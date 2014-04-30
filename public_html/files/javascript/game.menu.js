@@ -16,7 +16,7 @@ function menu() {
     { 
         clearInterval(this.timer);
         this.locked = true;
-        this.timer = setInterval("menu.unlock();", time);
+        this.timer = setInterval("menu.Unlock();", time);
     };
     this.Unlock = function() {
         clearInterval(this.timer);
@@ -49,8 +49,7 @@ function menu() {
 
     this.Use = function() {
         switch (this.state)
-        {
-            
+        {            
             case this.stateDEF.TITLE:
                 //TITLE
                 if (KeyState.space)
