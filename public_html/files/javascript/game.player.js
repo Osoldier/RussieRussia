@@ -56,10 +56,10 @@ function Player() {
                 case this.typeDEF.POUTINE:
                     this.Projectile = new vodka(this.x, this.y, this.direction);
                     break;
-                case this.typeDEF.STALINE:                    
+                case this.typeDEF.STALINE:
                     this.Projectile = new machette(this.x, this.y, this.direction);
                     break;
-                case this.typeDEF.LENINE:                   
+                case this.typeDEF.LENINE:
                     this.Projectile = new faucile(this.x, this.y, this.direction);
                     break;
                 default:
@@ -68,7 +68,7 @@ function Player() {
         }
     };
 
-    this.Afficher = function() {       
+    this.Afficher = function() {
         switch (this.type)
         {
             case this.typeDEF.POUTINE:
@@ -77,10 +77,10 @@ function Player() {
             case this.typeDEF.STALINE:
                 Game.context.drawImage(Images['spriteStaline'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
-            case this.typeDEF.LENINE:                
+            case this.typeDEF.LENINE:
                 Game.context.drawImage(Images['spriteLenine'], 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
-        }        
+        }
     };
 
     this.UseKeyboard = function(e) {
@@ -104,11 +104,15 @@ function Player() {
     };
 
     this.Move = function() {
-        
-        if(KeyState.y)
+
+        if (!menu.locked)
         {
-            menu.state = menu.stateDEF.PAUSE;
-            Game.state = MENU;
+            if (KeyState.p)
+            {
+                menu.lock();
+                menu.state = menu.stateDEF.PAUSE;
+                Game.state = MENU;
+            }
         }
         if (KeyState.Shift)
             this.speed = 16;
