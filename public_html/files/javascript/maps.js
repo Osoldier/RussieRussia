@@ -28,7 +28,7 @@ var EATEABLES = [
 ];
 
 var TAKEABLE = [
-    CLEF
+    CLEFB, CLEFJ, CLEFR, CLEFV
 ];
 
 //POSITIONS
