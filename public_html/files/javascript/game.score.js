@@ -35,7 +35,7 @@ function score() {
         }
         this.context.drawImage(this.background, 0, 0, 200, 768);
         for (var i = 1; i <= player.life; i++) {
-            this.context.drawImage(this.lifeSprite, 20 + (i * 32), 400, 32, 64);
+            this.context.drawImage(this.lifeSprite, 20 + (i * 32), 380, 32, 64);
         }
         var ruSize = this.flagSize / 3;
         //RUSSIE
