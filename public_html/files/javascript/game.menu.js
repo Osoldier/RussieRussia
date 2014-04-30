@@ -15,7 +15,7 @@ function menu() {
     {
         clearInterval(this.timer);
         this.locked = true;
-        this.timer = setInterval("menu.unlock();", 1000);
+        this.timer = setInterval("menu.unlock();", 500);
 
     };
     this.unlock = function() {
@@ -82,7 +82,7 @@ function menu() {
                     this.lock();
                 }
                 break;
-            //PAUSE
+                //PAUSE
             case this.stateDEF.PAUSE:
                 if (!this.locked)
                 {
@@ -99,12 +99,15 @@ function menu() {
                     }
                 }
                 break;
-            //GAME OVER
+                //GAME OVER
             case this.stateDEF.END:
-                if (KeyState.escape)
+                if (!this.locked)
                 {
-                    this.state = this.stateDEF.TITLE;
-                    this.lock();
+                    if (KeyState.escape)
+                    {
+                        this.state = this.stateDEF.TITLE;
+                        this.lock();
+                    }
                 }
                 break;
         }
