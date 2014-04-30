@@ -79,7 +79,7 @@ function CheckCollisions() {
                     //###############################
                     //définit la position d'arrivée du joueur
                     switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
-                        case TOP:
+                        case TOP || TOPLEFT || TOPRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + getAllDoorsInRoom(player.room)[i].height + 7;
                             break;
                         case LEFT:
@@ -88,7 +88,7 @@ function CheckCollisions() {
                         case RIGHT:
                             player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x - getAllDoorsInRoom(player.room)[i].width - 35;
                             break;
-                        case BOTTOM:
+                        case BOTTOM || BOTLEFT || BOTRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 35;
                             break;
                     }
@@ -103,15 +103,6 @@ function CheckCollisions() {
             }
         }
     }
-//    for (var i = 0; i < getAllObjectsInRoom(player.room).length; i++) {
-//        if ((getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x && getAllObjectsInRoom(player.room)[i].x <= player.x + player.width) || (getAllObjectsInRoom(player.room)[i].x <= player.x + player.width && getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x)) {
-//            if ((getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y && getAllObjectsInRoom(player.room)[i].y <= player.y + player.height) || (getAllObjectsInRoom(player.room)[i].y <= player.y + player.height && getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y)) {
-//                if (getAllObjectsInRoom(player.room)[i].collidable) {
-//                    return true;
-//                }
-//            }
-//        }
-//    }
 }
 
 /**
