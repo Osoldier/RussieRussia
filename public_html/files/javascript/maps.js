@@ -3,6 +3,7 @@ var TAPIS = "TAPIS";
 var TABLE = "TABLE";
 var TABLEAU = "TABLEAU";
 var PEAUOURS = "PEAUOURS";
+var CLEF = "CLEF";
 var CLEFB = "CLEFB";
 var CLEFR = "CLEFR";
 var CLEFV = "CLEFV";
