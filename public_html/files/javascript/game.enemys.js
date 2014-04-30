@@ -9,7 +9,6 @@ var EnemyList = new Array();
 function enemy(x, y, type, dir) {
     this.sprite = new Image();
     this.x = x;
-    this.changeDirCD = 120;
     this.y = y;
     this.width = 40;
     this.height = 40;
@@ -33,15 +32,11 @@ function enemy(x, y, type, dir) {
     }
     this.Update = function() {
         this.Afficher();
-        this.changeDirCD--;
-        if (this.changeDirCD <= 0) {
-            this.direction = Math.floor(Math.random()*4);
-            this.changeDirCD = 120;
-        }
-         if (this.frame >= 2)
-                this.frame = 0;
-            else
-                this.frame+=1;
+        if (this.frame >= 2)
+            this.frame = 0;
+        else
+            this.frame += 1;
+        //****Déplacement********
         switch (this.direction) {
             case player.directionDEF["DOWN"]:
                 if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3])
@@ -68,6 +63,24 @@ function enemy(x, y, type, dir) {
                     this.direction = player.directionDEF["LEFT"];
                 break;
         }
+        if (toMultiple(this.x, this.speed) > toMultiple(player.x, this.speed)) {
+            this.direction = player.directionDEF.LEFT;
+        } else if (toMultiple(this.x, this.speed) < toMultiple(player.x, this.speed)) {
+            this.direction = player.directionDEF.RIGHT;
+        } else {
+            if (toMultiple(this.y, this.speed) > toMultiple(player.y, this.speed)) {
+                this.direction = player.directionDEF.UP;
+            } else if (toMultiple(this.y, this.speed) < toMultiple(player.y, this.speed)) {
+                this.direction = player.directionDEF.DOWN;
+            }
+            else {
+                EnemyList.splice(EnemyList.indexOf(this), 1)
+            }
+        }
+
+
+        //******************************************************
+        //*************collision********************************
         if (player.Projectile !== 0) {
             if ((this.x + this.width >= player.Projectile.x && this.x <= player.Projectile.x + player.Projectile.width) || (this.x <= player.Projectile.x + player.Projectile.width && this.x + this.width >= player.Projectile.x)) {
                 if ((this.y + this.height >= player.Projectile.y && this.y <= player.Projectile.y + player.Projectile.height) || (this.y <= player.Projectile.y + player.Projectile.height && this.y + this.height >= player.Projectile.y)) {
@@ -78,15 +91,20 @@ function enemy(x, y, type, dir) {
             }
         }
         if ((this.x + this.width >= player.x && this.x <= player.x + player.width) || (this.x <= player.x + player.width && this.x + this.width >= player.x)) {
-                if ((this.y + this.height >= player.y && this.y <= player.y + player.height) || (this.y <= player.y + player.height && this.y + this.height >= player.y)) {
-                   score.hunger -= 1;
-                }
+            if ((this.y + this.height >= player.y && this.y <= player.y + player.height) || (this.y <= player.y + player.height && this.y + this.height >= player.y)) {
+                score.hunger -= 1;
             }
+        }
+        //******************************************************
     };
 
-
+    //Affichage
     this.Afficher = function() {
         Game.context.drawImage(this.sprite, 32 * this.frame, 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
     };
+}
 
+function toMultiple(i, multiple) {
+    var multi = Math.round(i / multiple) * multiple;
+    return multi;
 }
