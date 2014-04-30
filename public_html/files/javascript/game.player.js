@@ -112,7 +112,7 @@ function Player() {
         {
             if (KeyState.p)
             {
-                menu.lock();
+                menu.Lock(menu.defaultLockTime);
                 menu.state = menu.stateDEF.PAUSE;
                 Game.state = MENU;
             }
