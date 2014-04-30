@@ -3,7 +3,6 @@ var TAPIS = "TAPIS";
 var TABLE = "TABLE";
 var TABLEAU = "TABLEAU";
 var PEAUOURS = "PEAUOURS";
-var CLEF = "CLEF";
 var CLEFB = "CLEFB";
 var CLEFR = "CLEFR";
 var CLEFV = "CLEFV";
@@ -61,7 +60,7 @@ var CRIMEE = 12;
 //La Map en entier
 var GroundMap = [
     /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
-    /* 1 */ new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
+    /* 1 */ new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, null), new object(600, 100, 32, 32, false, CLEFR)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
     /* 2 */ new room(LONGER, [new object(300, 200, 32, 32, false, DRAPCOM, null)], [new door(LEFT, 4, 3, null, false), new door(RIGHT, 5, 6, null, false)]),
     /* 3 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "B")], [new door(LEFT, 6, 5, null, false), new door(RIGHT, 7, 8, null, false)]),
     /* 4 */ new room(LONGER, [new object(380, 550, 64, 64, true, LIVRE, null)], [new door(LEFT, 8, 7, null, false), new door(RIGHT, 9, 10, RED, true)]),
@@ -82,7 +81,7 @@ var GroundMap = [
     /* 19 */ new room(SQUARED, [new object(400, 600, 32, 32, false, TABLE), new object(600, 35, 50, 60, false, DRAPCOM, null), new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
     /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, true, PEAUOURS, "G"), new object(600, 35, 50, 60, false, LIVRE, null), new object(600, 500, 32, 32, true, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
     /* 21 */ new room(SQUARED, [new object(600, 600, 32, 32, true, CAVIAR)], [new door(LEFT, 46, 47, null, false), new door(TOP, 45, 761, null, false), new door(RIGHT, 44, 43, null, false)]),
-    /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEF)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
+    /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEFV)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
     /* 23 */ new room(SQUARED, [], [new door(LEFT, 39, 40, null, false), new door(TOP, 38, 76, null, false)]),
     /* 24 */ new room(LARGER, [], [new door(TOP, 53, 52, null, false), new door(BOTTOM, 54, 55, null, false)]),
     /* 25 */ new room(LARGER, [new object(300, 450, 64, 64, false, DRAPCOM)], [new door(TOP, 66, 42, GREEN, true), new door(BOTTOM, 65, 64, null, false)]),
@@ -103,7 +102,7 @@ var GroundMap = [
     /* 40 */ new room(SQUARED, [], [new door(LEFT, 162, 159, RED, true), new door(TOP, 165, 153, YELLOW, true), new door(TOP, 166, 139, RED, true), new door(RIGHT, 164, 167, null, false), new door(BOTTOM, 163, 174, BLUE, true)]),
     /* 41 */ new room(SQUARED, [], [new door(LEFT, 157, 156, RED, true), new door(TOP, 160, 145, GREEN, true), new door(TOP, 161, 152, YELLOW, true), new door(RIGHT, 159, 162, null, false), new door(BOTTOM, 158, 177, BLUE, true)]),
     /* 42 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(RIGHT, 156, 157, RED, true), new door(TOP, 154, 149, BLUE, true), new door(BOTTOM, 155, 180, null, false)]),
-    /* 43 */ new room(SQUARED, [new object(600, 700, 32, 32, true, CAVIAR), new object(550, 700, 32, 32, true, CAVIAR), new object(500, 700, 32, 32, false, CLEF), new object(500, 500, 64, 64, false, PEAUOURS, "B")], [new door(BOTTOM, 153, 165, YELLOW, true), new door(BOTTOM, 152, 161, YELLOW, true), new door(TOP, 151, 140, YELLOW, true), new door(TOP, 150, 144, YELLOW, true)]),
+    /* 43 */ new room(SQUARED, [new object(600, 700, 32, 32, true, CAVIAR), new object(550, 700, 32, 32, true, CAVIAR), new object(500, 700, 32, 32, false, CLEFJ), new object(500, 500, 64, 64, false, PEAUOURS, "B")], [new door(BOTTOM, 153, 165, YELLOW, true), new door(BOTTOM, 152, 161, YELLOW, true), new door(TOP, 151, 140, YELLOW, true), new door(TOP, 150, 144, YELLOW, true)]),
     /* 44 */ new room(SQUARED, [new object(600, 300, 32, 32, true, TABLE)], [new door(LEFT, 136, 137, GREEN, true), new door(TOP, 134, 133, YELLOW, true), new door(BOTTOM, 135, 168, null, false)]),
     /* 45 */ new room(SQUARED, [new object(600, 300, 32, 32, true, TABLE)], [new door(LEFT, 141, 142, RED, true), new door(TOP, 138, 128, null, false), new door(BOTTOM, 140, 151, YELLOW, true), new door(BOTTOM, 139, 166, RED, true), new door(RIGHT, 137, 136, GREEN, false)]),
     /* 46 */ new room(SQUARED, [new object(400, 300, 32, 32, true, TABLE), new object(500, 500, 32, 32, true, VODKA)], [new door(LEFT, 146, 147, null, false), new door(TOP, 143, 125, null, false), new door(BOTTOM, 145, 160, GREEN, true), new door(BOTTOM, 144, 150, YELLOW, true), new door(RIGHT, 142, 141, RIGHT, true)]),
