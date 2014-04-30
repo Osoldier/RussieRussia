@@ -46,7 +46,7 @@ var YELLOW = 11;
 var WHITE = 13;
 var CRIMEE = 12;
 
-//Ground
+//La Map en entier
 var GroundMap = [
     /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
     /* 1 */ new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, null)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
@@ -155,6 +155,11 @@ function door(place, id, arrival, color, lock) {
     this.lock = lock;
 }
 
+/**
+ * Trouve l'id de la chambre avec un id de porte
+ * @param {Number} id
+ * @returns {Number} RoomId
+ */
 function getRoomIdWithDoor(id) {
     for (var i = 0; i < player.Map.length; i++) {
         for (var j = 0; j < player.Map[i].doors.length; j++) {
@@ -165,14 +170,29 @@ function getRoomIdWithDoor(id) {
     return null;
 }
 
+/**
+ * Trouve un tableau avec toutes les portes de la chambre via l'id de la chambre
+ * @param {Number} id
+ * @returns {player.Map.doors}
+ */
 function getAllDoorsInRoom(id) {
     return player.Map[id].doors;
 }
 
+/**
+ * Trouve un tableau avec tout les objets de la chambre via l'id de la chambre
+ * @param {Number} id
+ * @returns {player.Map.objects}
+ */
 function getAllObjectsInRoom(id) {
     return player.Map[id].objects;
 }
 
+/**
+ * Trouve l'objet de la porte via son id
+ * @param {Number} id
+ * @returns {door}
+ */
 function getDoorWithId(id) {
     for (var i = 0; i < player.Map.length; i++) {
         for (var j = 0; j < player.Map[i].doors.length; j++) {
@@ -183,7 +203,35 @@ function getDoorWithId(id) {
     return null;
 }
 
+/**
+ * Trouve l'id de la chambre avec le type et la spécificité d'un objet
+ * @param {Number} type
+ * @param {String} spec
+ * @returns {Number}
+ * @throws {No object match} Objet introuvable
+ */
+function getRoomIdWithObjectTypeAndSpec(type, spec) {
+    for (var i = 0; i < player.Map.length; i++) {
+        for (var j = 0; j < player.Map[i].objects.length; j++) {
+            var objectCurrent = player.Map[i].objects[j];
+            if(objectCurrent.type == type && objectCurrent.spec == spec) {
+                return i;
+            }
+        }
+    }
+    throw "No object match";
+}
+
+/**
+ * Initialise la chambre avec son id
+ * @param {Array} map Optionel
+ * @param {Number} id
+ * @returns {null}
+ */
 function initRoom(map, id) {
+    if(map === null || typeof map === undefined) {
+        map = GroundMap;
+    }
     var roomX = Game.canvas.width / 2 - (map[id].width / 2), roomY = Game.canvas.height / 2 - (map[id].height / 2);
     map[id].doors.forEach(function(entry) {
         Game.context.beginPath();
