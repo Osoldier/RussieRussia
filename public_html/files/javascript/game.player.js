@@ -1,9 +1,5 @@
 // PLAYER
-
 var player = new Player();
-
-var PlayerException = {
-};
 
 function Player() {
     this.Map = GroundMap;
@@ -36,7 +32,10 @@ function Player() {
         'STALINE': 1,
         'LENINE': 2
     };
-
+    /**
+     * Fonction principale, affiche et gère le déplacement
+     * @returns {undefined}
+     */
     this.Update = function() {
         this.Move();
         this.Afficher();
@@ -49,7 +48,11 @@ function Player() {
             }
         }
     };
-
+    /**
+     * Si aucuns projectile n'existe, crée un
+     * @returns {null}
+     * @throws {No weapon set} Si le type est non défini
+     */
     this.Shoot = function() {
         if (this.Projectile === 0) {
             switch (this.type) {
@@ -63,7 +66,7 @@ function Player() {
                     this.Projectile = new faucile(this.x, this.y, this.direction);
                     break;
                 default:
-                    throw new PlayerException;
+                    throw "No weapon set";
             }
         }
     };
