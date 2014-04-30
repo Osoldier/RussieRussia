@@ -10,36 +10,38 @@ function menu() {
     };
     this.state = 0;
     this.timer = null;
+    this.defaultLockTime = 500;
     this.locked = false;
-    this.lock = function()
-    {
+    this.Lock = function(time)
+    { 
         clearInterval(this.timer);
         this.locked = true;
-        this.timer = setInterval("menu.unlock();", 500);
-
+        this.timer = setInterval("menu.unlock();", time);
     };
-    this.unlock = function() {
+    this.Unlock = function() {
         clearInterval(this.timer);
         this.locked = false;
     };
-
     this.Afficher = function() {
         switch (this.state)
         {
             case this.stateDEF.TITLE:
-                //Titre
+                //TITLE
                 Game.context.drawImage(Images['MenuMain'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.SELECT:
-                //Choix Joueur
+                //PLAYER TYPE SELECTION
                 Game.context.drawImage(Images['MenuSelect'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.PAUSE:
+                //PAUSE
                 Game.context.drawImage(Images['MenuPause'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
             case this.stateDEF.NOTHING:
+                //NOTHING
                 break;
             case this.stateDEF.END:
+                //GAME OVER
                 Game.context.drawImage(Images['MenuEnd'], 0, 0, 1248, 900, 0, 0, 1248, 900);
                 break;
         }
@@ -48,22 +50,23 @@ function menu() {
     this.Use = function() {
         switch (this.state)
         {
-            //TITRE
+            
             case this.stateDEF.TITLE:
-
+                //TITLE
                 if (KeyState.space)
                     this.state = this.stateDEF.SELECT;
-                this.lock();
+                this.Lock(this.defaultLockTime);
                 break;
-                //CHOIX PERSONNAGE
+                
             case this.stateDEF.SELECT:
+                //PLAYER TYPE SELECTION
                 //Lénine
                 if (KeyState.l)
                 {
                     player.type = player.typeDEF.LENINE;
                     Game.state = GAME;
                     this.state = this.stateDEF.NOTHING;
-                    this.lock();
+                     this.Lock(this.defaultLockTime);
                 }
                 //Poutine
                 if (KeyState.p)
@@ -71,7 +74,7 @@ function menu() {
                     player.type = player.typeDEF.POUTINE;
                     Game.state = GAME;
                     this.state = this.stateDEF.NOTHING;
-                    this.lock();
+                     this.Lock(this.defaultLockTime);
                 }
                 //Staline
                 if (KeyState.s)
@@ -79,34 +82,35 @@ function menu() {
                     player.type = player.typeDEF.STALINE;
                     Game.state = GAME;
                     this.state = this.stateDEF.NOTHING;
-                    this.lock();
+                     this.Lock(this.defaultLockTime);
                 }
-                break;
-                //PAUSE
+                break;               
             case this.stateDEF.PAUSE:
+                 //PAUSE
                 if (!this.locked)
                 {
                     if (KeyState.p)
                     {
                         Game.state = GAME;
                         this.state = this.stateDEF.NOTHING;
-                        this.lock();
+                         this.Lock(this.defaultLockTime);
                     }
                     if (KeyState.escape)
                     {
                         this.state = this.stateDEF.END;
-                        this.lock();
+                         this.Lock(this.defaultLockTime);
                     }
                 }
                 break;
-                //GAME OVER
+                
             case this.stateDEF.END:
+                //GAME OVER
                 if (!this.locked)
                 {
                     if (KeyState.escape)
                     {
                         this.state = this.stateDEF.TITLE;
-                        this.lock();
+                         this.Lock(this.defaultLockTime);
                     }
                 }
                 break;
