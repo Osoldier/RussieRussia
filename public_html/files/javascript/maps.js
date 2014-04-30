@@ -19,6 +19,14 @@ var CAVIAR = "CAVIAR";
 var CIGARETTE = "CIGARETTE";
 var PORTECRIMEA = "PORTECRIMEA";
 
+//Objects à manger
+var EATEABLES = [
+    VODKA, CAVIAR, CIGARETTE
+];
+
+var TAKEABLE = [
+    CLEF
+];
 
 //POSITIONS
 var TOP = 0;
@@ -68,37 +76,37 @@ var GroundMap = [
     /* 17 */ new room(LONGER, [new object(980, 350, 50, 60, false, TABLEAU, null)], [new door(TOP, 69, 70, RED, true), new door(BOTTOM, 68, 67, null, false)]),
     /* 18 */ new room(LONGER, [new object(200, 350, 50, 60, false, TABLEAU, null), new object(400, 300, 30, 50, true, CIGARETTE)], [new door(TOP, 67, 68, null, false), new door(BOTTOM, 52, 53, null, false), new door(RIGHT, 51, 50, GREEN, true)]),
     /* 19 */ new room(SQUARED, [new object(400, 600, 32, 32, false, TABLE), new object(600, 35, 50, 60, false, DRAPCOM, null), new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
-    /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, true, PEAUOURS, "G"), new object(600, 35, 50, 60, false, LIVRE, null), new object(600, 500, 32, 32, false, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
-    /* 21 */ new room(SQUARED, [new object(600, 600, 32, 32, false, CAVIAR)], [new door(LEFT, 46, 47, null, false), new door(TOP, 45, 761, null, false), new door(RIGHT, 44, 43, null, false)]),
+    /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, true, PEAUOURS, "G"), new object(600, 35, 50, 60, false, LIVRE, null), new object(600, 500, 32, 32, true, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
+    /* 21 */ new room(SQUARED, [new object(600, 600, 32, 32, true, CAVIAR)], [new door(LEFT, 46, 47, null, false), new door(TOP, 45, 761, null, false), new door(RIGHT, 44, 43, null, false)]),
     /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEF)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
     /* 23 */ new room(SQUARED, [], [new door(LEFT, 39, 40, null, false), new door(TOP, 38, 76, null, false)]),
     /* 24 */ new room(LARGER, [], [new door(TOP, 53, 52, null, false), new door(BOTTOM, 54, 55, null, false)]),
     /* 25 */ new room(LARGER, [new object(300, 450, 64, 64, false, DRAPCOM)], [new door(TOP, 66, 42, GREEN, true), new door(BOTTOM, 65, 64, null, false)]),
-    /* 26 */ new room(SQUARED, [new object(280, 90, 96, 96, true, TANK), new object(350, 400, 32, 32, true, TABLE), new object(350, 450, 32, 32, false, CAVIAR)], [new door(TOP, 55, 54, null, false), new door(RIGHT, 56, 57, null, false), new door(BOTTOM, 71, 72, BLUE, true)]),
-    /* 27 */ new room(LONGER, [new object(500, 500, 32, 32, false, CAVIAR), new object(520, 500, 32, 32, false, CIGARETTE)], [new door(LEFT, 57, 56, null, false), new door(RIGHT, 58, 59, null, false)]),
-    /* 28 */ new room(LONGER, [new object(500, 500, 32, 32, false, CAVIAR)], [new door(LEFT, 59, 58, null, false), new door(RIGHT, 60, 61, null, false)]),
+    /* 26 */ new room(SQUARED, [new object(280, 90, 96, 96, true, TANK), new object(350, 400, 32, 32, true, TABLE), new object(350, 450, 32, 32, true, CAVIAR)], [new door(TOP, 55, 54, null, false), new door(RIGHT, 56, 57, null, false), new door(BOTTOM, 71, 72, BLUE, true)]),
+    /* 27 */ new room(LONGER, [new object(500, 500, 32, 32, true, CAVIAR), new object(520, 500, 32, 32, true, CIGARETTE)], [new door(LEFT, 57, 56, null, false), new door(RIGHT, 58, 59, null, false)]),
+    /* 28 */ new room(LONGER, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(LEFT, 59, 58, null, false), new door(RIGHT, 60, 61, null, false)]),
     /* 29 */ new room(LONGER, [new object(500, 140, 60, 60, true, LIVRE)], [new door(LEFT, 61, 60, null, false), new door(RIGHT, 62, 63, null, false)]),
-    /* 30 */ new room(SQUARED, [new object(280, 90, 96, 96, true, TANK), new object(280, 180, 32, 32, true, CIGARETTE), new object(700, 700, 32, 32, false, CIGARETTE), new object(600, 400, 64, 64, false, PEAUOURS, "I")], [new door(TOP, 64, 65, null, false), new door(LEFT, 63, 62, null, false)]),
+    /* 30 */ new room(SQUARED, [new object(280, 90, 96, 96, true, TANK), new object(280, 180, 32, 32, true, CIGARETTE), new object(700, 700, 32, 32, true, CIGARETTE), new object(600, 400, 64, 64, false, PEAUOURS, "I")], [new door(TOP, 64, 65, null, false), new door(LEFT, 63, 62, null, false)]),
     /* 31 */ new room(LARGER, [], [new door(TOP, 72, 71, BLUE, true), new door(BOTTOM, 73, 74, null, false)]),
-    /* 32 */ new room(SQUARED, [new object(550, 750, 32, 32, true, CIGARETTE), new object(600, 750, 32, 32, true, VODKA), new object(650, 750, 32, 32, false, CAVIAR)], [new door(TOP, 74, 73, null, false), new door(TOP, 75, "CAVERNE", null, false)]),
-    /* 33 */ new room(SQUARED, [new object(700, 350, 32, 32, true, TABLE), new object(370, 350, 32, 32, false, CAVIAR)], [new door(LEFT, 183, 171, null, false), new door(RIGHT, 185, 666, null, false), new door(BOTTOM, 184, 41, null, false)]),
+    /* 32 */ new room(SQUARED, [new object(550, 750, 32, 32, true, CIGARETTE), new object(600, 750, 32, 32, true, VODKA), new object(650, 750, 32, 32, true, CAVIAR)], [new door(TOP, 74, 73, null, false), new door(TOP, 75, "CAVERNE", null, false)]),
+    /* 33 */ new room(SQUARED, [new object(700, 350, 32, 32, true, TABLE), new object(370, 350, 32, 32, true, CAVIAR)], [new door(LEFT, 183, 171, null, false), new door(RIGHT, 185, 666, null, false), new door(BOTTOM, 184, 41, null, false)]),
     /* 34 */ new room(SQUARED, [new object(500, 450, 32, 32, true, VODKA), new object(370, 350, 64, 64, false, PEAUOURS, "C")], [new door(LEFT, 172, 173, YELLOW, true), new door(RIGHT, 171, 183, null, false), new door(TOP, 170, 169, null, false)]),
     /* 35 */ new room(SQUARED, [new object(500, 450, 32, 32, true, VODKA)], [new door(LEFT, 175, 176, null, false), new door(RIGHT, 173, 172, YELLOW, true), new door(TOP, 174, 163, BLUE, true)]),
     /* 36 */ new room(SQUARED, [new object(500, 450, 32, 32, true, TABLE)], [new door(LEFT, 178, 179, null, false), new door(RIGHT, 176, 175, null, false), new door(TOP, 177, 158, BLUE, true)]),
     /* 37 */ new room(SQUARED, [], [new door(LEFT, 181, 182, GREEN, true), new door(RIGHT, 179, 178, null, false), new door(TOP, 180, 155, null, false)]),
-    /* 38 */ new room(SQUARED, [new object(800, 750, 32, 32, true, TABLE), new object(550, 35, 64, 64, true, LIVRE), new object(500, 450, 32, 32, false, CAVIAR)], [new door(RIGHT, 182, 181, GREEN, true)]),
+    /* 38 */ new room(SQUARED, [new object(800, 750, 32, 32, true, TABLE), new object(550, 35, 64, 64, true, LIVRE), new object(500, 450, 32, 32, true, CAVIAR)], [new door(RIGHT, 182, 181, GREEN, true)]),
     /* 39 */ new room(SQUARED, [new object(500, 400, 64, 64, true, PUIT, "D")], [new door(LEFT, 167, 164, null, false), new door(TOP, 168, 135, null, false), new door(BOTTOM, 169, 170, null, false)]),
     /* 40 */ new room(SQUARED, [], [new door(LEFT, 162, 159, RED, true), new door(TOP, 165, 153, YELLOW, true), new door(TOP, 166, 139, RED, true), new door(RIGHT, 164, 167, null, false), new door(BOTTOM, 163, 174, BLUE, true)]),
     /* 41 */ new room(SQUARED, [], [new door(LEFT, 157, 156, RED, true), new door(TOP, 160, 145, GREEN, true), new door(TOP, 161, 152, YELLOW, true), new door(RIGHT, 159, 162, null, false), new door(BOTTOM, 158, 177, BLUE, true)]),
-    /* 42 */ new room(SQUARED, [new object(500, 500, 32, 32, false, CAVIAR)], [new door(RIGHT, 156, 157, RED, true), new door(TOP, 154, 149, BLUE, true), new door(BOTTOM, 155, 180, null, false)]),
-    /* 43 */ new room(SQUARED, [new object(600, 700, 32, 32, false, CAVIAR), new object(550, 700, 32, 32, false, CAVIAR), new object(500, 700, 32, 32, false, CLEF), new object(500, 500, 64, 64, false, PEAUOURS, "B")], [new door(BOTTOM, 153, 165, YELLOW, true), new door(BOTTOM, 152, 161, YELLOW, true), new door(TOP, 151, 140, YELLOW, true), new door(TOP, 150, 144, YELLOW, true)]),
+    /* 42 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(RIGHT, 156, 157, RED, true), new door(TOP, 154, 149, BLUE, true), new door(BOTTOM, 155, 180, null, false)]),
+    /* 43 */ new room(SQUARED, [new object(600, 700, 32, 32, true, CAVIAR), new object(550, 700, 32, 32, true, CAVIAR), new object(500, 700, 32, 32, false, CLEF), new object(500, 500, 64, 64, false, PEAUOURS, "B")], [new door(BOTTOM, 153, 165, YELLOW, true), new door(BOTTOM, 152, 161, YELLOW, true), new door(TOP, 151, 140, YELLOW, true), new door(TOP, 150, 144, YELLOW, true)]),
     /* 44 */ new room(SQUARED, [new object(600, 300, 32, 32, true, TABLE)], [new door(LEFT, 136, 137, GREEN, true), new door(TOP, 134, 133, YELLOW, true), new door(BOTTOM, 135, 168, null, false)]),
     /* 45 */ new room(SQUARED, [new object(600, 300, 32, 32, true, TABLE)], [new door(LEFT, 141, 142, RED, true), new door(TOP, 138, 128, null, false), new door(BOTTOM, 140, 151, YELLOW, true), new door(BOTTOM, 139, 166, RED, true), new door(RIGHT, 137, 136, GREEN, false)]),
     /* 46 */ new room(SQUARED, [new object(400, 300, 32, 32, true, TABLE), new object(500, 500, 32, 32, true, VODKA)], [new door(LEFT, 146, 147, null, false), new door(TOP, 143, 125, null, false), new door(BOTTOM, 145, 160, GREEN, true), new door(BOTTOM, 144, 150, YELLOW, true), new door(RIGHT, 142, 141, RIGHT, true)]),
     /* 47 */ new room(SQUARED, [], [new door(RIGHT, 147, 146, null, false), new door(TOP, 148, 122, null, false), new door(BOTTOM, 149, 154, BLUE, true)]),
     /* 48 */ new room(SQUARED, [], [new door(LEFT, 130, 129, null, false), new door(TOP, 131, 132, RED, true), new door(BOTTOM, 133, 134, YELLOW, true)]),
-    /* 49 */ new room(SQUARED, [new object(600, 300, 32, 32, false, CAVIAR)], [new door(LEFT, 127, 126, GREEN, true), new door(RIGHT, 129, 130, null, false), new door(BOTTOM, 128, 138, null, false)]),
-    /* 50 */ new room(SQUARED, [new object(600, 300, 32, 32, false, CAVIAR)], [new door(LEFT, 124, 123, null, false), new door(RIGHT, 126, 127, GREEN, true), new door(BOTTOM, 125, 143, null, false)]),
+    /* 49 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 127, 126, GREEN, true), new door(RIGHT, 129, 130, null, false), new door(BOTTOM, 128, 138, null, false)]),
+    /* 50 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 124, 123, null, false), new door(RIGHT, 126, 127, GREEN, true), new door(BOTTOM, 125, 143, null, false)]),
 ];
 
 function room(model, objects, doors) {

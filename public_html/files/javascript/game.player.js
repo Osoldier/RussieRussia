@@ -7,9 +7,9 @@ function Player() {
     this.roomInfo = new Array();
     this.time = 0;
     this.score = 0;
-    this.object1 = 0;
-    this.object2 = 0;
-    this.object3 = 0;
+    this.object1 = null;
+    this.object2 = null;
+    this.object3 = null;
     this.life = 3;
     this.x = 600;
     this.y = 400;

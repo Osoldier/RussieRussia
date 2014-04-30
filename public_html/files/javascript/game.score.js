@@ -63,6 +63,17 @@ function score() {
         this.context.rect(20 + ukSize, 650 - 200, ukSize, 200 - this.hunger);
         this.context.fill();
         //FIN_UKRAINE
+        
+        //OBJETS
+        if(player.object1 != null) {
+            this.context.drawImage(ImagesSprites[player.object1], 25, 85, 32, 32);
+        }
+        if(player.object3 != null) {
+            this.context.drawImage(ImagesSprites[player.object2], 25+32+5, 85, 32, 32);
+        }
+        if(player.object3 != null) {
+            this.context.drawImage(ImagesSprites[player.object3], 25+32+32+5, 85, 32, 32);
+        }
     };
 }
 ;

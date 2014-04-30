@@ -104,7 +104,38 @@ function CheckCollisions() {
                         getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
                     }
                 }
+
+
             }
+        }
+    }
+    for (var i = 0; i < getAllObjectsInRoom(player.room).length; i++) {
+        var objet = getAllObjectsInRoom(player.room)[i];
+        if ((objet.x + objet.width >= player.x && objet.x <= player.x + player.width)) {
+            if ((objet.y + objet.height >= player.y && objet.y <= player.y + player.height)) {
+                if (objet.collidable != true) {
+                    if (contains(TAKEABLE, getAllObjectsInRoom(player.room)[i].type)) {
+                        if (KeyState.ctrlLeft) {
+                            var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
+                            if (player.object1 == null) {
+                                player.object1 = getAllObjectsInRoom(player.room)[i].type;
+                                player.Map[player.room].objects.splice(index, 1);
+
+                            } else if (player.object2 == null) {
+                                player.object2 = getAllObjectsInRoom(player.room)[i].type;
+                                player.Map[player.room].objects.splice(index, 1);
+
+                            } else if (player.object3 == null) {
+                                player.object3 = getAllObjectsInRoom(player.room)[i].type;
+                                player.Map[player.room].objects.splice(index, 1);
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
         }
     }
 }
@@ -121,12 +152,33 @@ function WouldCollide(dX, dY) {
         //si il est en collison avec le DeltaX et DeltaY
         if ((getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x + dX && getAllObjectsInRoom(player.room)[i].x <= player.x + dX + player.width) || (getAllObjectsInRoom(player.room)[i].x <= player.x + dX + player.width && getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x + dX)) {
             if ((getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y + dY && getAllObjectsInRoom(player.room)[i].y <= player.y + dY + player.height) || (getAllObjectsInRoom(player.room)[i].y <= player.y + dY + player.height && getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y + dY)) {
-               //Si l'object n'es pas un tapis, etc..
+                //Si l'object n'es pas un tapis, etc..
                 if (getAllObjectsInRoom(player.room)[i].collidable) {
                     //Si c'est un puit
-                    if(getAllObjectsInRoom(player.room)[i].type === PUIT) {
+                    if (getAllObjectsInRoom(player.room)[i].type === PUIT) {
                         //on cheche la peau d'ours qui est en lien
                         player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
+                    } else {
+                        if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
+                            if (score.hunger < 200) {
+                                score.hunger += 30;
+                                var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
+                                player.Map[player.room].objects.splice(index, 1);
+                                if (score.hunger > 200) {
+                                    score.hunger = 200;
+                                }
+                            }
+                        } else if (contains(TAKEABLE, getAllObjectsInRoom(player.room)[i].type)) {
+                            if (KeyState.ctrlLeft) {
+                                if (typeof player.object1 != undefined) {
+                                    player.object1 = getAllObjectsInRoom(player.room)[i].type;
+                                } else if (typeof player.object2 != undefined) {
+                                    player.object2 = getAllObjectsInRoom(player.room)[i].type;
+                                } else if (typeof player.object3 != undefined) {
+                                    player.object3 = getAllObjectsInRoom(player.room)[i].type;
+                                }
+                            }
+                        }
                     }
                     return true;
                 }
@@ -181,9 +233,10 @@ function containsKey(array, key) {
 }
 
 function contains(array, value) {
-    array.forEach(function(entry) {
-        if (entry == value)
+    for (var i = 0; i <= array.length; i++) {
+        if (array[i] == value) {
             return true;
-    });
+        }
+    }
     return false;
 }
