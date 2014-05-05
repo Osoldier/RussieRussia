@@ -42,8 +42,8 @@ var BOTLEFT = 12;
 var BOTRIGHT = 22;
 
 //PORTES
-var DOORWIDTH = 70;
-var DOORHEIGHT = 10;
+var DOORWIDTH = 141;
+var DOORHEIGHT = 71;
 
 //MODEL
 var LONGER = 100;
@@ -67,7 +67,7 @@ var GroundMap = [
     /* 5 */ new room(SQUARED, [new object(950, 500, 32, 32, false, TANK, null)], [new door(LEFT, 10, 9, RED, true), new door(BOTTOM, 11, 12, GREEN, true)]),
     /* 6 */ new room(LARGER, [new object(660, 300, 32, 32, true, TABLE, null), new object(500, 500, 32, 32, true, TABLE, null)], [new door(TOP, 12, 11, GREEN, true), new door(BOTTOM, 13, 14, null, false)]),
     /* 7 */ new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, "FIRSTFLOOR", null, false), new door(LEFT, 26, 25, null, false)]),
-    /* 8 */ new room(SQUARED, [new object(270, 200, 32, 32, false, LIVRE)], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, BLUE, true)]),
+    /* 8 */ new room(SQUARED, [], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, BLUE, true)]),
     /* 9 */ new room(SQUARED, [new object(950, 400, 113, 120, true, PORTECRIMEA)], [new door(TOP, 18, 17, BLUE, true), new door(LEFT, 19, 20, null, false), new door(BOTTOM, 76, 38, null, false)]),
     /* 10 */ new room(LONGER, [], [new door(RIGHT, 20, 19, null, false), new door(LEFT, 21, 22, null, false)]),
     /* 11 */ new room(LARGER, [], [new door(RIGHT, 22, 21, null, false), new door(TOP, 23, 24, null, false), new door(BOTTOM, 761, 45, null, false)]),
@@ -125,9 +125,9 @@ var GroundMap = [
     /* 63 */ new room(LONGER, [],[new door(LEFT,205,204,null,false),new door(BOTTOM,206,85,YELLOW,true),new door(RIGHT,207,208,null,false)]),
     /* 64 */ new room(SQUARED, [new object(500,600,32,32,true,VODKA)],[new door(LEFT,208,207,null,false),new door(BOTTOM,209,214,null,false)]),
     /* 65 */ new room(LARGER, [new object(400,500,32,32,true,CAVIAR)],[new door(TOP,210,201,null,false),new door(BOTTOM,211,216,GREEN,true)]),
-    /* 66 */ new room(LARGER, [new object(400,500,32,32,true,PUIT,"A")],[new door(TOP,212,203,null,false),new door(BOTTOM,213,218,null,false)]),
-    /* 67 */ new room(LARGER, [new object(400,500,32,32,true,PUIT,"Z")],[new door(TOP,200,196,null,false),new door(BOTTOM,201,210,null,false)]),
-    /* 68 */
+    /* 66 */ new room(LARGER, [new object(370,400,64,64,true,TANK)],[new door(TOP,212,213,null,false),new door(BOTTOM,213,218,null,false)]),
+    /* 67 */ new room(LARGER, [new object(450,500,32,32,true,VODKA)],[new door(TOP,214,209,null,false),new door(BOTTOM,215,225,BLUE,true)]),
+    /* 68 */ new room(LARGER, [new object(400,500,64,64,true,PUIT,"G"),new object(370,400,64,64,true,TANK),new object(500,400,64,64,true,PEAUOURS,"H")],[new door(TOP,200,196,null,false),new door(BOTTOM,201,210,null,false)]),
     /* 69 */
     /* 70 */
     /* 71 */
