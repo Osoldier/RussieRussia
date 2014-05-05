@@ -132,26 +132,26 @@ var GroundMap = [
     /* 68 */ new room(LARGER, [new object(580, 200, 64, 64, true, PUIT, "G"), new object(815, 400, 64, 64, true, TANK), new object(580, 720, 64, 64, false, PEAUOURS, "H")], [new door(TOP, 216, 211, GREEN, true), new door(BOTTOM, 217, 232, null, false)]),
     /* 69 */ new room(SQUARED, [], [new door(RIGHT, 220, 221, null, false), new door(TOP, 218, 213, null, false), new door(BOTTOM, 219, 235, GREEN, true)]),
     /* 70 */ new room(LONGER, [new object(200, 200, 32, 32, VODKA)], [new door(LEFT, 221, 220, null, false)])
-            /* 71 */
-            /* 72 */
-            /* 73 */
-            /* 74 */
-            /* 75 */
-            /* 76 */
-            /* 77 */
-            /* 78 */
-            /* 79 */
-            /* 80 */
-            /* 81 */
-            /* 82 */
-            /* 83 */
-            /* 84 */
-            /* 85 */
-            /* 86 */
-            /* 87 */
-            /* 88 */
-            /* 89 */
-            /* 90 */
+    /* 71 */
+    /* 72 */
+    /* 73 */
+    /* 74 */
+    /* 75 */
+    /* 76 */
+    /* 77 */
+    /* 78 */
+    /* 79 */
+    /* 80 */
+    /* 81 */
+    /* 82 */
+    /* 83 */
+    /* 84 */
+    /* 85 */
+    /* 86 */
+    /* 87 */
+    /* 88 */
+    /* 89 */
+    /* 90 */
 ];
 
 function room(model, objects, doors) {
@@ -190,28 +190,28 @@ function door(place, id, arrival, color, lock) {
         case TOPRIGHT:
             this.imgHeight = DOORIMGHEIGHT;
             this.imgwidth = DOORIMGWIDTH;
-            this.width = DOORWIDTH
-            this.height = DOORHEIGHT
+            this.width = DOORWIDTH;
+            this.height = DOORHEIGHT;
             break;
         case BOTTOM:
         case BOTLEFT:
         case BOTRIGHT:
             this.imgHeight = DOORIMGHEIGHT;
             this.imgwidth = DOORIMGWIDTH;
-            this.width = DOORWIDTH
-            this.height = DOORHEIGHT
+            this.width = DOORWIDTH;
+            this.height = DOORHEIGHT;
             break;
         case LEFT:
             this.imgHeight = DOORIMGWIDTH;
             this.imgwidth = DOORIMGHEIGHT;
-            this.width = DOORHEIGHT
-            this.height = DOORWIDTH
+            this.width = DOORHEIGHT;
+            this.height = DOORWIDTH;
             break;
         case RIGHT:
             this.imgHeight = DOORIMGWIDTH;
             this.imgwidth = DOORIMGHEIGHT;
-            this.width = DOORHEIGHT
-            this.height = DOORWIDTH
+            this.width = DOORHEIGHT;
+            this.height = DOORWIDTH;
             break;
     }
     this.id = id;
