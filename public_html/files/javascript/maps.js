@@ -146,10 +146,10 @@ var GroundMap = [
     /* 76 */ new room(SQUARED, [new object(300,400,32,32,true,CAVIAR),new object(500,600,32,32,true,VODKA)],[new door(TOP,236,226,null,false),new door(RIGHT,237,238,null,false)]),
     /* 77 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR)],[new door(LEFT,238,237,null,false),new door(TOP,239,229,null,false)]),
     /* THE ATTIC */
-    /* 78 */
-    /* 79 */
-    /* 80 */
-    /* 81 */
+    /* 78 */ new room(SQUARED, [new object(300,250,32,32,true,CIGARETTE),new object(300,740,64,64,true,TANK)],[new door(RIGHT,78,79,null,false),new door(BOTTOM,77,102,null,false)]),
+    /* 79 */ new room(SQUARED, [new object(350,400,32,32,true,TABLE),new object(700,400,32,32,true,TABLE),new object(500,500,64,64,true,PUIT,"H")],[new door(LEFT,79,78,null,false),new door(RIGHT,80,82,GREEN,true),new door(BOTTOM,81,105,null,false)]),
+    /* 80 */ new room(LONGER,[new object(350,300,32,32,true,TABLE),new object(700,300,32,32,true,TABLE)],[new door(LEFT,82,80,GREEN,true),new door(RIGHT,83,84,null,false)]),
+    /* 81 */ new room(SQUARED,[new object(500,500,32,32,true,VODKA)],[new door(LEFT,84,83,null,false),new door(TOP,85,206,null,false),new door(BOTTOM,86,87,null,false)]),
     /* 82 */
     /* 83 */
     /* 84 */
