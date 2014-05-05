@@ -132,26 +132,26 @@ var GroundMap = [
     /* 68 */ new room(LARGER, [new object(580, 200, 64, 64, true, PUIT, "G"), new object(815, 400, 64, 64, true, TANK), new object(580, 720, 64, 64, false, PEAUOURS, "H")], [new door(TOP, 216, 211, GREEN, true), new door(BOTTOM, 217, 232, null, false)]),
     /* 69 */ new room(SQUARED, [], [new door(RIGHT, 220, 221, null, false), new door(TOP, 218, 213, null, false), new door(BOTTOM, 219, 235, GREEN, true)]),
     /* 70 */ new room(LONGER, [new object(200, 200, 32, 32, VODKA)], [new door(LEFT, 221, 220, null, false)])
-    /* 71 */
-    /* 72 */
-    /* 73 */
-    /* 74 */
-    /* 75 */
-    /* 76 */
-    /* 77 */
-    /* 78 */
-    /* 79 */
-    /* 80 */
-    /* 81 */
-    /* 82 */
-    /* 83 */
-    /* 84 */
-    /* 85 */
-    /* 86 */
-    /* 87 */
-    /* 88 */
-    /* 89 */
-    /* 90 */
+            /* 71 */
+            /* 72 */
+            /* 73 */
+            /* 74 */
+            /* 75 */
+            /* 76 */
+            /* 77 */
+            /* 78 */
+            /* 79 */
+            /* 80 */
+            /* 81 */
+            /* 82 */
+            /* 83 */
+            /* 84 */
+            /* 85 */
+            /* 86 */
+            /* 87 */
+            /* 88 */
+            /* 89 */
+            /* 90 */
 ];
 
 function room(model, objects, doors) {
@@ -308,35 +308,50 @@ function initRoom(map, id) {
             case TOP:
                 y = roomY;
                 x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y - DOORIMGHEIGHT + 20;
                 break;
             case LEFT:
                 y = roomY + (map[id].height / 2) - (DOORWIDTH / 2);
                 x = roomX;
-                imgX = roomX - DOORIMGWIDTH;
+                imgX = x - DOORIMGHEIGHT + 20;
+                imgY = y - 20;
                 break;
             case BOTTOM:
                 y = roomY + map[id].height - DOORHEIGHT;
                 x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y;
                 break;
             case RIGHT:
                 y = roomY + (map[id].height / 2) - DOORWIDTH / 2;
                 x = roomX + (map[id].width) - DOORHEIGHT;
+                imgX = x;
+                imgY = y - 20;
                 break;
             case TOPLEFT:
                 y = roomY;
                 x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y - DOORIMGHEIGHT + 20;
                 break;
             case TOPRIGHT:
                 y = roomY;
                 x = roomX + 3 * (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y - DOORIMGHEIGHT + 20;
                 break;
             case BOTLEFT:
                 y = roomY + map[id].height - DOORHEIGHT;
                 x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y;
                 break;
             case BOTRIGHT:
                 y = roomY + map[id].height - DOORHEIGHT;
                 x = roomX + 3 * (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y;
                 break;
         }
         entry.x = x;
