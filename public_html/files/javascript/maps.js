@@ -310,7 +310,7 @@ function initRoom(map, id) {
                 x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
                 break;
             case LEFT:
-                y = roomY + (map[id].height / 2) - (DOORHEIGHT / 2);
+                y = roomY + (map[id].height / 2) - (DOORWIDTH / 2);
                 x = roomX;
                 imgX = roomX - DOORIMGWIDTH;
                 break;
@@ -319,7 +319,7 @@ function initRoom(map, id) {
                 x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
                 break;
             case RIGHT:
-                y = roomY + (map[id].height / 2) - DOORHEIGHT / 2;
+                y = roomY + (map[id].height / 2) - DOORWIDTH / 2;
                 x = roomX + (map[id].width) - DOORHEIGHT;
                 break;
             case TOPLEFT:
