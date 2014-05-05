@@ -159,6 +159,7 @@ function WouldCollide(dX, dY) {
                     if (getAllObjectsInRoom(player.room)[i].type === PUIT) {
                         //on cheche la peau d'ours qui est en lien
                         player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
+                        initRoom(GroundMap, player.room);
                     } else {
                         if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
                             if (score.hunger < 200) {

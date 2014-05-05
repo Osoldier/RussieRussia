@@ -6,7 +6,7 @@ function vodka(x, y, dir) {
     this.dir = dir;
     this.theta = 1;
     this.sprite = new Image();
-    this.sprite.src = "files/images/Vodka.png";
+    this.sprite.src = "files/images/N_Vodka.png";
     this.Update = function() {
         switch (dir) {
             case player.directionDEF.UP:
@@ -41,7 +41,7 @@ function faucile(x, y, dir) {
     this.height = 45;
     this.theta = 0;
     this.sprite = new Image();
-    this.sprite.src = "files/images/Faucille.png";
+    this.sprite.src = "files/images/A_Faucille.png";
     this.dir = dir;
     this.Update = function() {
         switch (dir) {
@@ -76,7 +76,7 @@ function machette(x, y, dir) {
     this.height = 45;
     this.theta = 0;
     this.sprite = new Image();
-    this.sprite.src = "files/images/Machette.png";
+    this.sprite.src = "files/images/A_Machette.png";
     this.dir = dir;
     this.Update = function() {
         switch (dir) {

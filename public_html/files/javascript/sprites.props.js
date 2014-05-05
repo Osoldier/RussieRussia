@@ -1,27 +1,27 @@
 /** Liste des Sprites du jeu */
 var ImagesSprites = {
-    TAPIS: "tapis.png", //TAPIS
-    TABLE: "Table.png", //TABLE
-    TABLEAU: "PaquetC.png", //TABLEAU
-    PEAUOURS: "peauours.png", //PEAUOURS
-    CLEFB: "PaquetC.png", //CLEF
-    CLEFR: "PaquetC.png",
-    CLEFJ: "PaquetC.png",
-    CLEFV: "PaquetC.png",
-    PUIT: "puit.png", //PUIT
-    MUR: "PaquetC.png", //MUR
-    TANK: "Tank.png", //TANK
-    DRAPCOM: "DrapeauCom.png", //DRAPCOM
-    LIVRE: "LivreKarlM.png", //LIVRE
-    OBAMA: "PaquetC.png", //OBAMA
-    BENLADEN: "PaquetC.png", //BENLADEN
-    YANOUKOVIC: "PaquetC.png", //YANOUKOVIC
-    FEMINISTE: "bear.png", //FEMINISTE
-    OURS: "PaquetC.png", //OURS
-    VODKA: "Vodka.png", //VODKA
-    CAVIAR: "Caviar.png", //CAVIAR
-    CIGARETTE: "PaquetC.png", //CIGARETTE
-    PORTECRIMEA: "PORTECRIMEE.png"  //PORTECRIMEA
+    TAPIS:      "O_tapis.png", //TAPIS
+    TABLE:      "O_Table.png", //TABLE
+    TABLEAU:    "N_PaquetC.png", //TABLEAU
+    PEAUOURS:   "O_peauours.png", //PEAUOURS
+    CLEFB:      "N_PaquetC.png", //CLEF
+    CLEFR:      "N_PaquetC.png",
+    CLEFJ:      "N_PaquetC.png",
+    CLEFV:      "N_PaquetC.png",
+    PUIT:       "O_puit.png", //PUIT
+    MUR:        "N_PaquetC.png", //MUR
+    TANK:       "O_Tank.png", //TANK
+    DRAPCOM:    "O_DrapeauCom.png", //DRAPCOM
+    LIVRE:      "O_LivreKarlM.png", //LIVRE
+    OBAMA:      "N_PaquetC.png", //OBAMA
+    BENLADEN:   "N_PaquetC.png", //BENLADEN
+    YANOUKOVIC: "N_PaquetC.png", //YANOUKOVIC
+    FEMINISTE:  "bear.png", //FEMINISTE
+    OURS:       "N_PaquetC.png", //OURS
+    VODKA:      "N_Vodka.png", //VODKA
+    CAVIAR:     "N_Caviar.png", //CAVIAR
+    CIGARETTE:  "N_PaquetC.png", //CIGARETTE
+    PORTECRIMEA:"PORTECRIMEE.png"  //PORTECRIMEA
 };
 
 function loadSprites()
