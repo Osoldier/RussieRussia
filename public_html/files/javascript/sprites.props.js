@@ -21,7 +21,10 @@ var ImagesSprites = {
     VODKA:      "N_Vodka.png", //VODKA
     CAVIAR:     "N_Caviar.png", //CAVIAR
     CIGARETTE:  "N_PaquetC.png", //CIGARETTE
-    PORTECRIMEA:"PORTECRIMEE.png"  //PORTECRIMEA
+    PORTECRIMEA:"PORTECRIMEE.png",  //PORTECRIMEA
+    CLEF_1:     "clef1.png",
+    CLEF_2:     "clef2.png",
+    CLEF_3:     "clef3.png"
 };
 
 function loadSprites()
