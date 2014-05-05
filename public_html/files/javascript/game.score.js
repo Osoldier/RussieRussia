@@ -27,6 +27,9 @@ function score() {
             if (player.life <= 0) {
                 player.room = 9;
                 player.life = 3;
+                player.object1 = null;
+                player.object2 = null;
+                player.object3 = null;
                 this.hunger = 200;
                 EnemyList = new Array();
                 menu.state = menu.stateDEF.END;
