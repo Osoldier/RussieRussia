@@ -15,21 +15,7 @@ var KeyState = {
     'p': false,
     'q': false,
     'y': false
-
 };
-
-//JQUERY
-//
-//KeyDown
-$(function() {
-    $(document).keydown(function(e) {
-        setKeyState(e, true);
-    });
-    //KeyUp
-    $(document).keyup(function(e) {
-        setKeyState(e, false);
-    });
-});
 
 //Gestion des touches du clavier
 function setKeyState(e, state) {
