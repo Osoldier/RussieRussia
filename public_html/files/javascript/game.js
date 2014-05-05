@@ -191,6 +191,7 @@ function WouldCollide(dX, dY) {
  * @returns {null}
  */
 function tempChangerSalle() {
+    initRoom(GroundMap, 1 * document.getElementById("salle").value)
     player.room = 1 * document.getElementById("salle").value;
 }
 
