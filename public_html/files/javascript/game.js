@@ -10,8 +10,7 @@ var Game = {
     'timer': null
 };
 
-var mDoors = {
-};
+var mDoors = {};
 
 /**
  * Initialise les sprites et images du jeu
