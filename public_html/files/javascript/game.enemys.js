@@ -2,9 +2,7 @@ var NINJA = 0;
 var DESERT = 1;
 var GHOST = 2;
 var SERPENT = 3;
-
 var PopCoolDown = 60;
-
 var EnemyList = new Array();
 
 function enemy(x, y, type, dir) {
@@ -29,7 +27,7 @@ function enemy(x, y, type, dir) {
             break;
         case SERPENT:
             this.sprite.src = 'files/images/spriteOurs.png';
-            break; 
+            break;
         default:
             this.sprite.src = 'files/images/Sprite4.png';
             break;
@@ -41,50 +39,36 @@ function enemy(x, y, type, dir) {
         else
             this.frame += 0.25;
         //****Déplacement********
-        switch (this.direction) {
-            case player.directionDEF["DOWN"]:
-                if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3])
-                    this.y += this.speed;
-                else
-                    this.direction = player.directionDEF["UP"];
-                break;
-            case player.directionDEF["UP"]:
-                if (this.y > player.roomInfo[1])
-                    this.y -= this.speed;
-                else
-                    this.direction = player.directionDEF["DOWN"];
-                break;
-            case player.directionDEF["LEFT"]:
-                if (this.x > player.roomInfo[0])
-                    this.x -= this.speed;
-                else
-                    this.direction = player.directionDEF["RIGHT"]
-                break;
-            case player.directionDEF["RIGHT"]:
-                if (this.x + this.width < player.roomInfo[0] + player.roomInfo[2])
-                    this.x += this.speed;
-                else
-                    this.direction = player.directionDEF["LEFT"];
-                break;
-        }
         if (toMultiple(this.x, this.speed) > toMultiple(player.x, this.speed)) {
-            this.direction = player.directionDEF.LEFT;
+            if (this.x > player.roomInfo[0]) {
+                this.direction = player.directionDEF.LEFT;
+                this.x -= this.speed;
+            }
         } else if (toMultiple(this.x, this.speed) < toMultiple(player.x, this.speed)) {
-            this.direction = player.directionDEF.RIGHT;
-        } else {
-            if (toMultiple(this.y, this.speed) > toMultiple(player.y, this.speed)) {
+            if (this.x + this.width < player.roomInfo[0] + player.roomInfo[2]) {
+                this.direction = player.directionDEF.RIGHT;
+                this.x += this.speed;
+            }
+        }
+        if (toMultiple(this.y, this.speed) > toMultiple(player.y, this.speed)) {
+            if (this.y > player.roomInfo[1]) {
                 this.direction = player.directionDEF.UP;
-            } else if (toMultiple(this.y, this.speed) < toMultiple(player.y, this.speed)) {
+                this.y -= this.speed;
+            }
+        } else if (toMultiple(this.y, this.speed) < toMultiple(player.y, this.speed)) {
+            if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3]) {
                 this.direction = player.directionDEF.DOWN;
+                this.y += this.speed;
             }
-            else {
-                EnemyList.splice(EnemyList.indexOf(this), 1)
-            }
+        }
+        else if(toMultiple(this.y, this.speed) == toMultiple(player.y, this.speed) && toMultiple(this.x, this.speed) == toMultiple(player.x, this.speed)){
+            EnemyList.splice(EnemyList.indexOf(this), 1)
         }
 
 
-        //******************************************************
-        //*************collision********************************
+
+//******************************************************
+//*************collision********************************
         if (player.Projectile !== 0) {
             if ((this.x + this.width >= player.Projectile.x && this.x <= player.Projectile.x + player.Projectile.width) || (this.x <= player.Projectile.x + player.Projectile.width && this.x + this.width >= player.Projectile.x)) {
                 if ((this.y + this.height >= player.Projectile.y && this.y <= player.Projectile.y + player.Projectile.height) || (this.y <= player.Projectile.y + player.Projectile.height && this.y + this.height >= player.Projectile.y)) {
@@ -99,16 +83,14 @@ function enemy(x, y, type, dir) {
                 score.hunger -= 1;
             }
         }
-        //******************************************************
+//******************************************************
     };
-
-    //Affichage
+//Affichage
     this.Afficher = function() {
         Game.context.drawImage(this.sprite, 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
     };
 }
-
-function toMultiple(i, multiple) {
-    var multi = Math.round(i / multiple) * multiple;
-    return multi;
+    function toMultiple(i, multiple) {
+        var multi = Math.round(i / multiple) * multiple;
+        return multi;
 }
