@@ -140,7 +140,6 @@ function drawMap(map) {
                  Game.context.rect(entry.x, entry.y, entry.width, entry.height);
                  Game.context.fill();
                  */
-
                 if (entry.lock) {
                     Game.context.drawImage(Images['border_door_ground'], 375, 683, lock.height, lock.width, entry.x, entry.y + (lock.width / 2), lock.height, lock.width);
                     /*
