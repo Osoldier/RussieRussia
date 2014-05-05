@@ -64,6 +64,7 @@ var CRIMEE = 12;
 
 //La Map en entier
 var GroundMap = [
+    /* THE GROUND FLOOR */
     /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
     /* 1 */ new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, null), new object(600, 100, 32, 32, false, CLEFR)], [new door(LEFT, 1, 0, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
     /* 2 */ new room(LONGER, [new object(300, 200, 32, 32, false, DRAPCOM, null)], [new door(LEFT, 4, 3, null, false), new door(RIGHT, 5, 6, null, false)]),
@@ -83,7 +84,7 @@ var GroundMap = [
     /* 16 */ new room(LONGER, [new object(200, 350, 50, 60, false, TABLEAU, null), new object(400, 300, 30, 50, true, CIGARETTE)], [new door(TOP, 36, 37, null, false), new door(BOTTOM, 70, 69, RED, true), new door(RIGHT, 33, 32, null, false)]),
     /* 17 */ new room(LONGER, [new object(980, 350, 50, 60, false, TABLEAU, null)], [new door(TOP, 69, 70, RED, true), new door(BOTTOM, 68, 67, null, false)]),
     /* 18 */ new room(LONGER, [new object(200, 350, 50, 60, false, TABLEAU, null), new object(400, 300, 30, 50, true, CIGARETTE)], [new door(TOP, 67, 68, null, false), new door(BOTTOM, 52, 53, null, false), new door(RIGHT, 51, 50, GREEN, true)]),
-    /* 19 */ new room(SQUARED, [new object(400, 600, 32, 32, false, TABLE), new object(600, 35, 50, 60, false, DRAPCOM, null), new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
+    /* 19 */ new room(SQUARED, [new object(400, 600, 32, 32, true, TABLE), new object(600, 35, 50, 60, false, DRAPCOM, null), new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
     /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, false, PEAUOURS, "G"), new object(600, 35, 50, 60, false, LIVRE, null), new object(600, 500, 32, 32, true, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
     /* 21 */ new room(SQUARED, [new object(600, 600, 32, 32, true, CAVIAR)], [new door(LEFT, 46, 47, null, false), new door(TOP, 45, 761, null, false), new door(RIGHT, 44, 43, null, false)]),
     /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEFV)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
@@ -98,6 +99,7 @@ var GroundMap = [
     /* 31 */ new room(LARGER, [], [new door(TOP, 72, 71, BLUE, true), new door(BOTTOM, 73, 74, null, false)]),
     /* 32 */ new room(SQUARED, [new object(550, 750, 32, 32, true, CIGARETTE), new object(600, 750, 32, 32, true, VODKA), new object(650, 750, 32, 32, true, CAVIAR)], [new door(TOPRIGHT, 74, 73, null, false), new door(TOPLEFT, 75, "CAVERNE", null, false)]),
     /* 33 */ new room(SQUARED, [new object(700, 350, 32, 32, true, TABLE), new object(370, 350, 32, 32, true, CAVIAR)], [new door(LEFT, 183, 171, null, false), new door(RIGHT, 185, 666, null, false), new door(BOTTOM, 184, 41, null, false)]),
+    /* THE BASEMENT */
     /* 34 */ new room(SQUARED, [new object(500, 450, 32, 32, true, VODKA), new object(370, 350, 64, 64, false, PEAUOURS, "C")], [new door(LEFT, 172, 173, YELLOW, true), new door(RIGHT, 171, 183, null, false), new door(TOP, 170, 169, null, false)]),
     /* 35 */ new room(SQUARED, [new object(500, 450, 32, 32, true, VODKA)], [new door(LEFT, 175, 176, null, false), new door(RIGHT, 173, 172, YELLOW, true), new door(TOP, 174, 163, BLUE, true)]),
     /* 36 */ new room(SQUARED, [new object(500, 450, 32, 32, true, TABLE)], [new door(LEFT, 178, 179, null, false), new door(RIGHT, 176, 175, null, false), new door(TOP, 177, 158, BLUE, true)]),
@@ -120,6 +122,7 @@ var GroundMap = [
     /* 53 */ new room(SQUARED, [new object(500, 250, 32, 32, true, CIGARETTE), new object(270, 400, 64, 64, true, TANK)], [new door(BOTTOM, 132, 131, RED, true)]),
     /* 54 */ new room(SQUARED, [new object(450, 200, 32, 32, true, VODKA), new object(910, 400, 64, 64, true, TANK)], [new door(BOTTOM, 118, 119, BLUE, true)]),
     /* 55 */ new room(SQUARED, [new object(400, 200, 32, 32, true, VODKA)], [new door(RIGHT, 187, 188, GREEN, true), new door(BOTTOM, 186, 190, null, false)]),
+    /* THE FIRST FLOOR */
     /* 56 */ new room(SQUARED, [new object(400, 200, 32, 32, true, VODKA), new object(400, 500, 32, 32, true, CAVIAR), new object(600, 300, 32, 32, true, CIGARETTE)], [new door(LEFT, 188, 187, GREEN, true), new door(BOTTOM, 189, 193, null, false)]),
     /* 57 */ new room(SQUARED, [new object(600, 600, 32, 32, true, TABLE)], [new door(TOP, 190, 186, null, false), new door(RIGHT, 191, 192, null, false)]),
     /* 58 */ new room(SQUARED, [], [new door(TOP, 193, 189, null, false), new door(RIGHT, 194, 195, BLUE, true), new door(LEFT, 192, 191, null, false)]),
@@ -139,9 +142,10 @@ var GroundMap = [
     /* 72 */ new room(SQUARED, [new object(400,400,32,32,true, CIGARETTE)],[new door(RIGHT,227,228,RED,true),new door(BOTTOM,226,236,null,false)]),
     /* 73 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR),new object(400,400,64,64,false,PEAUOURS,"J")],[new door(LEFT,228,227,RED,true),new door(RIGHT,230,231,YELLOW,true),new door(BOTTOM,229,239,null,false)]),
     /* 74 */ new room(SQUARED, [],[new door(LEFT,231,230,YELLOW,true),new door(RIGHT,233,234,null,false),new door(TOP,232,217,null,false)]),    
-    /* 75 */
-    /* 76 */
-    /* 77 */
+    /* 75 */ new room(SQUARED, [new object(300,300,32,32,true,CIGARETTE),new object(500,500,32,32,true,CAVIAR),new object(600,300,64,64,false,PEAUOURS,"K")],[new door(LEFT,234,233,null,false),new door(TOP,235,219,GREEN,true)]),
+    /* 76 */ new room(SQUARED, [new object(300,400,32,32,true,CAVIAR),new object(500,600,32,32,true,VODKA)],[new door(TOP,236,226,null,false),new door(RIGHT,237,238,null,false)]),
+    /* 77 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR)],[new door(LEFT,238,237,null,false),new door(TOP,239,229,null,false)]),
+    /* THE ATTIC */
     /* 78 */
     /* 79 */
     /* 80 */
@@ -155,6 +159,11 @@ var GroundMap = [
     /* 88 */
     /* 89 */
     /* 90 */
+    /* 91 */
+    /* 92 */
+    /* 93 */
+    /* THE CAVERNS */
+    
 ];
 
 function dispatchKeys() {
