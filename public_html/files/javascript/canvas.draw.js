@@ -105,8 +105,6 @@ function drawMap(map) {
                 }
                 break;
         }
-        entry.x = x;
-        entry.y = y;
         Game.context.fill();
     });
 }

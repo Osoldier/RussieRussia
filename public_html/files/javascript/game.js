@@ -26,6 +26,7 @@ function Initialize() {
     //#####Sprites#####//
     loadSprites();
     loadImages();
+    initRoom(GroundMap, player.room);
     Game.timer = setInterval("mainLoop();", 40);
 }
 
