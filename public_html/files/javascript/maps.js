@@ -31,7 +31,7 @@ var EATEABLES = [
 ];
 
 var TAKEABLE = [
-    CLEFB, CLEFJ, CLEFR, CLEFV
+    CLEFB, CLEFJ, CLEFR, CLEFV,CLEF_1,CLEF_2,CLEF_3
 ];
 
 //POSITIONS
@@ -71,7 +71,7 @@ var GroundMap = [
     /* 4 */ new room(LONGER, [new object(380, 550, 64, 64, true, LIVRE, null)], [new door(LEFT, 8, 7, null, false), new door(RIGHT, 9, 10, RED, true)]),
     /* 5 */ new room(SQUARED, [new object(950, 500, 32, 32, false, TANK, null)], [new door(LEFT, 10, 9, RED, true), new door(BOTTOM, 11, 12, GREEN, true)]),
     /* 6 */ new room(LARGER, [new object(660, 300, 32, 32, true, TABLE, null), new object(500, 500, 32, 32, true, TABLE, null)], [new door(TOP, 12, 11, GREEN, true), new door(BOTTOM, 13, 14, null, false)]),
-    /* 7 */ new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, "FIRSTFLOOR", null, false), new door(LEFT, 26, 25, null, false)]),
+    /* 7 */ new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, 222, null, false), new door(LEFT, 26, 25, null, false)]),
     /* 8 */ new room(SQUARED, [], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, BLUE, true)]),
     /* 9 */ new room(SQUARED, [new object(950, 400, 113, 120, true, PORTECRIMEA)], [new door(TOP, 18, 17, BLUE, true), new door(LEFT, 19, 20, null, false), new door(BOTTOM, 76, 38, null, false)]),
     /* 10 */ new room(LONGER, [], [new door(RIGHT, 20, 19, null, false), new door(LEFT, 21, 22, null, false)]),
@@ -134,9 +134,9 @@ var GroundMap = [
     /* 67 */ new room(LARGER, [new object(450, 500, 32, 32, true, VODKA)], [new door(TOP, 214, 209, null, false), new door(BOTTOM, 215, 225, BLUE, true)]),
     /* 68 */ new room(LARGER, [new object(580, 200, 64, 64, true, PUIT, "G"), new object(815, 400, 64, 64, true, TANK), new object(580, 720, 64, 64, false, PEAUOURS, "H")], [new door(TOP, 216, 211, GREEN, true), new door(BOTTOM, 217, 232, null, false)]),
     /* 69 */ new room(SQUARED, [], [new door(RIGHT, 220, 221, null, false), new door(TOP, 218, 213, null, false), new door(BOTTOM, 219, 235, GREEN, true)]),
-    /* 70 */ new room(LONGER, [new object(200, 200, 32, 32, VODKA)], [new door(LEFT, 221, 220, null, false)])
-    /* 71 */
-    /* 72 */
+    /* 70 */ new room(LONGER, [new object(400, 400, 32, 32,true, VODKA)], [new door(LEFT, 221, 220, null, false),new door(TOP,222,27,null,false),new door(RIGHT,223,224,null,false)]),
+    /* 71 */ new room(SQUARED, [new object(400,400,32,32,true, CIGARETTE)],[new door(LEFT,224,223,null,false),new door(TOP,225,215,BLUE,true)]),
+    /* 72 */ new room()
     /* 73 */
     /* 74 */
     /* 75 */
