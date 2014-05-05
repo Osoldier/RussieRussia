@@ -136,9 +136,9 @@ var GroundMap = [
     /* 69 */ new room(SQUARED, [], [new door(RIGHT, 220, 221, null, false), new door(TOP, 218, 213, null, false), new door(BOTTOM, 219, 235, GREEN, true)]),
     /* 70 */ new room(LONGER, [new object(400, 400, 32, 32,true, VODKA)], [new door(LEFT, 221, 220, null, false),new door(TOP,222,27,null,false),new door(RIGHT,223,224,null,false)]),
     /* 71 */ new room(SQUARED, [new object(400,400,32,32,true, CIGARETTE)],[new door(LEFT,224,223,null,false),new door(TOP,225,215,BLUE,true)]),
-    /* 72 */ new room()
-    /* 73 */
-    /* 74 */
+    /* 72 */ new room(SQUARED, [new object(400,400,32,32,true, CIGARETTE)],[new door(RIGHT,227,228,RED,true),new door(BOTTOM,226,236,null,false)]),
+    /* 73 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR),new object(400,400,64,64,false,PEAUOURS,"J")],[new door(LEFT,228,227,RED,true),new door(RIGHT,230,231,YELLOW,true),new door(BOTTOM,229,239,null,false)]),
+    /* 74 */ new room(SQUARED, [],[new door(LEFT,231,230,YELLOW,true),new door(RIGHT,233,234,null,false),new door(TOP,232,217,null,false)]),    
     /* 75 */
     /* 76 */
     /* 77 */
