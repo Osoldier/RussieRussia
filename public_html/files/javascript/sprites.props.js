@@ -4,10 +4,10 @@ var ImagesSprites = {
     TABLE:      "O_Table.png", //TABLE
     TABLEAU:    "N_PaquetC.png", //TABLEAU
     PEAUOURS:   "O_peauours.png", //PEAUOURS
-    CLEFB:      "N_PaquetC.png", //CLEF
-    CLEFR:      "N_PaquetC.png",
-    CLEFJ:      "N_PaquetC.png",
-    CLEFV:      "N_PaquetC.png",
+    CLEFB:      "K_B.png", //CLEF
+    CLEFR:      "K_R.png",
+    CLEFJ:      "K_J.png",
+    CLEFV:      "K_V.png",
     PUIT:       "O_puit.png", //PUIT
     MUR:        "N_PaquetC.png", //MUR
     TANK:       "O_Tank.png", //TANK

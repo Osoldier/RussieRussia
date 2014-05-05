@@ -100,13 +100,33 @@ function CheckCollisions() {
                     player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
                 } else {
                     //si il peut déverouiller la porte
-                    if (player.object1 === getAllDoorsInRoom(player.room)[i].color || player.object2 === getAllDoorsInRoom(player.room)[i].color || player.object3 === getAllDoorsInRoom(player.room)[i].color) {
-                        getAllDoorsInRoom(player.room)[i].lock = false;
-                        getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
+                    switch (getAllDoorsInRoom(player.room)[i].color) {
+                        case GREEN:
+                            if (player.object1 == CLEFV || player.object2 == CLEFV || player.object3 == CLEFV) {
+                                getAllDoorsInRoom(player.room)[i].lock = false;
+                                getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
+                            }
+                            break;
+                        case BLUE:
+                            if (player.object1 == CLEFB || player.object2 == CLEFB || player.object3 == CLEFB) {
+                                getAllDoorsInRoom(player.room)[i].lock = false;
+                                getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
+                            }
+                            break;
+                        case RED:
+                            if (player.object1 == CLEFR || player.object2 == CLEFR || player.object3 == CLEFR) {
+                                getAllDoorsInRoom(player.room)[i].lock = false;
+                                getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
+                            }
+                            break;
+                        case YELLOW:
+                            if (player.object1 == CLEFJ || player.object2 == CLEFJ || player.object3 == CLEFJ) {
+                                getAllDoorsInRoom(player.room)[i].lock = false;
+                                getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).lock = false;
+                            }
+                            break;
                     }
                 }
-
-
             }
         }
     }
