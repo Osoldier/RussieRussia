@@ -110,7 +110,17 @@ var GroundMap = [
     /* 48 */ new room(SQUARED, [], [new door(LEFT, 130, 129, null, false), new door(TOP, 131, 132, RED, true), new door(BOTTOM, 133, 134, YELLOW, true)]),
     /* 49 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 127, 126, GREEN, true), new door(RIGHT, 129, 130, null, false), new door(BOTTOM, 128, 138, null, false)]),
     /* 50 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 124, 123, null, false), new door(RIGHT, 126, 127, GREEN, true), new door(BOTTOM, 125, 143, null, false)]),
-    /* 51 */ new room(SQUARED, [new object(600,200,32,32,false,"BOSS")], [new door(LEFT,120,121,YELLOW,true),new door(RIGHT,123,124,null,false),new door(TOP,119,118,BLUE,true),new door(BOTTOM,122,148,null,false)])
+    /* 51 SALLE BOSS => CAVIAR = BOSS */ new room(SQUARED, [new object(600,200,32,32,false,CAVIAR)], [new door(LEFT,120,121,YELLOW,true),new door(RIGHT,123,124,null,false),new door(TOP,119,118,BLUE,true),new door(BOTTOM,122,148,null,false)]),
+    /* 52 */ new room(SQUARED, [new object(300,370,32,32,true,CAVIAR),new object(300,450,32,32,true,VODKA),new object(300,530,32,32,true,CIGARETTE),new object(600,800,64,64,true,LIVRE)],[new door(RIGHT,121,120,YELLOW,true)]),
+    /* 53 */ new room(SQUARED, [new object(500,250,32,32,true,CIGARETTE),new object(270,400,64,64,true,TANK)],[new door(BOTTOM,132,131,RED,true)]),
+    /* 54 */ new room(SQUARED, [new object(450,200,32,32,true,VODKA),new object(910,400,64,64,true,TANK)],[new door(BOTTOM,118,119,BLUE,true)]),
+    /* 55 */ new room(SQUARED, [new object(400,200,32,32,true,VODKA)],[new door(RIGHT,187,188,GREEN,true),new door(BOTTOM,186,190,null,false)]),
+    /* 56 */ new room(SQUARED, [new object(400,200,32,32,true,VODKA),new object(400,500,32,32,true,CAVIAR),new object(600,300,32,32,true,CIGARETTE)],[new door(LEFT,188,187,GREEN,true),new door(BOTTOM,189,193,null,false)]),
+    /* 57 */ new room(SQUARED, [new object(600,600,32,32,true,TABLE)],[new door(TOP,190,186,null,false),new door(RIGHT,191,192,null,false)]),
+    /* 58 */ new room(SQUARED, [],[new door(TOP,193,189,null,false),new door(RIGHT,194,195,BLUE,true),new door(LEFT,192,191,null,false)]),
+    /* 59 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR)],[new door(LEFT,195,194,BLUE,true),new door(RIGHT,197,198,null,false),new door(BOTTOM,196,200,null,false)]),
+    /* 60 */ new room(SQUARED, [new object(500,600,32,32,true,TABLE)],[new door(LEFT,198,197,null,false),new door(BOTTOM,199,202,null,false)]),
+    
 ];
 
 function room(model, objects, doors) {
@@ -145,10 +155,14 @@ function door(place, id, arrival, color, lock) {
     this.place = place;
     switch (place) {
         case TOP:
+        case TOPLEFT:
+        case TOPRIGHT:
             this.width = DOORWIDTH
             this.height = DOORHEIGHT
             break;
         case BOTTOM:
+        case BOTLEFT:
+        case BOTRIGHT:
             this.width = DOORWIDTH
             this.height = DOORHEIGHT
             break;
