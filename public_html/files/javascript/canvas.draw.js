@@ -48,77 +48,40 @@ function drawMap(map) {
                 break;
         }
 
+        var lock = {
+            'height': 58,
+            'width': 53
+        };
         switch (entry.place) {
             case TOP:
             case TOPLEFT:
             case TOPRIGHT:
-                y = roomY;
-                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
                 Game.context.drawImage(Images['border_door_ground'], 0, 682, 142, 91, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
                 /* HITZONE 
+                 y = roomY;
+                 x = roomX + (map[player.room].width / 2) - (entry.width / 2);
                  Game.context.beginPath();
                  Game.context.fillStyle = "pink";
                  Game.context.rect(entry.x, entry.y, entry.width, entry.height);
                  Game.context.fill();
                  */
-                
+
                 if (entry.lock) {
-                    Game.context.beginPath();
-                    Game.context.rect(x + 7, y - 48, 5, 48);
-                    Game.context.rect(x + 22, y - 48, 5, 48);
-                    Game.context.rect(x + 37, y - 48, 5, 48);
-                    Game.context.rect(x + 50, y - 48, 5, 48);
-                    Game.context.fill();
+                    Game.context.drawImage(Images['border_door_ground'], 322, 683, lock.width, lock.height, entry.x + (lock.width / 2), entry.y - (lock.height / 2) - 5, lock.width, lock.height);
+
+                    /*
+                     Game.context.beginPath();
+                     Game.context.rect(x + 7, y - 48, 5, 48);
+                     Game.context.rect(x + 22, y - 48, 5, 48);
+                     Game.context.rect(x + 37, y - 48, 5, 48);
+                     Game.context.rect(x + 50, y - 48, 5, 48);
+                     Game.context.fill();
+                     */
                 }
                 break;
             case LEFT:
-                y = roomY + (map[player.room].height / 2) - (entry.height / 2);
-                x = roomX;
-                Game.context.drawImage(Images['border_door_ground'], 233, 683, 91, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
 
-               /* HITZONE
-                 Game.context.beginPath();
-                 Game.context.fillStyle = "pink";
-                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
-                 Game.context.fill();
-                 */
-
-                if (entry.lock) {
-                    Game.context.beginPath();
-                    Game.context.rect(x - 49, y + 13, 47, 5);
-                    Game.context.rect(x - 49, y + 28, 47, 5);
-                    Game.context.rect(x - 49, y + 43, 47, 5);
-                    Game.context.rect(x - 49, y + 55, 47, 5);
-                    Game.context.fill();
-                }
-                break;
-            case BOTTOM:
-            case BOTLEFT:
-            case BOTRIGHT:
-                y = roomY + map[player.room].height - entry.height;
-                x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
-
-               /* HITZONE
-                 Game.context.beginPath();
-                 Game.context.fillStyle = "pink";
-                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
-                 Game.context.fill();
-                 */
-
-                if (entry.lock) {
-                    Game.context.beginPath();
-                    Game.context.rect(x + 7, y + 10, 5, 48);
-                    Game.context.rect(x + 22, y + 10, 5, 48);
-                    Game.context.rect(x + 37, y + 10, 5, 48);
-                    Game.context.rect(x + 52, y + 10, 5, 48);
-                    Game.context.fill();
-                }
-                break;
-            case RIGHT:
-                y = roomY + (map[player.room].height / 2) - (entry.height / 2);
-                x = roomX + (map[player.room].width) - entry.width;
-                Game.context.drawImage(Images['border_door_ground'], 142, 683, 91, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
+                Game.context.drawImage(Images['border_door_ground'], 233, 683, 85, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
 
                 /* HITZONE
                  Game.context.beginPath();
@@ -128,12 +91,67 @@ function drawMap(map) {
                  */
 
                 if (entry.lock) {
-                    Game.context.beginPath();
-                    Game.context.rect(x + 10, y + 13, 50, 5);
-                    Game.context.rect(x + 10, y + 28, 50, 5);
-                    Game.context.rect(x + 10, y + 43, 50, 5);
-                    Game.context.rect(x + 10, y + 55, 50, 5);
-                    Game.context.fill();
+                    Game.context.drawImage(Images['border_door_ground'], 375, 741, lock.height, lock.width, entry.x - (lock.height / 2), entry.y + (lock.width / 2), lock.height, lock.width);
+                    /*
+                     *  y = roomY + (map[player.room].height / 2) - (entry.height / 2);
+                     x = roomX;
+                     Game.context.beginPath();
+                     Game.context.rect(x - 49, y + 13, 47, 5);
+                     Game.context.rect(x - 49, y + 28, 47, 5);
+                     Game.context.rect(x - 49, y + 43, 47, 5);
+                     Game.context.rect(x - 49, y + 55, 47, 5);
+                     Game.context.fill();
+                     */
+                }
+                break;
+            case BOTTOM:
+            case BOTLEFT:
+            case BOTRIGHT:
+                Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
+                /* HITZONE
+                 Game.context.beginPath();
+                 Game.context.fillStyle = "pink";
+                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
+                 Game.context.fill();
+                 */
+
+                if (entry.lock) {
+
+                    Game.context.drawImage(Images['border_door_ground'], 322, 741, 53, 58, entry.x + (lock.width / 2), entry.y, lock.width, lock.height);
+                    /*
+                     * y = roomY + map[player.room].height - entry.height;
+                     x = roomX + (map[player.room].width / 2) - (entry.width / 2);
+                     Game.context.beginPath();
+                     Game.context.rect(x + 7, y + 10, 5, 48);
+                     Game.context.rect(x + 22, y + 10, 5, 48);
+                     Game.context.rect(x + 37, y + 10, 5, 48);
+                     Game.context.rect(x + 52, y + 10, 5, 48);
+                     Game.context.fill();
+                     */
+                }
+                break;
+            case RIGHT:
+
+                Game.context.drawImage(Images['border_door_ground'], 142, 683, 91, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
+
+                /* HITZONE
+                 Game.context.beginPath();
+                 Game.context.fillStyle = "pink";
+                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
+                 Game.context.fill();
+                 */
+                if (entry.lock) {
+                    Game.context.drawImage(Images['border_door_ground'], 375, 683, lock.height, lock.width, entry.x, entry.y + (lock.width / 2), lock.height, lock.width);
+                    /*
+                     y = roomY + (map[player.room].height / 2) - (entry.height / 2);
+                     x = roomX + (map[player.room].width) - entry.width;
+                     Game.context.beginPath();
+                     Game.context.rect(x + 10, y + 13, 50, 5);
+                     Game.context.rect(x + 10, y + 28, 50, 5);
+                     Game.context.rect(x + 10, y + 43, 50, 5);
+                     Game.context.rect(x + 10, y + 55, 50, 5);
+                     Game.context.fill();
+                     */
                 }
                 break;
         }
