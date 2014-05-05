@@ -42,8 +42,10 @@ var BOTLEFT = 12;
 var BOTRIGHT = 22;
 
 //PORTES
-var DOORWIDTH = 70;
-var DOORHEIGHT = 10;
+var DOORWIDTH = 100;
+var DOORHEIGHT = 25;
+var DOORIMGHEIGHT = 90;
+var DOORIMGWIDTH = 142;
 
 //MODEL
 var LONGER = 100;
@@ -67,7 +69,7 @@ var GroundMap = [
     /* 5 */ new room(SQUARED, [new object(950, 500, 32, 32, false, TANK, null)], [new door(LEFT, 10, 9, RED, true), new door(BOTTOM, 11, 12, GREEN, true)]),
     /* 6 */ new room(LARGER, [new object(660, 300, 32, 32, true, TABLE, null), new object(500, 500, 32, 32, true, TABLE, null)], [new door(TOP, 12, 11, GREEN, true), new door(BOTTOM, 13, 14, null, false)]),
     /* 7 */ new room(LONGER, [], [new door(TOP, 14, 13, null, false), new door(RIGHT, 15, 16, null, false), new door(BOTTOM, 27, "FIRSTFLOOR", null, false), new door(LEFT, 26, 25, null, false)]),
-    /* 8 */ new room(SQUARED, [new object(270, 200, 32, 32, false, LIVRE)], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, BLUE, true)]),
+    /* 8 */ new room(SQUARED, [], [new door(LEFT, 16, 15, null, false), new door(BOTTOM, 17, 18, BLUE, true)]),
     /* 9 */ new room(SQUARED, [new object(950, 400, 113, 120, true, PORTECRIMEA)], [new door(TOP, 18, 17, BLUE, true), new door(LEFT, 19, 20, null, false), new door(BOTTOM, 76, 38, null, false)]),
     /* 10 */ new room(LONGER, [], [new door(RIGHT, 20, 19, null, false), new door(LEFT, 21, 22, null, false)]),
     /* 11 */ new room(LARGER, [], [new door(RIGHT, 22, 21, null, false), new door(TOP, 23, 24, null, false), new door(BOTTOM, 761, 45, null, false)]),
@@ -79,7 +81,7 @@ var GroundMap = [
     /* 17 */ new room(LONGER, [new object(980, 350, 50, 60, false, TABLEAU, null)], [new door(TOP, 69, 70, RED, true), new door(BOTTOM, 68, 67, null, false)]),
     /* 18 */ new room(LONGER, [new object(200, 350, 50, 60, false, TABLEAU, null), new object(400, 300, 30, 50, true, CIGARETTE)], [new door(TOP, 67, 68, null, false), new door(BOTTOM, 52, 53, null, false), new door(RIGHT, 51, 50, GREEN, true)]),
     /* 19 */ new room(SQUARED, [new object(400, 600, 32, 32, false, TABLE), new object(600, 35, 50, 60, false, DRAPCOM, null), new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
-    /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, true, PEAUOURS, "G"), new object(600, 35, 50, 60, false, LIVRE, null), new object(600, 500, 32, 32, true, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
+    /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, false, PEAUOURS, "G"), new object(600, 35, 50, 60, false, LIVRE, null), new object(600, 500, 32, 32, true, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
     /* 21 */ new room(SQUARED, [new object(600, 600, 32, 32, true, CAVIAR)], [new door(LEFT, 46, 47, null, false), new door(TOP, 45, 761, null, false), new door(RIGHT, 44, 43, null, false)]),
     /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEFV)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
     /* 23 */ new room(SQUARED, [], [new door(LEFT, 39, 40, null, false), new door(TOP, 38, 76, null, false)]),
@@ -110,17 +112,46 @@ var GroundMap = [
     /* 48 */ new room(SQUARED, [], [new door(LEFT, 130, 129, null, false), new door(TOP, 131, 132, RED, true), new door(BOTTOM, 133, 134, YELLOW, true)]),
     /* 49 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 127, 126, GREEN, true), new door(RIGHT, 129, 130, null, false), new door(BOTTOM, 128, 138, null, false)]),
     /* 50 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 124, 123, null, false), new door(RIGHT, 126, 127, GREEN, true), new door(BOTTOM, 125, 143, null, false)]),
-    /* 51 SALLE BOSS => CAVIAR = BOSS */ new room(SQUARED, [new object(600,200,32,32,false,CAVIAR)], [new door(LEFT,120,121,YELLOW,true),new door(RIGHT,123,124,null,false),new door(TOP,119,118,BLUE,true),new door(BOTTOM,122,148,null,false)]),
-    /* 52 */ new room(SQUARED, [new object(300,370,32,32,true,CAVIAR),new object(300,450,32,32,true,VODKA),new object(300,530,32,32,true,CIGARETTE),new object(600,800,64,64,true,LIVRE)],[new door(RIGHT,121,120,YELLOW,true)]),
-    /* 53 */ new room(SQUARED, [new object(500,250,32,32,true,CIGARETTE),new object(270,400,64,64,true,TANK)],[new door(BOTTOM,132,131,RED,true)]),
-    /* 54 */ new room(SQUARED, [new object(450,200,32,32,true,VODKA),new object(910,400,64,64,true,TANK)],[new door(BOTTOM,118,119,BLUE,true)]),
-    /* 55 */ new room(SQUARED, [new object(400,200,32,32,true,VODKA)],[new door(RIGHT,187,188,GREEN,true),new door(BOTTOM,186,190,null,false)]),
-    /* 56 */ new room(SQUARED, [new object(400,200,32,32,true,VODKA),new object(400,500,32,32,true,CAVIAR),new object(600,300,32,32,true,CIGARETTE)],[new door(LEFT,188,187,GREEN,true),new door(BOTTOM,189,193,null,false)]),
-    /* 57 */ new room(SQUARED, [new object(600,600,32,32,true,TABLE)],[new door(TOP,190,186,null,false),new door(RIGHT,191,192,null,false)]),
-    /* 58 */ new room(SQUARED, [],[new door(TOP,193,189,null,false),new door(RIGHT,194,195,BLUE,true),new door(LEFT,192,191,null,false)]),
-    /* 59 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR)],[new door(LEFT,195,194,BLUE,true),new door(RIGHT,197,198,null,false),new door(BOTTOM,196,200,null,false)]),
-    /* 60 */ new room(SQUARED, [new object(500,600,32,32,true,TABLE)],[new door(LEFT,198,197,null,false),new door(BOTTOM,199,202,null,false)]),
-    
+    /* 51 SALLE BOSS => CAVIAR = BOSS */ new room(SQUARED, [new object(600, 200, 32, 32, false, CAVIAR)], [new door(LEFT, 120, 121, YELLOW, true), new door(RIGHT, 123, 124, null, false), new door(TOP, 119, 118, BLUE, true), new door(BOTTOM, 122, 148, null, false)]),
+    /* 52 */ new room(SQUARED, [new object(300, 370, 32, 32, true, CAVIAR), new object(300, 450, 32, 32, true, VODKA), new object(300, 530, 32, 32, true, CIGARETTE), new object(600, 800, 64, 64, true, LIVRE)], [new door(RIGHT, 121, 120, YELLOW, true)]),
+    /* 53 */ new room(SQUARED, [new object(500, 250, 32, 32, true, CIGARETTE), new object(270, 400, 64, 64, true, TANK)], [new door(BOTTOM, 132, 131, RED, true)]),
+    /* 54 */ new room(SQUARED, [new object(450, 200, 32, 32, true, VODKA), new object(910, 400, 64, 64, true, TANK)], [new door(BOTTOM, 118, 119, BLUE, true)]),
+    /* 55 */ new room(SQUARED, [new object(400, 200, 32, 32, true, VODKA)], [new door(RIGHT, 187, 188, GREEN, true), new door(BOTTOM, 186, 190, null, false)]),
+    /* 56 */ new room(SQUARED, [new object(400, 200, 32, 32, true, VODKA), new object(400, 500, 32, 32, true, CAVIAR), new object(600, 300, 32, 32, true, CIGARETTE)], [new door(LEFT, 188, 187, GREEN, true), new door(BOTTOM, 189, 193, null, false)]),
+    /* 57 */ new room(SQUARED, [new object(600, 600, 32, 32, true, TABLE)], [new door(TOP, 190, 186, null, false), new door(RIGHT, 191, 192, null, false)]),
+    /* 58 */ new room(SQUARED, [], [new door(TOP, 193, 189, null, false), new door(RIGHT, 194, 195, BLUE, true), new door(LEFT, 192, 191, null, false)]),
+    /* 59 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(LEFT, 195, 194, BLUE, true), new door(RIGHT, 197, 198, null, false), new door(BOTTOM, 196, 200, null, false)]),
+    /* 60 */ new room(SQUARED, [new object(500, 600, 32, 32, true, TABLE)], [new door(LEFT, 198, 197, null, false), new door(BOTTOM, 199, 202, null, false)]),
+    /* 61 */ new room(LARGER, [new object(400, 500, 64, 64, true, PUIT, "F")], [new door(TOP, 200, 196, null, false), new door(BOTTOM, 201, 210, null, false)]),
+    /* 62 */ new room(SQUARED, [new object(700, 600, 64, 64, true, PUIT, "E")], [new door(TOP, 202, 199, null, false), new door(BOTTOM, 203, 212, null, false), new door(RIGHT, 204, 205, null, false)]),
+    /* 63 */ new room(LONGER, [], [new door(LEFT, 205, 204, null, false), new door(BOTTOM, 206, 85, YELLOW, true), new door(RIGHT, 207, 208, null, false)]),
+    /* 64 */ new room(SQUARED, [new object(500, 600, 32, 32, true, VODKA)], [new door(LEFT, 208, 207, null, false), new door(BOTTOM, 209, 214, null, false)]),
+    /* 65 */ new room(LARGER, [new object(400, 500, 32, 32, true, CAVIAR)], [new door(TOP, 210, 201, null, false), new door(BOTTOM, 211, 216, GREEN, true)]),
+    /* 66 */ new room(LARGER, [new object(370, 400, 64, 64, true, TANK)], [new door(TOP, 212, 213, null, false), new door(BOTTOM, 213, 218, null, false)]),
+    /* 67 */ new room(LARGER, [new object(450, 500, 32, 32, true, VODKA)], [new door(TOP, 214, 209, null, false), new door(BOTTOM, 215, 225, BLUE, true)]),
+    /* 68 */ new room(LARGER, [new object(580, 200, 64, 64, true, PUIT, "G"), new object(815, 400, 64, 64, true, TANK), new object(580, 720, 64, 64, false, PEAUOURS, "H")], [new door(TOP, 216, 211, GREEN, true), new door(BOTTOM, 217, 232, null, false)]),
+    /* 69 */ new room(SQUARED, [], [new door(RIGHT, 220, 221, null, false), new door(TOP, 218, 213, null, false), new door(BOTTOM, 219, 235, GREEN, true)]),
+    /* 70 */ new room(LONGER, [new object(200, 200, 32, 32, VODKA)], [new door(LEFT, 221, 220, null, false)])
+            /* 71 */
+            /* 72 */
+            /* 73 */
+            /* 74 */
+            /* 75 */
+            /* 76 */
+            /* 77 */
+            /* 78 */
+            /* 79 */
+            /* 80 */
+            /* 81 */
+            /* 82 */
+            /* 83 */
+            /* 84 */
+            /* 85 */
+            /* 86 */
+            /* 87 */
+            /* 88 */
+            /* 89 */
+            /* 90 */
 ];
 
 function room(model, objects, doors) {
@@ -157,22 +188,30 @@ function door(place, id, arrival, color, lock) {
         case TOP:
         case TOPLEFT:
         case TOPRIGHT:
-            this.width = DOORWIDTH
-            this.height = DOORHEIGHT
+            this.imgHeight = DOORIMGHEIGHT;
+            this.imgwidth = DOORIMGWIDTH;
+            this.width = DOORWIDTH;
+            this.height = DOORHEIGHT;
             break;
         case BOTTOM:
         case BOTLEFT:
         case BOTRIGHT:
-            this.width = DOORWIDTH
-            this.height = DOORHEIGHT
+            this.imgHeight = DOORIMGHEIGHT;
+            this.imgwidth = DOORIMGWIDTH;
+            this.width = DOORWIDTH;
+            this.height = DOORHEIGHT;
             break;
         case LEFT:
-            this.width = DOORHEIGHT
-            this.height = DOORWIDTH
+            this.imgHeight = DOORIMGWIDTH;
+            this.imgwidth = DOORIMGHEIGHT;
+            this.width = DOORHEIGHT;
+            this.height = DOORWIDTH;
             break;
         case RIGHT:
-            this.width = DOORHEIGHT
-            this.height = DOORWIDTH
+            this.imgHeight = DOORIMGWIDTH;
+            this.imgwidth = DOORIMGHEIGHT;
+            this.width = DOORHEIGHT;
+            this.height = DOORWIDTH;
             break;
     }
     this.id = id;
@@ -240,7 +279,7 @@ function getRoomIdWithObjectTypeAndSpec(type, spec) {
     for (var i = 0; i < player.Map.length; i++) {
         for (var j = 0; j < player.Map[i].objects.length; j++) {
             var objectCurrent = player.Map[i].objects[j];
-            if(objectCurrent.type == type && objectCurrent.spec == spec) {
+            if (objectCurrent.type == type && objectCurrent.spec == spec) {
                 return i;
             }
         }
@@ -255,7 +294,7 @@ function getRoomIdWithObjectTypeAndSpec(type, spec) {
  * @returns {null}
  */
 function initRoom(map, id) {
-    if(map === null || typeof map === undefined) {
+    if (map === null || typeof map === undefined) {
         map = GroundMap;
     }
     var roomX = Game.canvas.width / 2 - (map[id].width / 2), roomY = Game.canvas.height / 2 - (map[id].height / 2);
@@ -263,42 +302,62 @@ function initRoom(map, id) {
         Game.context.beginPath();
         var x = 0;
         var y = 0;
+        var imgX = 0;
+        var imgY = 0;
         switch (entry.place) {
             case TOP:
                 y = roomY;
                 x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y - DOORIMGHEIGHT + 20;
                 break;
             case LEFT:
-                y = roomY + (map[id].height / 2) - (DOORHEIGHT / 2);
+                y = roomY + (map[id].height / 2) - (DOORWIDTH / 2);
                 x = roomX;
+                imgX = x - DOORIMGHEIGHT + 20;
+                imgY = y - 20;
                 break;
             case BOTTOM:
                 y = roomY + map[id].height - DOORHEIGHT;
                 x = roomX + (map[id].width / 2) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y;
                 break;
             case RIGHT:
-                y = roomY + (map[id].height / 2) - DOORHEIGHT / 2;
+                y = roomY + (map[id].height / 2) - DOORWIDTH / 2;
                 x = roomX + (map[id].width) - DOORHEIGHT;
+                imgX = x;
+                imgY = y - 20;
                 break;
             case TOPLEFT:
                 y = roomY;
                 x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y - DOORIMGHEIGHT + 20;
                 break;
             case TOPRIGHT:
                 y = roomY;
-                x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                x = roomX + 3 * (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y - DOORIMGHEIGHT + 20;
                 break;
             case BOTLEFT:
                 y = roomY + map[id].height - DOORHEIGHT;
                 x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y;
                 break;
             case BOTRIGHT:
                 y = roomY + map[id].height - DOORHEIGHT;
-                x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                x = roomX + 3 * (map[id].width / 4) - (DOORWIDTH / 2);
+                imgX = x - 20;
+                imgY = y;
                 break;
         }
         entry.x = x;
         entry.y = y;
+        entry.imgX = imgX;
+        entry.imgY = imgY;
     });
 }
 //DERNIER RECOURS
