@@ -34,9 +34,7 @@ function loadSprites()
 }
 
 var ImagesListe = [
-    "border_door_ground",
-    "keyColor",
-    "door_locked",
+    "border_door_ground",  
     "menu",    
     "spriteStaline",
     "spritePoutine",
