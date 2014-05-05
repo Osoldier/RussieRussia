@@ -120,7 +120,36 @@ var GroundMap = [
     /* 58 */ new room(SQUARED, [],[new door(TOP,193,189,null,false),new door(RIGHT,194,195,BLUE,true),new door(LEFT,192,191,null,false)]),
     /* 59 */ new room(SQUARED, [new object(500,500,32,32,true,CAVIAR)],[new door(LEFT,195,194,BLUE,true),new door(RIGHT,197,198,null,false),new door(BOTTOM,196,200,null,false)]),
     /* 60 */ new room(SQUARED, [new object(500,600,32,32,true,TABLE)],[new door(LEFT,198,197,null,false),new door(BOTTOM,199,202,null,false)]),
-    
+    /* 61 */ new room(LARGER, [new object(400,500,32,32,true,PUIT,"F")],[new door(TOP,200,196,null,false),new door(BOTTOM,201,210,null,false)]),
+    /* 62 */ new room(SQUARED, [new object(700,600,32,32,true,PUIT,"E")],[new door(TOP,202,199,null,false),new door(BOTTOM,203,212,null,false),new door(RIGHT,204,205,null,false)]),
+    /* 63 */ new room(LONGER, [],[new door(LEFT,205,204,null,false),new door(BOTTOM,206,85,YELLOW,true),new door(RIGHT,207,208,null,false)]),
+    /* 64 */ new room(SQUARED, [new object(500,600,32,32,true,VODKA)],[new door(LEFT,208,207,null,false),new door(BOTTOM,209,214,null,false)]),
+    /* 65 */ new room(LARGER, [new object(400,500,32,32,true,CAVIAR)],[new door(TOP,210,201,null,false),new door(BOTTOM,211,216,GREEN,true)]),
+    /* 66 */ new room(LARGER, [new object(400,500,32,32,true,PUIT,"A")],[new door(TOP,212,203,null,false),new door(BOTTOM,213,218,null,false)]),
+    /* 67 */ new room(LARGER, [new object(400,500,32,32,true,PUIT,"Z")],[new door(TOP,200,196,null,false),new door(BOTTOM,201,210,null,false)]),
+    /* 68 */
+    /* 69 */
+    /* 70 */
+    /* 71 */
+    /* 72 */
+    /* 73 */
+    /* 74 */
+    /* 75 */
+    /* 76 */
+    /* 77 */
+    /* 78 */
+    /* 79 */
+    /* 80 */
+    /* 81 */
+    /* 82 */
+    /* 83 */
+    /* 84 */
+    /* 85 */
+    /* 86 */
+    /* 87 */
+    /* 88 */
+    /* 89 */
+    /* 90 */
 ];
 
 function room(model, objects, doors) {
@@ -286,7 +315,7 @@ function initRoom(map, id) {
                 break;
             case TOPRIGHT:
                 y = roomY;
-                x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                x = roomX + 3*(map[id].width / 4) - (DOORWIDTH / 2);
                 break;
             case BOTLEFT:
                 y = roomY + map[id].height - DOORHEIGHT;
@@ -294,7 +323,7 @@ function initRoom(map, id) {
                 break;
             case BOTRIGHT:
                 y = roomY + map[id].height - DOORHEIGHT;
-                x = roomX + (map[id].width / 4) - (DOORWIDTH / 2);
+                x = roomX + 3*(map[id].width / 4) - (DOORWIDTH / 2);
                 break;
         }
         entry.x = x;
