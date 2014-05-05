@@ -68,7 +68,7 @@ function score() {
         if(player.object1 != null) {
             this.context.drawImage(ImagesSprites[player.object1], 25, 85, 32, 32);
         }
-        if(player.object3 != null) {
+        if(player.object2 != null) {
             this.context.drawImage(ImagesSprites[player.object2], 25+32+5, 85, 32, 32);
         }
         if(player.object3 != null) {
