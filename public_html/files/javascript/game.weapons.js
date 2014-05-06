@@ -22,7 +22,7 @@ function vodka(x, y, dir) {
                 this.x += 16;
                 break;
         }
-        if (this.x < roomX || this.y < roomY || this.y > roomY + player.Map[player.room].height - 30 || this.x > roomX + player.Map[player.room].width) {
+        if (this.x < player.roomInfo[0] || this.y < player.roomInfo[1] || this.y > player.roomInfo[1] + player.Map[player.room].height - 30 || this.x > player.roomInfo[0] + player.Map[player.room].width) {
             return true;
         }
         this.theta += 25;
@@ -58,7 +58,7 @@ function faucile(x, y, dir) {
                 this.x += 16;
                 break;
         }
-        if (this.x < roomX || this.y < roomY || this.y > roomY + player.Map[player.room].height - 30 || this.x > roomX + player.Map[player.room].width) {
+        if (this.x < player.roomInfo[0] || this.y < player.roomInfo[1] || this.y > player.roomInfo[1] + player.Map[player.room].height - 30 || this.x > player.roomInfo[0] + player.Map[player.room].width) {
             return true;
         }
         this.theta += 25;
@@ -93,7 +93,7 @@ function machette(x, y, dir) {
                 this.x += 16;
                 break;
         }
-        if (this.x < roomX || this.y < roomY || this.y > roomY + player.Map[player.room].height - 30 || this.x > roomX + player.Map[player.room].width) {
+        if (this.x < player.roomInfo[0] || this.y < player.roomInfo[1] || this.y > player.roomInfo[1] + player.Map[player.room].height - 30 || this.x > player.roomInfo[0] + player.Map[player.room].width) {
             return true;
         }
         this.theta += 25;

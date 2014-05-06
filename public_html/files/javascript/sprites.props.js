@@ -53,7 +53,3 @@ function loadImages()
         Images[entry].src = 'files/images/' + entry + '.png';
     });
 }
-
-
-
-

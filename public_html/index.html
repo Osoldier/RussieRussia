@@ -4,7 +4,6 @@
         <title>RussieRussia</title>
         <meta charset="UTF-8">      
         <link rel="stylesheet" type="text/css" href="files/style/style.css">
-        <script type="text/javascript" src="files/javascript/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="files/javascript/game.js"></script>
         <script type="text/javascript" src="files/javascript/game.enemys.js"></script>
         <script type="text/javascript" src="files/javascript/game.menu.js"></script>           
@@ -17,7 +16,7 @@
         <script type="text/javascript" src="files/javascript/game.score.js"></script>
         <script type="text/javascript" src="files/javascript/canvas.draw.js"></script>
     </head>
-    <body onload="Initialize();">
+    <body onload="Initialize();" onkeydown="setKeyState(event,true);" onkeyup="setKeyState(event,false);">
         Dev: <input type="text" id="salle"><button onclick="tempChangerSalle();">Go !</button>
     <center>
         <canvas id="game" width="1248" height="900" ></canvas>

@@ -1,8 +1,6 @@
-var roomX = 0;
-var roomY = 0;
-
 /**
  * Effacer la canvas
+ * @returns {null}
  */
 function clearCanvas()
 {
@@ -15,22 +13,33 @@ function clearCanvas()
  * @returns {null}
  */
 function drawMap(map) {
+    player.roomInfo = [Game.canvas.width / 2 - (map[player.room].width / 2), Game.canvas.height / 2 - (map[player.room].height / 2), map[player.room].width, map[player.room].height];
     drawBorder();
     drawGround();
-    roomX = Game.canvas.width / 2 - (map[player.room].width / 2);
-    roomY = Game.canvas.height / 2 - (map[player.room].height / 2);
-    player.roomInfo = [roomX, roomY, map[player.room].width, map[player.room].height];
+    drawObjects(map);
+    drawDoors(map);
+}
 
-    //Game.context.beginPath();
-    //Game.context.rect(roomX, roomY, map[player.room].width, map[player.room].height);
+/**
+ * Dessine les objets
+ * @param {Array} map
+ * @returns {null}
+ */
+function drawObjects(map)
+{
     map[player.room].objects.forEach(function(entry) {
-        //Game.context.beginPath();
         Game.context.drawImage(ImagesSprites[entry.type], entry.x, entry.y, entry.width, entry.height);
     });
+}
+
+/**
+ * Dessine les portes
+ * @param {Array} map
+ * @returns {null}
+ */
+function drawDoors(map)
+{
     map[player.room].doors.forEach(function(entry) {
-        //Game.context.beginPath();
-        // var x = 0;
-        // var y = 0;
         var lock = {
             'height': 58,
             'width': 53
@@ -66,24 +75,11 @@ function drawMap(map) {
                             Game.context.drawImage(Images['border_door_ground'], 322, 683, lock.width, lock.height, entry.x + (lock.width / 2), entry.y - (lock.height / 2) - 5, lock.width, lock.height);
                             break;
                     }
-                    /*
-                     Game.context.beginPath();
-                     Game.context.rect(x + 7, y - 48, 5, 48);
-                     Game.context.rect(x + 22, y - 48, 5, 48);
-                     Game.context.rect(x + 37, y - 48, 5, 48);
-                     Game.context.rect(x + 50, y - 48, 5, 48);
-                     Game.context.fill();
-                     */
                 }
                 break;
             case LEFT:
                 Game.context.drawImage(Images['border_door_ground'], 233, 683, 85, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
-                /* HITZONE
-                 Game.context.beginPath();
-                 Game.context.fillStyle = "pink";
-                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
-                 Game.context.fill();
-                 */
+                
                 if (entry.lock) {
                     switch (entry.color) {
                         case RED:
@@ -102,28 +98,13 @@ function drawMap(map) {
                             Game.context.drawImage(Images['border_door_ground'], 375, 741, lock.height, lock.width, entry.x - (lock.height / 2), entry.y + (lock.width / 2), lock.height, lock.width);
                             break;
                     }
-                    /*
-                     y = roomY + (map[player.room].height / 2) - (entry.height / 2);
-                     x = roomX;
-                     Game.context.beginPath();
-                     Game.context.rect(x - 49, y + 13, 47, 5);
-                     Game.context.rect(x - 49, y + 28, 47, 5);
-                     Game.context.rect(x - 49, y + 43, 47, 5);
-                     Game.context.rect(x - 49, y + 55, 47, 5);
-                     Game.context.fill();
-                     */
                 }
                 break;
             case BOTTOM:
             case BOTLEFT:
             case BOTRIGHT:
                 Game.context.drawImage(Images['border_door_ground'], 0, 773, 142, 91, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
-                /* HITZONE
-                 Game.context.beginPath();
-                 Game.context.fillStyle = "pink";
-                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
-                 Game.context.fill();
-                 */
+                
                 if (entry.lock) {
 
                     switch (entry.color) {
@@ -143,26 +124,11 @@ function drawMap(map) {
                             Game.context.drawImage(Images['border_door_ground'], 322, 741, 53, 58, entry.x + (lock.width / 2), entry.y, lock.width, lock.height);
                             break;
                     }
-                    /*
-                     * y = roomY + map[player.room].height - entry.height;
-                     x = roomX + (map[player.room].width / 2) - (entry.width / 2);
-                     Game.context.beginPath();
-                     Game.context.rect(x + 7, y + 10, 5, 48);
-                     Game.context.rect(x + 22, y + 10, 5, 48);
-                     Game.context.rect(x + 37, y + 10, 5, 48);
-                     Game.context.rect(x + 52, y + 10, 5, 48);
-                     Game.context.fill();
-                     */
                 }
                 break;
             case RIGHT:
                 Game.context.drawImage(Images['border_door_ground'], 142, 683, 91, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
-                /* HITZONE
-                 Game.context.beginPath();
-                 Game.context.fillStyle = "pink";
-                 Game.context.rect(entry.x, entry.y, entry.width, entry.height);
-                 Game.context.fill();
-                 */
+                
                 if (entry.lock) {
                     switch (entry.color) {
                         case RED:
@@ -181,22 +147,12 @@ function drawMap(map) {
                             Game.context.drawImage(Images['border_door_ground'], 375, 683, lock.height, lock.width, entry.x, entry.y + (lock.width / 2), lock.height, lock.width);
                             break;
                     }
-                    /*
-                     y = roomY + (map[player.room].height / 2) - (entry.height / 2);
-                     x = roomX + (map[player.room].width) - entry.width;
-                     Game.context.beginPath();
-                     Game.context.rect(x + 10, y + 13, 50, 5);
-                     Game.context.rect(x + 10, y + 28, 50, 5);
-                     Game.context.rect(x + 10, y + 43, 50, 5);
-                     Game.context.rect(x + 10, y + 55, 50, 5);
-                     Game.context.fill();
-                     */
                 }
                 break;
         }
-        //Game.context.fill();
     });
 }
+
 
 /**
  * Dessine la sol
