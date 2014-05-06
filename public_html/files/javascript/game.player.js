@@ -39,6 +39,31 @@ function Player() {
     this.Update = function() {
         this.Move();
         this.Afficher();
+        if (KeyState.ctrlLeft) {
+            KeyState["ctrlLeft"] = false;
+            if (this.object3 != null) {
+                GroundMap[this.room].objects.push(new object(this.x, this.y, 32, 32, false, this.object3));
+                this.object3 = null;
+            }
+            if(this.object2 != null) {
+                if(this.object3 == null) {
+                    this.object3 = this.object2;
+                    this.object2 = null;
+                }
+            }
+            if(this.object1 != null) {
+                if(this.object2 == null) {
+                    this.object2 = this.object1;
+                    this.object1 = null;
+                }else {
+                    if(this.object3 == null) {
+                        this.object3 = this.object2;
+                        this.object2 = this.object1;
+                        this.object1 = null;
+                    }
+                }
+            }
+        }
         if (KeyState.space) {
             this.Shoot();
         }
@@ -176,7 +201,7 @@ function Player() {
             if (this.frame >= 2)
                 this.frame = 0;
             else
-                this.frame+= 0.25;
+                this.frame += 0.25;
 
         } else {
             this.frame = 1;
