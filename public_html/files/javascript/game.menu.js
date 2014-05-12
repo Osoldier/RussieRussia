@@ -1,14 +1,14 @@
 var menu = new menu();
 
 function menu() {
-    this.stateDEF = {
+    this.state = {
         'TITLE': 0,
         'SELECT': 1,
         'PAUSE': 2,
         'END': 3,
-        'NOTHING': 4
+        'NOTHING': 4,
+        'CURRENT': 0
     };
-    this.state = 0;
     this.timer = null;
     this.defaultLockTime = 500;
     this.locked = false;
@@ -24,131 +24,135 @@ function menu() {
     };
 
     this.SwitchToState = function(st) {
-        switch (st)
+        if (!this.locked)
         {
-            case this.stateDEF.TITLE:
-                //TITLE
-                this.state = st;
-                document.getElementById('soundGame').pause();
-                document.getElementById('soundGame').load();
-                document.getElementById('soundMenu').play();
-                break;
-            case this.stateDEF.SELECT:
-                //PLAYER TYPE SELECTION
-                this.state = st;
-                break;
-            case this.stateDEF.PAUSE:
-                //PAUSE
-                this.state = st;
-                Game.state = MENU;
-                break;
-            case this.stateDEF.NOTHING:
-                //NOTHING
-                document.getElementById('soundMenu').pause();
-                document.getElementById('soundMenu').load();
-                
-                document.getElementById('soundGame').play();
-                this.state = st;
-                Game.state = GAME;
-                break;
-            case this.stateDEF.END:
-                //GAME OVER
-                this.state = st;
-                Game.state = MENU;
-                break;
-        }
-    };
+            switch (st)
+            {
+                case this.state.TITLE:
+                    //TITLE
+                    this.state.CURRENT = st;
+                    document.getElementById('soundGame').pause();
+                    document.getElementById('soundGame').load();
+                    document.getElementById('soundMenu').play();
+                    break;
+                case this.state.SELECT:
+                    //PLAYER TYPE SELECTION
+                    this.state.CURRENT = st;
+                    break;
+                case this.state.PAUSE:
+                    //PAUSE
+                    this.state.CURRENT = st;
+                    Game.state = MENU;
+                    break;
+                case this.state.NOTHING:
+                    //NOTHING               
+                    document.getElementById('soundMenu').pause();
+                    document.getElementById('soundMenu').load();
 
-    this.Afficher = function() {
-        switch (this.state)
-        {
-            case this.stateDEF.TITLE:
-                //TITLE
-                Game.context.drawImage(Images['menu'], 0, this.stateDEF.TITLE * 900, 1248, 900, 0, 0, 1248, 900);
-                //sounds.list.menu.play();
-                break;
-            case this.stateDEF.SELECT:
-                //PLAYER TYPE SELECTION
-                Game.context.drawImage(Images['menu'], 0, this.stateDEF.SELECT * 900, 1248, 900, 0, 0, 1248, 900);
-                break;
-            case this.stateDEF.PAUSE:
-                //PAUSE
-                Game.context.drawImage(Images['menu'], 0, this.stateDEF.PAUSE * 900, 1248, 900, 0, 0, 1248, 900);
-                console.log("pause");
-                break;
-            case this.stateDEF.NOTHING:
-                //NOTHING
-                break;
-            case this.stateDEF.END:
-                //GAME OVER
-                Game.context.drawImage(Images['menu'], 0, this.stateDEF.END * 900, 1248, 900, 0, 0, 1248, 900);
-                break;
-        }
-    };
+                    document.getElementById('soundGame').play();
+                    this.state.CURRENT = st;
+                    Game.state = GAME;
+                    break;
+                case this.state.END:
+                    //GAME OVER
+                    this.state.CURRENT = st;
+                    Game.state = MENU;
+                    break;
+            }
+    }
+    this.Lock(menu.defaultLockTime);
+}
+;
 
-    this.Use = function() {
-        switch (this.state)
-        {
-            case this.stateDEF.TITLE:
-                //TITLE
-                if (KeyState.space)
-                    this.SwitchToState(this.stateDEF.SELECT);
+this.Afficher = function() {
+    switch (this.state.CURRENT)
+    {
+        case this.state.TITLE:
+            //TITLE
+            Game.context.drawImage(Images['menu'], 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);
+            //sounds.list.menu.play();
+            break;
+        case this.state.SELECT:
+            //PLAYER TYPE SELECTION
+            Game.context.drawImage(Images['menu'], 0, this.state.SELECT * 900, 1248, 900, 0, 0, 1248, 900);
+            break;
+        case this.state.PAUSE:
+            //PAUSE
+            Game.context.drawImage(Images['menu'], 0, this.state.PAUSE * 900, 1248, 900, 0, 0, 1248, 900);
+            break;
+        case this.state.NOTHING:
+            //NOTHING
+            break;
+        case this.state.END:
+            //GAME OVER
+            Game.context.drawImage(Images['menu'], 0, this.state.END * 900, 1248, 900, 0, 0, 1248, 900);
+            break;
+    }
+};
+
+this.Use = function() {
+    switch (this.state.CURRENT)
+    {
+        case this.state.TITLE:
+            //TITLE
+            if (KeyState.space)
+                this.SwitchToState(this.state.SELECT);
+            this.Lock(this.defaultLockTime);
+            break;
+
+        case this.state.SELECT:
+            //PLAYER TYPE SELECTION
+            //Lénine
+            if (KeyState.l)
+            {
+                player.type = player.typeDEF.LENINE;
+                this.SwitchToState(this.state.NOTHING);
                 this.Lock(this.defaultLockTime);
-                break;
-
-            case this.stateDEF.SELECT:
-                //PLAYER TYPE SELECTION
-                //Lénine
-                if (KeyState.l)
-                {
-                    player.type = player.typeDEF.LENINE;
-                    this.SwitchToState(this.stateDEF.NOTHING);
-                    this.Lock(this.defaultLockTime);
-                }
-                //Poutine
+            }
+            //Poutine
+            if (KeyState.p)
+            {
+                player.type = player.typeDEF.POUTINE;
+                this.SwitchToState(this.state.NOTHING);
+                this.Lock(this.defaultLockTime);
+            }
+            //Staline
+            if (KeyState.s)
+            {
+                player.type = player.typeDEF.STALINE;
+                this.SwitchToState(this.state.NOTHING);
+                this.Lock(this.defaultLockTime);
+            }
+            break;
+        case this.state.PAUSE:
+            //PAUSE
+            if (!this.locked)
+            {
                 if (KeyState.p)
                 {
-                    player.type = player.typeDEF.POUTINE;
-                    this.SwitchToState(this.stateDEF.NOTHING);
+                    this.SwitchToState(this.state.NOTHING);
                     this.Lock(this.defaultLockTime);
                 }
-                //Staline
-                if (KeyState.s)
+                if (KeyState.escape)
                 {
-                    player.type = player.typeDEF.STALINE;
-                    this.SwitchToState(this.stateDEF.NOTHING);
+                    this.SwitchToState(this.state.END);
                     this.Lock(this.defaultLockTime);
                 }
-                break;
-            case this.stateDEF.PAUSE:
-                //PAUSE
-                if (!this.locked)
-                {
-                    if (KeyState.p)
-                    {
-                        this.SwitchToState(this.stateDEF.NOTHING);
-                        this.Lock(this.defaultLockTime);
-                    }
-                    if (KeyState.escape)
-                    {
-                        this.SwitchToState(this.stateDEF.END);
-                        this.Lock(this.defaultLockTime);
-                    }
-                }
-                break;
+            }
+            break;
 
-            case this.stateDEF.END:
-                //GAME OVER
-                if (!this.locked)
+        case this.state.END:
+            //GAME OVER
+            if (!this.locked)
+            {
+                if (KeyState.escape)
                 {
-                    if (KeyState.escape)
-                    {
-                        this.SwitchToState(this.stateDEF.TITLE);
-                        this.Lock(this.defaultLockTime);
-                    }
+                    this.SwitchToState(this.state.TITLE);
+                    this.Lock(this.defaultLockTime);
                 }
-                break;
-        }
-        this.Afficher();
-    };
+            }
+            break;
+    }
+    this.Afficher();
+};
 }

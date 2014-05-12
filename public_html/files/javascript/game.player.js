@@ -1,4 +1,6 @@
-// PLAYER
+//##############################################################################
+//game.player - Joueur
+//##############################################################################
 var player = new Player();
 
 function Player() {
@@ -18,6 +20,7 @@ function Player() {
     this.speed = 8;
     this.direction = 0;
     this.Projectile = 0;
+    this.ProjectileType = 0;
     this.type = 1;
     this.frame = 0;
     this.direction = 0;
@@ -45,18 +48,18 @@ function Player() {
                 GroundMap[this.room].objects.push(new object(this.x, this.y, 32, 32, false, this.object3));
                 this.object3 = null;
             }
-            if(this.object2 != null) {
-                if(this.object3 == null) {
+            if (this.object2 != null) {
+                if (this.object3 == null) {
                     this.object3 = this.object2;
                     this.object2 = null;
                 }
             }
-            if(this.object1 != null) {
-                if(this.object2 == null) {
+            if (this.object1 != null) {
+                if (this.object2 == null) {
                     this.object2 = this.object1;
                     this.object1 = null;
-                }else {
-                    if(this.object3 == null) {
+                } else {
+                    if (this.object3 == null) {
                         this.object3 = this.object2;
                         this.object2 = this.object1;
                         this.object1 = null;
@@ -83,12 +86,18 @@ function Player() {
             switch (this.type) {
                 case this.typeDEF.POUTINE:
                     this.Projectile = new vodka(this.x, this.y, this.direction);
+                    document.getElementById('soundVodka').load();
+                    document.getElementById('soundVodka').play();
                     break;
                 case this.typeDEF.STALINE:
                     this.Projectile = new machette(this.x, this.y, this.direction);
+                    document.getElementById('soundMachette').load();
+                    document.getElementById('soundMachette').play();
                     break;
                 case this.typeDEF.LENINE:
                     this.Projectile = new faucile(this.x, this.y, this.direction);
+                    document.getElementById('soundFaucille').load();
+                    document.getElementById('soundFaucille').play();
                     break;
                 default:
                     throw "No weapon set";
@@ -96,20 +105,28 @@ function Player() {
         }
     };
 
+//##############################################################################
+//Affichage du personnage
+//##############################################################################
     this.Afficher = function() {
         switch (this.type)
         {
+            //#####POUTINE#####// 
             case this.typeDEF.POUTINE:
                 Game.context.drawImage(Images['spritePoutine'], 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
+                //#####STALINE#####// 
             case this.typeDEF.STALINE:
                 Game.context.drawImage(Images['spriteStaline'], 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
+                //#####LENINE#####// 
             case this.typeDEF.LENINE:
                 Game.context.drawImage(Images['spriteLenine'], 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
                 break;
         }
     };
+
+
 
     this.UseKeyboard = function(e) {
         switch (e) {
@@ -133,22 +150,25 @@ function Player() {
 
     this.Move = function() {
 
-        if (!menu.locked)
-        {
-            if (KeyState.p)
-            {
-                menu.Lock(menu.defaultLockTime);
-                menu.SwitchToState(menu.stateDEF.PAUSE); 
-            }
-        }
+        //#####Mettre en pause#####// 
+        if (KeyState.p)
+            menu.SwitchToState(menu.state.PAUSE);
+
+
+
+//##############################################################################
+//Déplacement du personnage
+//##############################################################################
+        this.directionCount = true;
+
+        //#####Sprint#####// 
         if (KeyState.Shift)
             this.speed = 16;
         else
             this.speed = 8;
 
 
-        this.directionCount = true;
-        //#####MOVE#UP#####// 
+        //#####Déplacemetn en haut#####// 
         if (this.UseKeyboard(this.directionDEF.UP) && this.directionCount)
         {
             if (this.y > this.roomInfo[1]) {
@@ -159,7 +179,7 @@ function Player() {
             this.direction = this.directionDEF.UP;
             this.directionCount = false;
         }
-        //#####MOVE#RIGHT#####// 
+        //#####Déplacement à droite#####// 
         if (this.UseKeyboard(this.directionDEF.RIGHT) && this.directionCount)
         {
             if (this.x + this.width < this.roomInfo[0] + this.roomInfo[2]) {
@@ -170,7 +190,7 @@ function Player() {
             this.direction = this.directionDEF.RIGHT;
             this.directionCount = false;
         }
-        //#####MOVE#DOWN#####// 
+        //#####Déplacement en bas#####// 
         if (this.UseKeyboard(this.directionDEF.DOWN) && this.directionCount)
         {
             if (this.y + this.height < this.roomInfo[1] + this.roomInfo[3]) {
@@ -182,7 +202,7 @@ function Player() {
             this.directionCount = false;
 
         }
-        //#####MOVE#LEFT#####//  
+        //#####Déplacement à gauche#####//  
         if (this.UseKeyboard(this.directionDEF.LEFT) && this.directionCount)
         {
             if (this.x > this.roomInfo[0]) {
@@ -194,7 +214,9 @@ function Player() {
             this.directionCount = false;
         }
 
-        //#####SPRITE#ANIMATION#####//  
+//##############################################################################
+//Animation du personnage
+//##############################################################################
         if (this.UseKeyboard(this.directionDEF.UP) || this.UseKeyboard(this.directionDEF.LEFT) || this.UseKeyboard(this.directionDEF.RIGHT) || this.UseKeyboard(this.directionDEF.DOWN))
         {
             if (this.frame >= 2)

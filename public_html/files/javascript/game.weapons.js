@@ -1,4 +1,5 @@
 function vodka(x, y, dir) {
+    player.ProjectileType = 1;
     this.x = x;
     this.y = y;
     this.width = 15;
@@ -35,6 +36,7 @@ function vodka(x, y, dir) {
 }
 
 function faucile(x, y, dir) {
+    player.ProjectileType = 2;
     this.x = x;
     this.y = y;
     this.width = 30;
@@ -70,6 +72,7 @@ function faucile(x, y, dir) {
     };}
 
 function machette(x, y, dir) {
+    player.ProjectileType = 3;
     this.x = x;
     this.y = y;
     this.width = 30;

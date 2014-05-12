@@ -17,7 +17,7 @@ var mDoors = {};
  * @returns {null}
  */
 function Initialize() {
-    menu.SwitchToState(menu.stateDEF.TITLE);
+    menu.SwitchToState(menu.state.TITLE);
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//       

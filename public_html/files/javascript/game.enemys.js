@@ -73,6 +73,11 @@ function enemy(x, y, type, dir) {
             if ((this.x + this.width >= player.Projectile.x && this.x <= player.Projectile.x + player.Projectile.width) || (this.x <= player.Projectile.x + player.Projectile.width && this.x + this.width >= player.Projectile.x)) {
                 if ((this.y + this.height >= player.Projectile.y && this.y <= player.Projectile.y + player.Projectile.height) || (this.y <= player.Projectile.y + player.Projectile.height && this.y + this.height >= player.Projectile.y)) {
                     player.Projectile = 0;
+                    if(player.ProjectileType == 1){
+                        document.getElementById('soundVodkaBreak').load();
+                        document.getElementById('soundVodkaBreak').play();
+                      player.ProjectileType = 0;  
+                    }
                     var index = EnemyList.indexOf(this);
                     EnemyList.splice(index, 1);
                 }

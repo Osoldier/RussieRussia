@@ -32,7 +32,7 @@ function score() {
                 player.object3 = null;
                 this.hunger = 200;
                 EnemyList = new Array();
-                menu.SwitchToState(menu.stateDEF.END);
+                menu.SwitchToState(menu.state.END);
             }
         }
         this.context.drawImage(this.background, 0, 0, 200, 768);
