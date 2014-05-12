@@ -155,59 +155,60 @@ var GroundMap = [
     /* 84 */ new room(SQUARED,[new object(600,200,32,32,true,VODKA),new object(500,300,64,64,true,PUIT,"K")],[new door(LEFT,116,106,null,false),new door(BOTTOM,115,114,null,false)]),
     /* 85 */ new room(LARGER,[new object(400,500,32,32,true,VODKA)],[new door(TOP,87,86,null,false),new door(BOTTOM,88,89,BLUE,true)]),
     /* 86 */ new room(LARGER,[new object(600,500,32,32,true,CAVIAR),new object(600,300,32,32,true,TABLE),new object(600,700,32,32,true,TABLE)],[new door(TOP,100,101,null,false),new door(BOTTOM,99,98,YELLOW,true)]),
-    /* 87 */ new room(SQUARED,[new object(400,600,64,64,true,CIGARETTE)],[new door(TOP,108,107,null,false),new door(109,110,null,false)]),
-    /* 88 */ new room(SQUARED, [new object(200,300,32,32,true,TABLE),new object(500,600,32,32,true,TABLE)],[new door(TOP,114,115,null,false),new door(LEFT,110,109,null,false),new door(RIGHT,112,113,null,false),new door(BOTTOM,111,117,null,false)]),
+    /* 87 */ new room(SQUARED,[new object(400,600,32,32,true,CIGARETTE)],[new door(TOP,108,107,null,false),new door(RIGHT,109,110,null,false)]),
+    /* 88 */ new room(SQUARED, [new object(500,300,32,32,true,TABLE),new object(700,600,32,32,true,TABLE)],[new door(TOP,114,115,null,false),new door(LEFT,110,109,null,false),new door(RIGHT,112,113,null,false),new door(BOTTOM,111,117,null,false)]),
     /* 89 BOSS DRACNIGGA */ new room(SQUARED, [new object(500,500,64,64,true,PUIT,"I")],[new door(TOP,89,88,BLUE,true),new door(LEFT,113,112,null,false),new door(BOTTOM,90,91,null,false)]),
     /* 90 */ new room(SQUARED, [],[new door(TOP,98,99,YELLOW,true),new door(RIGHT,97,96,YELLOW,true)]),
     /* 91 */ new room(LONGER,[new object(400,400,32,32,true,CAVIAR)],[new door(LEFT,96,97,YELLOW,true),new door(RIGHT,95,94,null,false)]),
     /* 92 */ new room(SQUARED, [new object(300,300,32,32,true,TABLE)],[new door(LEFT,94,95,null,false),new door(TOP,117,111,null,false),new door(RIGHT,93,92,RED,true)]),
     /* 93 */ new room(SQUARED,[new object(400,500,32,32,true,CAVIAR),new object(700,500,32,32,true,VODKA)],[new door(LEFT,92,93,RED,true),new door(TOP,91,90,null,false)]),
-    /* THE CAVERNS */
-    /* 94 */
-    /* 95 */
-    /* 96 */
-    /* 97 */
-    /* 98 */
-    /* 99 */
-    /* 101 */
-    /* 102 */
-    /* 103 */
-    /* 104 */
-    /* 105 */
-    /* 106 */
-    /* 107 */
-    /* 108 */
-    /* 109 */
-    /* 110 */
-    /* 111 */
-    /* 112 */
-    /* 113 */
-    /* 114 */
-    /* 115 */
-    /* 116 */
-    /* 117 */
-    /* 118 */
-    /* 119 */
-    /* 120 */
-    /* 121 */
-    /* 122 */
-    /* 123 */
-    /* 124 */
-    /* 125 */
-    /* 126 */
-    /* 127 */
-    /* 128 */
-    /* 129 */
-    /* 130 */
-    /* 131 */
-    /* 132 */
-    /* 133 */
-    /* 134 */
-    /* 135 */
-    /* 136 */
-    /* 137 */
-    /* 138 */
-    /* 139 */
+    /* THE CAVERNS 666 willy swagg */
+    /* 94 */ new room(SQUARED,[],[]),
+    /* 95 */ new room(LONGER,[],[]),
+    /* 96 */ new room(SQUARED,[],[]),
+    /* 97 */ new room(LONGER,[],[]),
+    /* 98 */ new room(SQUARED,[],[]),
+    /* 99 */ new room(SQUARED,[],[]),
+    /* 101 */ new room(SQUARED,[],[]),
+    /* 102 */ new room(SQUARED,[],[]),
+    /* 103 */ new room(SQUARED,[],[]),
+    /* 104 */ new room(SQUARED,[],[]),
+    /* 105 */ new room(LARGER,[],[]), 
+    /* 106 */ new room(LARGER,[],[]),
+    /* 107 */ new room(LARGER,[],[]),
+    /* 108 */ new room(SQUARED,[],[]),
+    /* 109 */ new room(SQUARED,[],[]),
+    /* 110 */ new room(LONGER,[],[]),
+    /* 111 */ new room(SQUARED,[],[]),
+    /* 112 */ new room(LONGER,[],[]),
+    /* 113 */ new room(SQUARED,[],[]),
+    /* 114 */ new room(LARGER,[],[]), 
+    /* 115 */ new room(SQUARED,[],[]),
+    /* 116 */ new room(SQUARED,[],[]),
+    /* 117 */ new room(SQUARED,[],[]),
+    /* 118 */ new room(SQUARED,[],[]),
+    /* 119 */ new room(LARGER,[],[]),
+    /* 120 */ new room(SQUARED,[],[]),
+    /* 121 */ new room(SQUARED,[],[]),
+    /* 122 */ new room(LONGER,[],[]),
+    /* 123 */ new room(SQUARED,[],[]), 
+    /* 124 */ new room(SQUARED,[],[]),
+    /* 125 */ new room(LONGER,[],[]),
+    /* 126 */ new room(LONGER,[],[]), 
+    /* 127 */ new room(SQUARED,[],[]),
+    /* 128 */ new room(SQUARED,[],[]), 
+    /* 129 */ new room(LARGER,[],[]),
+    /* 130 */ new room(LARGER,[],[]),
+    /* 131 */ new room(SQUARED,[],[]),
+    /* 132 */ new room(SQUARED,[],[]), 
+    /* 133 */ new room(SQUARED,[],[]),
+    /* 134 */ new room(LONGER,[],[]), 
+    /* 135 */ new room(SQUARED,[],[]),
+    /* 136 */ new room(SQUARED,[],[]), 
+    /* 137 */ new room(SQUARED,[],[]),
+    /* 138 */ new room(SQUARED,[],[]),
+    /* 139 */ new room(SQUARED,[],[]),
+    /* 140 */ new room(SQUARED,[],[]),
 ];
 
 function dispatchKeys() {
