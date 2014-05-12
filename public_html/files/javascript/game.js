@@ -186,6 +186,7 @@ function WouldCollide(dX, dY) {
                                 score.hunger += 30;
                                 var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
                                 player.Map[player.room].objects.splice(index, 1);
+                                score.value += 50;
                                 if (score.hunger > 200) {
                                     score.hunger = 200;
                                 }
@@ -199,6 +200,7 @@ function WouldCollide(dX, dY) {
                                 } else if (typeof player.object3 != undefined) {
                                     player.object3 = getAllObjectsInRoom(player.room)[i].type;
                                 }
+                                score.value += 70;
                             }
                         }
                     }

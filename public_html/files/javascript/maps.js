@@ -180,7 +180,7 @@ var GroundMap = [
     /* 108 */ new room(SQUARED,[new object(600,450,64,64,false,PEAUOURS,"D"),new object(200,800,32,32,true,VODKA),new object(600,800,32,32,false,DRAPCOM)],[new door(TOP,269,260,null,false),new door(RIGHT,270,271,null,false)]),
     /* 109 */ new room(LONGER,[],[new door(LEFT,271,270,null,false),new door(RIGHT,272,273,BLUE,true)]),
     /* 110 */ new room(SQUARED,[new object(600,400,32,32,true,CAVIAR)],[new door(TOP,274,262,null,false),new door(BOTTOM,275,292,null,false),new door(LEFT,273,272,BLUE,true),new door(RIGHT,276,277,RED,true)]),
-    /* 111 */ new room(LONGER,[],[new door(LEFT,277,276,RED.true),new door(RIGHT,278,279,null,false)]),
+    /* 111 */ new room(LONGER,[],[new door(LEFT,277,276,RED,true),new door(RIGHT,278,279,null,false)]),
     /* 112 */ new room(SQUARED,[new object(300,650,32,32,true,CIGARETTE)],[new door(TOP,280,264,null,false),new door(BOTTOM,281,297,null,false),new door(LEFT,279,278,null,false)]),
     /* 113 */ new room(LARGER,[],[new door(TOP,282,266,null,false),new door(BOTTOM,283,302,null,false)]), 
     /* 114 */ new room(SQUARED,[new object(600,400,32,32,false,CLEFB)],[new door(TOP,284,268,null,false),new door(RIGHT,285,286,null,false)]),

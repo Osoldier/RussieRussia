@@ -80,6 +80,7 @@ function enemy(x, y, type, dir) {
                     }
                     var index = EnemyList.indexOf(this);
                     EnemyList.splice(index, 1);
+                    score.value += 200;
                 }
             }
         }
