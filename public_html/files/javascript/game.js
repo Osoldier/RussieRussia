@@ -17,10 +17,10 @@ var mDoors = {};
  * @returns {null}
  */
 function Initialize() {
+    menu.SwitchToState(menu.stateDEF.TITLE);
     Game.canvas = document.getElementById('game');
     Game.context = Game.canvas.getContext('2d');
-    //#####PLAYER#####//   
-    sounds.Initialize();
+    //#####PLAYER#####//       
     score.Initialize();
     //#####Sprites#####//
     loadSprites();

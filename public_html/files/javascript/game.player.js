@@ -138,8 +138,7 @@ function Player() {
             if (KeyState.p)
             {
                 menu.Lock(menu.defaultLockTime);
-                menu.state = menu.stateDEF.PAUSE;
-                Game.state = MENU;
+                menu.SwitchToState(menu.stateDEF.PAUSE); 
             }
         }
         if (KeyState.Shift)
