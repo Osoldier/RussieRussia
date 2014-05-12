@@ -76,6 +76,10 @@ function score() {
         if(player.object3 != null) {
             this.context.drawImage(ImagesSprites[player.object3], 25+32+32+5, 85, 32, 32);
         }
+        this.context.font="20px Georgia";
+        this.context.fillStyle = "red"
+        this.context.fillText(time,60, 350);
+        this.context.fillText("Score: "+this.value,60, 300);
     };
 }
 
@@ -102,7 +106,6 @@ function changeTime() {
 	second = '0'+second;
 	second = second.toString().substr(-2, 2);
     time = hour+':'+minute+':'+second;
-    document.getElementById('time').innerHTML = time;
 } 
 var instance = self.setInterval(changeTime ,1000);
 ;
