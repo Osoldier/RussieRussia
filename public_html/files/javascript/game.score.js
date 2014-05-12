@@ -105,5 +105,4 @@ function changeTime() {
     document.getElementById('time').innerHTML = time;
 } 
 var instance = self.setInterval(changeTime ,1000);
-
 ;
