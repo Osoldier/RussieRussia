@@ -150,9 +150,11 @@ function Player() {
 
     this.Move = function() {
 
-        //#####Mettre en pause#####// 
+        //#####Mettre en pause#####//         
         if (KeyState.p)
             menu.SwitchToState(menu.state.PAUSE);
+
+
 
 
 
