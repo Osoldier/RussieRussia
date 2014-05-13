@@ -1,5 +1,8 @@
 //##############################################################################
-//game.player - Joueur
+//Fichier : game.player
+//Description : Joueur
+//Date : 12.05.2014
+//Version : 1
 //##############################################################################
 var player = new Player();
 
@@ -18,208 +21,258 @@ function Player() {
     this.width = 40;
     this.height = 40;
     this.speed = 8;
-    this.direction = 0;
-    this.Projectile = 0;
-    this.ProjectileType = 0;
-    this.type = 1;
+    this.projectile = {
+        'FAUCILLE': function(x, y, dir) {
+            this.x = x;
+            this.y = y;
+            this.width = 30;
+            this.height = 45;
+            this.theta = 0;
+            this.sprite = new Image();
+            this.sprite.src = "files/images/A_Faucille.png";
+            this.dir = dir;
+            this.Update = function() {
+                switch (dir) {
+                    case player.direction.UP:
+                        this.y -= 16;
+                        break;
+                    case player.direction.DOWN:
+                        this.y += 16;
+                        break;
+                    case player.direction.LEFT:
+                        this.x -= 16;
+                        break;
+                    case player.direction.RIGHT:
+                        this.x += 16;
+                        break;
+                }
+                if (this.x < player.roomInfo[0] || this.y < player.roomInfo[1] || this.y > player.roomInfo[1] + player.Map[player.room].height - 30 || this.x > player.roomInfo[0] + player.Map[player.room].width) {
+                    return true;
+                }
+                this.theta += 25;
+                Game.context.save();
+                Game.context.translate(this.x, this.y);
+                Game.context.rotate(this.theta * (Math.PI / 180));
+                Game.context.drawImage(this.sprite, 0, 0, this.width, this.height);
+                Game.context.restore();
+            };
+        },
+        'MACHETTE': function(x, y, dir) {
+            this.x = x;
+            this.y = y;
+            this.width = 30;
+            this.height = 45;
+            this.theta = 0;
+            this.sprite = new Image();
+            this.sprite.src = "files/images/A_Machette.png";
+            this.dir = dir;
+            this.Update = function() {
+                switch (dir) {
+                    case player.direction.UP:
+                        this.y -= 16;
+                        break;
+                    case player.direction.DOWN:
+                        this.y += 16;
+                        break;
+                    case player.direction.LEFT:
+                        this.x -= 16;
+                        break;
+                    case player.direction.RIGHT:
+                        this.x += 16;
+                        break;
+                }
+                if (this.x < player.roomInfo[0] || this.y < player.roomInfo[1] || this.y > player.roomInfo[1] + player.Map[player.room].height - 30 || this.x > player.roomInfo[0] + player.Map[player.room].width) {
+                    return true;
+                }
+                this.theta += 25;
+                Game.context.save();
+                Game.context.translate(this.x, this.y);
+                Game.context.rotate(this.theta * (Math.PI / 180));
+                Game.context.drawImage(this.sprite, 0, 0, this.width, this.height);
+                Game.context.restore();
+            };
+        },
+        'VODKA': function(x, y, dir) {
+            this.x = x;
+            this.y = y;
+            this.width = 15;
+            this.height = 30;
+            this.dir = dir;
+            this.theta = 1;
+            this.sprite = new Image();
+            this.sprite.src = "files/images/N_Vodka.png";
+            this.Update = function() {
+                switch (dir) {
+                    case player.direction.UP:
+                        this.y -= 16;
+                        break;
+                    case player.direction.DOWN:
+                        this.y += 16;
+                        break;
+                    case player.direction.LEFT:
+                        this.x -= 16;
+                        break;
+                    case player.direction.RIGHT:
+                        this.x += 16;
+                        break;
+                }
+                if (this.x < player.roomInfo[0] || this.y < player.roomInfo[1] || this.y > player.roomInfo[1] + player.Map[player.room].height - 30 || this.x > player.roomInfo[0] + player.Map[player.room].width) {
+                    return true;
+                }
+                this.theta += 25;
+                Game.context.save();
+                Game.context.translate(this.x, this.y);
+                Game.context.rotate(this.theta * (Math.PI / 180));
+                Game.context.drawImage(this.sprite, 0, 0, this.width, this.height);
+                Game.context.restore();
+            };
+        },
+        'CURRENT': 0
+    };
     this.frame = 0;
-    this.direction = 0;
-    this.directionDEF = {
+    this.isMoving = false;
+    this.direction = {
         'DOWN': 0,
         'LEFT': 1,
         'RIGHT': 2,
-        'UP': 3
+        'UP': 3,
+        'CURRENT': 0
     };
-    this.typeDEF = {
+    this.type = {
         'POUTINE': 0,
         'STALINE': 1,
-        'LENINE': 2
+        'LENINE': 2,
+        'CURRENT': 1
     };
+
     /**
      * Fonction principale, affiche et gère le déplacement
      * @returns {undefined}
      */
     this.Update = function() {
-        this.Move();
-        this.Afficher();
-        if (KeyState.ctrlLeft) {
-            KeyState["ctrlLeft"] = false;
+        //#####Mettre en pause#####//         
+        if (input.KeyState.P)
+            menu.SwitchToState(menu.state.PAUSE);
+
+//##############################################################################
+//Inventaire (3 objets)
+//##############################################################################
+        //#####OBJET 1#####// 
+        if (input.KeyState.N1) {
+            input.KeyState.N1 = false;
+            if (this.object1 != null) {
+                GroundMap[this.room].objects.push(new object(this.x, this.y, 32, 32, false, this.object1));
+                this.object1 = null;
+            }
+        }
+        //#####OBJET 2#####// 
+        if (input.KeyState.N2) {
+            input.KeyState.N2 = false;
+            if (this.object2 != null) {
+                GroundMap[this.room].objects.push(new object(this.x, this.y, 32, 32, false, this.object2));
+                this.object2 = null;
+            }
+        }
+        //#####OBJET 3#####// 
+        if (input.KeyState.N3) {
+            input.KeyState.N3 = false;
             if (this.object3 != null) {
                 GroundMap[this.room].objects.push(new object(this.x, this.y, 32, 32, false, this.object3));
                 this.object3 = null;
             }
-            if (this.object2 != null) {
-                if (this.object3 == null) {
-                    this.object3 = this.object2;
-                    this.object2 = null;
-                }
-            }
-            if (this.object1 != null) {
-                if (this.object2 == null) {
-                    this.object2 = this.object1;
-                    this.object1 = null;
-                } else {
-                    if (this.object3 == null) {
-                        this.object3 = this.object2;
-                        this.object2 = this.object1;
-                        this.object1 = null;
-                    }
-                }
-            }
         }
-        if (KeyState.space) {
-            this.Shoot();
-        }
-        if (this.Projectile !== 0) {
-            if (this.Projectile.Update()) {
-                this.Projectile = 0;
-            }
-        }
-    };
-    /**
-     * Si aucuns projectile n'existe, crée un
-     * @returns {null}
-     * @throws {No weapon set} Si le type est non défini
-     */
-    this.Shoot = function() {
-        if (this.Projectile === 0) {
-            switch (this.type) {
-                case this.typeDEF.POUTINE:
-                    this.Projectile = new vodka(this.x, this.y, this.direction);
-                    document.getElementById('soundVodka').load();
-                    document.getElementById('soundVodka').play();
-                    break;
-                case this.typeDEF.STALINE:
-                    this.Projectile = new machette(this.x, this.y, this.direction);
-                    document.getElementById('soundMachette').load();
-                    document.getElementById('soundMachette').play();
-                    break;
-                case this.typeDEF.LENINE:
-                    this.Projectile = new faucile(this.x, this.y, this.direction);
-                    document.getElementById('soundFaucille').load();
-                    document.getElementById('soundFaucille').play();
-                    break;
-                default:
-                    throw "No weapon set";
-            }
-        }
-    };
 
 //##############################################################################
-//Affichage du personnage
+//Armes
 //##############################################################################
-    this.Afficher = function() {
-        switch (this.type)
-        {
-            //#####POUTINE#####// 
-            case this.typeDEF.POUTINE:
-                Game.context.drawImage(Images['spritePoutine'], 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
-                break;
-                //#####STALINE#####// 
-            case this.typeDEF.STALINE:
-                Game.context.drawImage(Images['spriteStaline'], 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
-                break;
-                //#####LENINE#####// 
-            case this.typeDEF.LENINE:
-                Game.context.drawImage(Images['spriteLenine'], 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
-                break;
+        if (input.KeyState.SPACE) {
+            if (this.projectile.CURRENT === 0) {
+                switch (this.type.CURRENT) {
+                    //#####VODKA#####//
+                    default :
+                    case this.type.POUTINE:
+                        this.projectile.CURRENT = new this.projectile.VODKA(this.x, this.y, this.direction.CURRENT);
+                        document.getElementById('soundVodka').load();
+                        document.getElementById('soundVodka').play();
+                        break;
+                        //#####MACHETTE#####//
+                    case this.type.STALINE:
+                        this.projectile.CURRENT = new this.projectile.MACHETTE(this.x, this.y, this.direction.CURRENT);
+                        document.getElementById('soundMachette').load();
+                        document.getElementById('soundMachette').play();
+                        break;
+                        //#####FAUCILLE#####//
+                    case this.type.LENINE:
+                        this.projectile.CURRENT = new this.projectile.FAUCILLE(this.x, this.y, this.direction.CURRENT);
+                        document.getElementById('soundFaucille').load();
+                        document.getElementById('soundFaucille').play();
+                        break;
+                }
+            }
         }
-    };
-
-
-
-    this.UseKeyboard = function(e) {
-        switch (e) {
-            case this.directionDEF.DOWN:
-                return (KeyState.s || KeyState.down) ? true : false;
-                break;
-
-            case this.directionDEF.UP:
-                return (KeyState.w || KeyState.up) ? true : false;
-                break;
-
-            case this.directionDEF.RIGHT:
-                return (KeyState.d || KeyState.right) ? true : false;
-                break;
-
-            case this.directionDEF.LEFT:
-                return (KeyState.a || KeyState.left) ? true : false;
-                break;
+        //#####Mise a jour du projectile#####//
+        if (this.projectile.CURRENT !== 0) {
+            if (this.projectile.CURRENT.Update())
+                this.projectile.CURRENT = 0;
         }
-    };
-
-    this.Move = function() {
-
-        //#####Mettre en pause#####//         
-        if (KeyState.p)
-            menu.SwitchToState(menu.state.PAUSE);
-
-
-
-
 
 //##############################################################################
 //Déplacement du personnage
 //##############################################################################
-        this.directionCount = true;
-
         //#####Sprint#####// 
-        if (KeyState.Shift)
+        if (input.KeyState.SHIFT)
             this.speed = 16;
         else
             this.speed = 8;
-
-
-        //#####Déplacemetn en haut#####// 
-        if (this.UseKeyboard(this.directionDEF.UP) && this.directionCount)
+        //#####Déplacement en haut#####// 
+        if (input.KeyState.W || input.KeyState.UP && !this.isMoving)
         {
             if (this.y > this.roomInfo[1]) {
                 if (!WouldCollide(0, -this.speed))
                     this.y -= this.speed;
             } else
                 this.y = this.roomInfo[1];
-            this.direction = this.directionDEF.UP;
-            this.directionCount = false;
+            this.direction.CURRENT = this.direction.UP;
+            this.isMoving = true;
         }
         //#####Déplacement à droite#####// 
-        if (this.UseKeyboard(this.directionDEF.RIGHT) && this.directionCount)
+        if (input.KeyState.D || input.KeyState.RIGHT && !this.isMoving)
         {
             if (this.x + this.width < this.roomInfo[0] + this.roomInfo[2]) {
                 if (!WouldCollide(this.speed, 0))
                     this.x += this.speed;
             } else
                 this.x = this.roomInfo[0] + this.roomInfo[2] - this.width;
-            this.direction = this.directionDEF.RIGHT;
-            this.directionCount = false;
+            this.direction.CURRENT = this.direction.RIGHT;
+            this.isMoving = true;
         }
         //#####Déplacement en bas#####// 
-        if (this.UseKeyboard(this.directionDEF.DOWN) && this.directionCount)
+        if (input.KeyState.S || input.KeyState.DOWN && !this.isMoving)
         {
             if (this.y + this.height < this.roomInfo[1] + this.roomInfo[3]) {
                 if (!WouldCollide(0, this.speed))
                     this.y += this.speed;
             } else
                 this.y = this.roomInfo[1] + this.roomInfo[3] - this.height;
-            this.direction = this.directionDEF.DOWN;
-            this.directionCount = false;
-
+            this.direction.CURRENT = this.direction.DOWN;
+            this.isMoving = true;
         }
         //#####Déplacement à gauche#####//  
-        if (this.UseKeyboard(this.directionDEF.LEFT) && this.directionCount)
+        if (input.KeyState.A || input.KeyState.LEFT && !this.isMoving)
         {
             if (this.x > this.roomInfo[0]) {
                 if (!WouldCollide(-this.speed, 0))
                     this.x -= this.speed;
             } else
                 this.x = this.roomInfo[0];
-            this.direction = this.directionDEF.LEFT;
-            this.directionCount = false;
+            this.direction.CURRENT = this.direction.LEFT;
+            this.isMoving = true;
         }
 
 //##############################################################################
 //Animation du personnage
 //##############################################################################
-        if (this.UseKeyboard(this.directionDEF.UP) || this.UseKeyboard(this.directionDEF.LEFT) || this.UseKeyboard(this.directionDEF.RIGHT) || this.UseKeyboard(this.directionDEF.DOWN))
+        if (this.isMoving)
         {
             if (this.frame >= 2)
                 this.frame = 0;
@@ -228,6 +281,26 @@ function Player() {
 
         } else {
             this.frame = 1;
+        }
+        this.isMoving = false;
+
+//##############################################################################
+//Affichage du personnage
+//##############################################################################
+        switch (this.type.CURRENT)
+        {
+            //#####POUTINE#####// 
+            case this.type.POUTINE:
+                Game.context.drawImage(Images['spritePoutine'], 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
+                break;
+                //#####STALINE#####// 
+            case this.type.STALINE:
+                Game.context.drawImage(Images['spriteStaline'], 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
+                break;
+                //#####LENINE#####// 
+            case this.type.LENINE:
+                Game.context.drawImage(Images['spriteLenine'], 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
+                break;
         }
     };
 }
