@@ -15,18 +15,20 @@
         <script type="text/javascript" src="files/javascript/canvas.draw.js"></script>
     </head>
     <body onload="Initialize();" onkeydown="input.setKeyState(event, true);" onkeyup="input.setKeyState(event, false);">
+        <div id="hidden">
         <!-- AUDIO -->
         <audio id="soundMenu" src="files/sounds/menu.ogg"></audio>  
         <audio id="soundGame" src="files/sounds/Swagg.ogg"></audio>  
         <audio id="soundMachette" src="files/sounds/machette.ogg"></audio> 
         <audio id="soundFaucille" src="files/sounds/faucille.ogg"></audio> 
         <audio id="soundVodka" src="files/sounds/vodka.ogg"></audio> 
-        <audio id="soundVodkaBreak" src="files/sounds/vodkaBreak.ogg"></audio>  
-        <!-- AUDIO -->
-        Dev: <input type="text" id="salle"><button onclick="tempChangerSalle();">Go !</button>
+        <audio id="soundVodkaBreak" src="files/sounds/vodkaBreak.ogg"></audio>          
+        <!--Images -->        
+        </div>
     <center>
         <canvas id="game" width="1248" height="900" ></canvas>
         <canvas id="score" width="200" height="900" ></canvas>
     </center>
+    Dev: <input type="text" id="salle"><button onclick="tempChangerSalle();">Go !</button>
 </body>
 </html>
