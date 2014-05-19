@@ -176,7 +176,7 @@ function Player() {
             Time = 0;
             CURRENTANIMATION = THEOREMEDELAPIZZA;
             score.value += 666;
-            score.hunger -= 66,6; 
+            score.hunger -= 166,6; 
         }
 
 //##############################################################################
