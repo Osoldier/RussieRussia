@@ -1,10 +1,12 @@
 body {
-    background-color: #00456A;    
+    background-color: #24587A;    
 }
-
 #game {    
-    background-color: #00456A;  
+    background-color: #24587A;  
 }
 #score {
-    background-color: #00456A;
+    background-color: #24587A;
+}
+#hidden {
+    display:none;
 }

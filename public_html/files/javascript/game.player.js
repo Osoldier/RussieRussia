@@ -1,5 +1,5 @@
 //##############################################################################
-//Fichier : game.player
+//Fichier : game.player.js
 //Description : Joueur
 //Date : 12.05.2014
 //Version : 1
@@ -144,6 +144,14 @@ function Player() {
         'LENINE': 2,
         'CURRENT': 1
     };
+    this.sprites = {
+        'lenine': new Image(),
+        'staline': new Image(),
+        'poutine': new Image()
+    };
+    this.sprites.lenine.src = 'files/images/spriteLenine.png';
+    this.sprites.staline.src = 'files/images/spriteStaline.png';
+    this.sprites.poutine.src = 'files/images/spritePoutine.png';
 
     /**
      * Fonction principale, affiche et gère le déplacement
@@ -291,15 +299,15 @@ function Player() {
         {
             //#####POUTINE#####// 
             case this.type.POUTINE:
-                Game.context.drawImage(Images['spritePoutine'], 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
+                Game.context.drawImage(this.sprites.poutine, 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
                 break;
                 //#####STALINE#####// 
             case this.type.STALINE:
-                Game.context.drawImage(Images['spriteStaline'], 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
+                Game.context.drawImage(this.sprites.staline, 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
                 break;
                 //#####LENINE#####// 
             case this.type.LENINE:
-                Game.context.drawImage(Images['spriteLenine'], 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
+                Game.context.drawImage(this.sprites.lenine, 32 * Math.round(this.frame), 32 * this.direction.CURRENT, 32, 32, this.x, this.y, this.height, this.width);
                 break;
         }
     };

@@ -37,11 +37,7 @@ function loadSprites()
 }
 
 var ImagesListe = [
-    "border_door_ground",  
-    "menu",    
-    "spriteStaline",
-    "spritePoutine",
-    "spriteLenine"
+    "borderDoorGround"  
 ];
 
 var Images = new Array();

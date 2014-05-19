@@ -1,5 +1,5 @@
 //##############################################################################
-//Fichier : game.menu
+//Fichier : game.menu.js
 //Description : Affichage et utilisation du menu
 //Date : 12.05.2014
 //Version : 1
@@ -7,6 +7,7 @@
 var menu = new menu();
 
 function menu() {
+    //#####Etat du menu#####//
     this.state = {
         'TITLE': 0,
         'SELECT': 1,
@@ -15,6 +16,9 @@ function menu() {
         'NOTHING': 4,
         'CURRENT': 0
     };
+    //#####Images#####//
+    this.image = new Image();
+    this.image.src = 'files/images/menu.png';
 
 //##############################################################################
 //Verouillage du menu 0.5 secondes
@@ -155,23 +159,23 @@ function menu() {
             //#####Menu titre#####//
             case this.state.TITLE:
                 //TITLE
-                Game.context.drawImage(Images['menu'], 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(this.image, 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);
                 //sounds.list.menu.play();
                 break;
                 //#####Menu de selection du joueur#####//
             case this.state.SELECT:
-                Game.context.drawImage(Images['menu'], 0, this.state.SELECT * 900, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(this.image, 0, this.state.SELECT * 900, 1248, 900, 0, 0, 1248, 900);
                 break;
                 //#####Menu pause#####//
             case this.state.PAUSE:
-                Game.context.drawImage(Images['menu'], 0, this.state.PAUSE * 900, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(this.image, 0, this.state.PAUSE * 900, 1248, 900, 0, 0, 1248, 900);
                 break;
                 //#####Menu en jeu#####//
             case this.state.NOTHING:
                 break;
                 //#####Menu game over#####//
             case this.state.END:
-                Game.context.drawImage(Images['menu'], 0, this.state.END * 900, 1248, 900, 0, 0, 1248, 900);
+                Game.context.drawImage(this.image, 0, this.state.END * 900, 1248, 900, 0, 0, 1248, 900);
                 break;
         }
     };
