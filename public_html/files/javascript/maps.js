@@ -34,6 +34,10 @@ var TAKEABLE = [
     CLEFB, CLEFJ, CLEFR, CLEFV,CLEF_1,CLEF_2,CLEF_3
 ];
 
+var TP = [
+    LIVRE, TANK, DRAPCOM
+];
+
 //POSITIONS
 var TOP = 0;
 var LEFT = 1;

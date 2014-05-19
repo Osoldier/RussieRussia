@@ -152,6 +152,8 @@ function CheckCollisions() {
 
                             }
                         }
+                    }else if(contains(TP, getAllObjectsInRoom(player.room)[i].type)) {
+                        player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
                     }
                 }
 
