@@ -22,7 +22,7 @@ function menu() {
 
     this.audio = {
         'menu': new Audio('files/sounds/menu.ogg'),
-        'game': new Audio('files/sounds/Swagg.ogg')
+        'game': new Audio('files/sounds/yolo.ogg')
     };
     this.audio.menu.addEventListener('ended', function() {
         this.currentTime = 0;
