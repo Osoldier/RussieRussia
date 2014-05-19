@@ -21,8 +21,8 @@ function menu() {
     this.image.src = 'files/images/menu.jpg';
 
     this.audio = {
-        'menu': new Audio('files/sounds/menu.ogg'),
-        'game': new Audio('files/sounds/yolo.ogg')
+        'menu': new Audio('files/sounds/gameURSS.ogg'),
+        'game': new Audio('files/sounds/GameGame.ogg')
     };
     this.audio.menu.addEventListener('ended', function() {
         this.currentTime = 0;
