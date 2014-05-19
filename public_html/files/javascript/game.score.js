@@ -67,14 +67,16 @@ function score() {
         //FIN_UKRAINE
         
         //OBJETS
+        var beginObject = 60;
+        var space = 5;
         if(player.object1 != null) {
-            this.context.drawImage(ImagesSprites[player.object1], 25, 85, 32, 32);
+            this.context.drawImage(ImagesSprites[player.object1], beginObject, 85, 32, 32);
         }
         if(player.object2 != null) {
-            this.context.drawImage(ImagesSprites[player.object2], 25+32+5, 85, 32, 32);
+            this.context.drawImage(ImagesSprites[player.object2], beginObject+32+space, 85, 32, 32);
         }
         if(player.object3 != null) {
-            this.context.drawImage(ImagesSprites[player.object3], 25+32+32+5, 85, 32, 32);
+            this.context.drawImage(ImagesSprites[player.object3], beginObject+32+32+space, 85, 32, 32);
         }
         this.context.font="20px Georgia";
         this.context.fillStyle = "red"
@@ -108,4 +110,3 @@ function changeTime() {
     time = hour+':'+minute+':'+second;
 } 
 var instance = self.setInterval(changeTime ,1000);
-;
