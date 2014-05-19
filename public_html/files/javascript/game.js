@@ -164,131 +164,130 @@ function CheckCollisions() {
                                 player.Map[player.room].objects.splice(index, 1);
                             }
                         }
-                    } else if (contains(TP, getAllObjectsInRoom(player.room)[i].type)) {
-                        player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
                     }
-
                 }
 
             }
         }
     }
-
-    /**
-     * Si le joueur avec un delta sur le positions x et y serait en collision avec un objet de la salle
-     * @param {number} dX
-     * @param {number} dY
-     * @returns {Boolean} True si collison false sinon
-     */
-    function WouldCollide(dX, dY) {
-        //POur chaque objets dans la salle
-        for (var i = 0; i < getAllObjectsInRoom(player.room).length; i++) {
-            //si il est en collison avec le DeltaX et DeltaY
-            if ((getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x + dX && getAllObjectsInRoom(player.room)[i].x <= player.x + dX + player.width) || (getAllObjectsInRoom(player.room)[i].x <= player.x + dX + player.width && getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x + dX)) {
-                if ((getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y + dY && getAllObjectsInRoom(player.room)[i].y <= player.y + dY + player.height) || (getAllObjectsInRoom(player.room)[i].y <= player.y + dY + player.height && getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y + dY)) {
-                    //Si l'object n'es pas un tapis, etc..
-                    if (getAllObjectsInRoom(player.room)[i].collidable) {
-                        //Si c'est un puit
-                        if (getAllObjectsInRoom(player.room)[i].type === PUIT) {
-                            //on cheche la peau d'ours qui est en lien
-                            player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
-                            initRoom(GroundMap, player.room);
-                        } else {
-                            if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
-                                if (score.hunger < 200) {
-                                    score.hunger += 30;
-                                    var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
-                                    player.Map[player.room].objects.splice(index, 1);
-                                    score.value += 50;
-                                    if (score.hunger > 200) {
-                                        score.hunger = 200;
-                                    }
-                                }
-                            } else if (contains(TAKEABLE, getAllObjectsInRoom(player.room)[i].type)) {
-
-                                if (input.KeyState.N1)
-                                {
-                                    if (typeof player.object1 != undefined)
-                                        player.object1 = getAllObjectsInRoom(player.room)[i].type;
-                                    score.value += 70;
-                                }
-                                if (input.KeyState.N2)
-                                {
-                                    if (typeof player.object2 != undefined)
-                                        player.object2 = getAllObjectsInRoom(player.room)[i].type;
-                                    score.value += 70;
-                                }
-                                if (input.KeyState.N3)
-                                {
-                                    if (typeof player.object3 != undefined)
-                                        player.object3 = getAllObjectsInRoom(player.room)[i].type;
-                                    score.value += 70;
+}
+/**
+ * Si le joueur avec un delta sur le positions x et y serait en collision avec un objet de la salle
+ * @param {number} dX
+ * @param {number} dY
+ * @returns {Boolean} True si collison false sinon
+ */
+function WouldCollide(dX, dY) {
+    //POur chaque objets dans la salle
+    for (var i = 0; i < getAllObjectsInRoom(player.room).length; i++) {
+        //si il est en collison avec le DeltaX et DeltaY
+        if ((getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x + dX && getAllObjectsInRoom(player.room)[i].x <= player.x + dX + player.width) || (getAllObjectsInRoom(player.room)[i].x <= player.x + dX + player.width && getAllObjectsInRoom(player.room)[i].x + getAllObjectsInRoom(player.room)[i].width >= player.x + dX)) {
+            if ((getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y + dY && getAllObjectsInRoom(player.room)[i].y <= player.y + dY + player.height) || (getAllObjectsInRoom(player.room)[i].y <= player.y + dY + player.height && getAllObjectsInRoom(player.room)[i].y + getAllObjectsInRoom(player.room)[i].height >= player.y + dY)) {
+                //Si l'object n'es pas un tapis, etc..
+                if (getAllObjectsInRoom(player.room)[i].collidable) {
+                    //Si c'est un puit
+                    if (getAllObjectsInRoom(player.room)[i].type === PUIT) {
+                        //on cheche la peau d'ours qui est en lien
+                        player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
+                        initRoom(GroundMap, player.room);
+                    } else {
+                        if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
+                            if (score.hunger < 200) {
+                                score.hunger += 30;
+                                var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
+                                player.Map[player.room].objects.splice(index, 1);
+                                score.value += 50;
+                                if (score.hunger > 200) {
+                                    score.hunger = 200;
                                 }
                             }
+                        } else if (contains(TAKEABLE, getAllObjectsInRoom(player.room)[i].type)) {
+
+                            if (input.KeyState.N1)
+                            {
+                                if (typeof player.object1 != undefined)
+                                    player.object1 = getAllObjectsInRoom(player.room)[i].type;
+                                score.value += 70;
+                            }
+                            if (input.KeyState.N2)
+                            {
+                                if (typeof player.object2 != undefined)
+                                    player.object2 = getAllObjectsInRoom(player.room)[i].type;
+                                score.value += 70;
+                            }
+                            if (input.KeyState.N3)
+                            {
+                                if (typeof player.object3 != undefined)
+                                    player.object3 = getAllObjectsInRoom(player.room)[i].type;
+                                score.value += 70;
+                            }
+                        } else if (contains(TP, getAllObjectsInRoom(player.room)[i].type)) {
+                            player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
                         }
-                        return true;
                     }
+                    return true;
                 }
             }
         }
     }
-    /**
-     * Fonction temporaire
-     * @returns {null}
-     */
-    function tempChangerSalle() {
-        initRoom(GroundMap, 1 * document.getElementById("salle").value)
-        player.room = 1 * document.getElementById("salle").value;
-    }
+}
+/**
+ * Fonction temporaire
+ * @returns {null}
+ */
+function tempChangerSalle() {
+    initRoom(GroundMap, 1 * document.getElementById("salle").value)
+    player.room = 1 * document.getElementById("salle").value;
+}
 
-    /**
-     * Met à jour les portes normales et gère les ennemis
-     * @returns {null}
-     */
-    function updateRoom() {
-        //#####PORTES#######
-        for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
-            var currentDoor = getAllDoorsInRoom(player.room)[i];
-            if (currentDoor.color == null && (mDoors[currentDoor] <= 0 || !containsKey(mDoors, currentDoor))) {
-                if (Math.floor((Math.random() * 10) + 1) > 4) {
-                    mDoors[currentDoor] = 60;
-                    currentDoor.lock = !currentDoor.lock;
-                }
-            } else {
-                if (containsKey(mDoors, currentDoor)) {
-                    mDoors[currentDoor]--;
-                }
+/**
+ * Met à jour les portes normales et gère les ennemis
+ * @returns {null}
+ */
+function updateRoom() {
+    //#####PORTES#######
+    for (var i = 0; i < getAllDoorsInRoom(player.room).length; i++) {
+        var currentDoor = getAllDoorsInRoom(player.room)[i];
+        if (currentDoor.color == null && (mDoors[currentDoor] <= 0 || !containsKey(mDoors, currentDoor))) {
+            if (Math.floor((Math.random() * 10) + 1) > 4) {
+                mDoors[currentDoor] = 60;
+                currentDoor.lock = !currentDoor.lock;
+            }
+        } else {
+            if (containsKey(mDoors, currentDoor)) {
+                mDoors[currentDoor]--;
             }
         }
-        //#######ENEMIS########
-        PopCoolDown--;
-        if (PopCoolDown <= 0) {
-            EnemyList.push(new enemy(Math.floor(Math.random() * 200) + 400, Math.floor(Math.random() * 200) + 400, Math.floor(Math.random() * 4), Math.floor(Math.random() * 3)));
-            PopCoolDown = 60;
-        }
-        EnemyList.forEach(function(entry) {
-            entry.Update();
-        });
     }
-
-    function containsKey(array, key) {
-        for (var v in array) {
-            if (v == key)
-                return true;
-        }
-        return false;
+    //#######ENEMIS########
+    PopCoolDown--;
+    if (PopCoolDown <= 0) {
+        EnemyList.push(new enemy(Math.floor(Math.random() * 200) + 400, Math.floor(Math.random() * 200) + 400, Math.floor(Math.random() * 4), Math.floor(Math.random() * 3)));
+        PopCoolDown = 60;
     }
+    EnemyList.forEach(function(entry) {
+        entry.Update();
+    });
+}
 
-    function contains(array, value) {
-        for (var i = 0; i <= array.length; i++) {
-            if (array[i] == value) {
-                return true;
-            }
-        }
-        return false;
+function containsKey(array, key) {
+    for (var v in array) {
+        if (v == key)
+            return true;
     }
+    return false;
+}
 
-    function toMultiple(i, multiple) {
-        var multi = Math.round(i / multiple) * multiple;
-        return multi;
+function contains(array, value) {
+    for (var i = 0; i <= array.length; i++) {
+        if (array[i] == value) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function toMultiple(i, multiple) {
+    var multi = Math.round(i / multiple) * multiple;
+    return multi;
 }
