@@ -1,7 +1,7 @@
 //##############################################################################
 //Fichier : game.score.js
 //Description : Gestion du score / vie
-//Date : 12.05.2014
+//Date : 19.05.2014
 //Version : 1
 //##############################################################################
 var score = new score();
@@ -38,6 +38,7 @@ function score() {
                 player.object3 = null;
                 this.hunger = 200;
                 EnemyList = new Array();
+                this.value = 0;
                 menu.SwitchToState(menu.state.END);
             }
         }

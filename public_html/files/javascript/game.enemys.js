@@ -1,7 +1,7 @@
 //##############################################################################
 //Fichier : game.enemys.js
 //Description : Gestion des enemis
-//Date : 12.05.2014
+//Date : 19.05.2014
 //Version : 1
 //##############################################################################
 var NINJA = 0;
@@ -80,8 +80,8 @@ function enemy(x, y, type, dir) {
                 if ((this.y + this.height >= player.projectile.CURRENT.y && this.y <= player.projectile.CURRENT.y + player.projectile.CURRENT.height) || (this.y <= player.projectile.CURRENT.y + player.projectile.CURRENT.height && this.y + this.height >= player.projectile.CURRENT.y)) {
                     player.projectile.CURRENT = 0;
                     if(player.type.CURRENT == player.type.POUTINE){
-                        document.getElementById('soundVodkaBreak').load();
-                        document.getElementById('soundVodkaBreak').play();                      
+                        player.audio.vodkaBreak.currentTime = 0;
+                        player.audio.vodkaBreak.play();                                         
                     }
                     var index = EnemyList.indexOf(this);
                     EnemyList.splice(index, 1);
