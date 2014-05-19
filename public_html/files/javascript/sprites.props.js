@@ -1,3 +1,9 @@
+//##############################################################################
+//Fichier : sprites.props.js
+//Description : Gestion des sprites
+//Date : 12.05.2014
+//Version : 1
+//##############################################################################
 /** Liste des Sprites du jeu */
 var ImagesSprites = {
     TAPIS:      "O_tapis.png", //TAPIS

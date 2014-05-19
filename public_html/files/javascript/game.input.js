@@ -1,5 +1,5 @@
 //##############################################################################
-//Fichier : game.input
+//Fichier : game.input.js
 //Description : Gestion du clavier
 //Date : 12.05.2014
 //Version : 1
