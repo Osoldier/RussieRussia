@@ -156,7 +156,8 @@ function Player() {
     this.audio = {
         'vodka': new Audio('files/sounds/vodka.ogg'),
         'machette': new Audio('files/sounds/machette.ogg'),
-        'faucille': new Audio('files/sounds/faucille.ogg')
+        'faucille': new Audio('files/sounds/faucille.ogg'),
+        'vodkaBreak': new Audio('files/sounds/vodkaBreak.ogg'),
     };
 
     /**
@@ -207,25 +208,19 @@ function Player() {
                     case this.type.POUTINE:
                         this.projectile.CURRENT = new this.projectile.VODKA(this.x, this.y, this.direction.CURRENT);
                         this.audio.vodka.currentTime = 0;
-                        this.audio.vodka.play();
-                        /* document.getElementById('soundVodka').load();
-                         document.getElementById('soundVodka').play();*/
+                        this.audio.vodka.play();                        
                         break;
                         //#####MACHETTE#####//
                     case this.type.STALINE:
                         this.projectile.CURRENT = new this.projectile.MACHETTE(this.x, this.y, this.direction.CURRENT);
                         this.audio.machette.currentTime = 0;
-                        this.audio.machette.play();
-                        /*document.getElementById('soundMachette').load();
-                         document.getElementById('soundMachette').play();*/
+                        this.audio.machette.play();                        
                         break;
                         //#####FAUCILLE#####//
                     case this.type.LENINE:
                         this.projectile.CURRENT = new this.projectile.FAUCILLE(this.x, this.y, this.direction.CURRENT);
                         this.audio.faucille.currentTime = 0;
-                        this.audio.faucille.play();
-                        /*document.getElementById('soundFaucille').load();
-                         document.getElementById('soundFaucille').play();*/
+                        this.audio.faucille.play();                     
                         break;
                 }
             }

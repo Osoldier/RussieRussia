@@ -62,11 +62,7 @@ function menu() {
             case this.state.TITLE:
                 this.state.CURRENT = e;
                 this.audio.menu.play();
-                this.audio.game.pause();
-                /*document.getElementById('soundGame').pause();
-                 document.getElementById('soundGame').load();
-                 document.getElementById('soundMenu').play();
-                 */
+                this.audio.game.pause();  
                 break;
                 //#####Menu de selection du joueur#####//
             case this.state.SELECT:
@@ -85,10 +81,7 @@ function menu() {
             case this.state.NOTHING:
                 this.Lock(this.defaultLockTime);
                 this.audio.menu.pause();
-                this.audio.game.play();
-                /*document.getElementById('soundMenu').pause();
-                 document.getElementById('soundMenu').load();
-                 document.getElementById('soundGame').play();*/
+                this.audio.game.play();               
                 this.state.CURRENT = e;
                 Game.state = GAME;
                 break;
@@ -177,8 +170,7 @@ function menu() {
             //#####Menu titre#####//
             case this.state.TITLE:
                 //TITLE
-                Game.context.drawImage(this.image, 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);
-                //sounds.list.menu.play();
+                Game.context.drawImage(this.image, 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);                
                 break;
                 //#####Menu de selection du joueur#####//
             case this.state.SELECT:

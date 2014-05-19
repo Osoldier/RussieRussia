@@ -38,6 +38,7 @@ function score() {
                 player.object3 = null;
                 this.hunger = 200;
                 EnemyList = new Array();
+                this.value = 0;
                 menu.SwitchToState(menu.state.END);
             }
         }
