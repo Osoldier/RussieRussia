@@ -1,5 +1,5 @@
 //##############################################################################
-//Fichier : game
+//Fichier : game.js
 //Description : Boucle principale et logique du jeu
 //Date : 12.05.2014
 //Version : 1

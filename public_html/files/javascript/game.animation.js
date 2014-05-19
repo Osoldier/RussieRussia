@@ -1,5 +1,5 @@
 //##############################################################################
-//Fichier : game.animation
+//Fichier : game.animation.js
 //Description : Gestion des animations de map
 //Date : 19.05.2014
 //Version : 1

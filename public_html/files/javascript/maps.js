@@ -1,5 +1,5 @@
 //##############################################################################
-//Fichier : maps
+//Fichier : maps.js
 //Description : Fichier contenant la map et tout ce qui s'y référe  
 //Date : 12.05.2014
 //Version : 1
