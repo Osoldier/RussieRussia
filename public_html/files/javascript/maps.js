@@ -491,7 +491,3 @@ function initRoom(map, id) {
         entry.imgY = imgY;
     });
 }
-//DERNIER RECOURS
-function ToString(item) {
-
-}

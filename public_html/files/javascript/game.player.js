@@ -173,10 +173,9 @@ function Player() {
         if (input.KeyState.S && input.KeyState.E && input.KeyState.N && input.KeyState.A)
         {
             Game.state = ANIMATION;
-            Time = 0;
-            CURRENTANIMATION = THEOREMEDELAPIZZA;
+            animation.animation.current = animation.animation.THEOREMEDELAPIZZA;            
             score.value += 666;
-            score.hunger -= 166,6; 
+            score.hunger -= 166, 6;
         }
 
 //##############################################################################

@@ -19,11 +19,12 @@ function menu() {
     //#####Images#####//
     this.image = new Image();
     this.image.src = 'files/images/menu.jpg';
-
+    
+    //#####Musique#####//
     this.audio = {
         'menu': new Audio('files/sounds/gameURSS.ogg'),
         'game': new Audio('files/sounds/GameGame.ogg')
-    };
+    };   
     this.audio.menu.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
@@ -62,7 +63,7 @@ function menu() {
             case this.state.TITLE:
                 this.state.CURRENT = e;
                 this.audio.menu.play();
-                this.audio.game.pause();  
+                this.audio.game.pause();
                 break;
                 //#####Menu de selection du joueur#####//
             case this.state.SELECT:
@@ -81,7 +82,7 @@ function menu() {
             case this.state.NOTHING:
                 this.Lock(this.defaultLockTime);
                 this.audio.menu.pause();
-                this.audio.game.play();               
+                this.audio.game.play();
                 this.state.CURRENT = e;
                 Game.state = GAME;
                 break;
@@ -170,7 +171,7 @@ function menu() {
             //#####Menu titre#####//
             case this.state.TITLE:
                 //TITLE
-                Game.context.drawImage(this.image, 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);                
+                Game.context.drawImage(this.image, 0, this.state.TITLE * 900, 1248, 900, 0, 0, 1248, 900);
                 break;
                 //#####Menu de selection du joueur#####//
             case this.state.SELECT:

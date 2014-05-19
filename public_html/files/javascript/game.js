@@ -63,8 +63,8 @@ function mainLoop()
             break;
         case PAUSE:
             break;
-        case ANIMATION:
-            UpdateAnimation();
+        case ANIMATION:            
+            animation.Update();
             break;
     }
 }
@@ -202,8 +202,7 @@ function WouldCollide(dX, dY) {
                         player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
                         initRoom(GroundMap, player.room);
                         Game.state = ANIMATION;
-                        Time = 0;
-                        CURRENTANIMATION = FALL;
+                        animation.animation.current = animation.animation.FALL;                        
                     } else {
                         if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
                             if (score.hunger < 200) {
