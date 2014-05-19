@@ -41,23 +41,23 @@ function enemy(x, y, type, dir) {
         //****Déplacement********
         if (toMultiple(this.x, this.speed) > toMultiple(player.x, this.speed)) {
             if (this.x > player.roomInfo[0]) {
-                this.direction = player.directionDEF.LEFT;
+                this.direction = player.direction.LEFT;
                 this.x -= this.speed;
             }
         } else if (toMultiple(this.x, this.speed) < toMultiple(player.x, this.speed)) {
             if (this.x + this.width < player.roomInfo[0] + player.roomInfo[2]) {
-                this.direction = player.directionDEF.RIGHT;
+                this.direction = player.direction.RIGHT;
                 this.x += this.speed;
             }
         }
         if (toMultiple(this.y, this.speed) > toMultiple(player.y, this.speed)) {
             if (this.y > player.roomInfo[1]) {
-                this.direction = player.directionDEF.UP;
+                this.direction = player.direction.UP;
                 this.y -= this.speed;
             }
         } else if (toMultiple(this.y, this.speed) < toMultiple(player.y, this.speed)) {
             if (this.y + this.height < player.roomInfo[1] + player.roomInfo[3]) {
-                this.direction = player.directionDEF.DOWN;
+                this.direction = player.direction.DOWN;
                 this.y += this.speed;
             }
         }
@@ -69,14 +69,13 @@ function enemy(x, y, type, dir) {
 
 //******************************************************
 //*************collision********************************
-        if (player.Projectile !== 0) {
-            if ((this.x + this.width >= player.Projectile.x && this.x <= player.Projectile.x + player.Projectile.width) || (this.x <= player.Projectile.x + player.Projectile.width && this.x + this.width >= player.Projectile.x)) {
-                if ((this.y + this.height >= player.Projectile.y && this.y <= player.Projectile.y + player.Projectile.height) || (this.y <= player.Projectile.y + player.Projectile.height && this.y + this.height >= player.Projectile.y)) {
-                    player.Projectile = 0;
-                    if(player.ProjectileType == 1){
+        if (player.projectile.CURRENT !== 0) {
+            if ((this.x + this.width >= player.projectile.CURRENT.x && this.x <= player.projectile.CURRENT.x + player.projectile.CURRENT.width) || (this.x <= player.projectile.CURRENT.x + player.projectile.CURRENT.width && this.x + this.width >= player.projectile.CURRENT.x)) {
+                if ((this.y + this.height >= player.projectile.CURRENT.y && this.y <= player.projectile.CURRENT.y + player.projectile.CURRENT.height) || (this.y <= player.projectile.CURRENT.y + player.projectile.CURRENT.height && this.y + this.height >= player.projectile.CURRENT.y)) {
+                    player.projectile.CURRENT = 0;
+                    if(player.type.CURRENT == player.type.POUTINE){
                         document.getElementById('soundVodkaBreak').load();
-                        document.getElementById('soundVodkaBreak').play();
-                      player.ProjectileType = 0;  
+                        document.getElementById('soundVodkaBreak').play();                      
                     }
                     var index = EnemyList.indexOf(this);
                     EnemyList.splice(index, 1);
@@ -95,8 +94,4 @@ function enemy(x, y, type, dir) {
     this.Afficher = function() {
         Game.context.drawImage(this.sprite, 32 * Math.round(this.frame), 32 * this.direction, 32, 32, this.x, this.y, this.height, this.width);
     };
-}
-    function toMultiple(i, multiple) {
-        var multi = Math.round(i / multiple) * multiple;
-        return multi;
 }

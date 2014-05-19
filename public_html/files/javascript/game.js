@@ -37,11 +37,11 @@ function Initialize() {
 function mainLoop()
 {
     Game.canvasPosition = Game.canvas.getBoundingClientRect();
-    clearCanvas();
+    canvas.Clear();
     switch (Game.state) {
         case GAME:
             //MAP
-            drawMap(player.Map);
+            canvas.DrawMap(player.Map);
             //COLLISIONS
             CheckCollisions();
             //DOORS
@@ -52,7 +52,7 @@ function mainLoop()
             score.Update();
             break;
         case MENU:
-            menu.Use();
+            menu.Update();
             break;
         case PAUSE:
             break;
@@ -76,7 +76,7 @@ function CheckCollisions() {
                     //######réinitalise les variables
                     PopCoolDown = 60;
                     EnemyList = [];
-                    player.Projectile = 0;
+                    player.projectile.CURRENT = 0;
                     //###############################
                     //définit la position d'arrivée du joueur
                     switch (getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).place) {
@@ -136,24 +136,34 @@ function CheckCollisions() {
             if ((objet.y + objet.height >= player.y && objet.y <= player.y + player.height)) {
                 if (objet.collidable != true) {
                     if (contains(TAKEABLE, getAllObjectsInRoom(player.room)[i].type)) {
-                        if (KeyState.ctrlLeft) {
+
+                        if (input.KeyState.N1)
+                        {
+                            input.KeyState.N1 = false;
                             var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
                             if (player.object1 == null) {
                                 player.object1 = getAllObjectsInRoom(player.room)[i].type;
                                 player.Map[player.room].objects.splice(index, 1);
-
-                            } else if (player.object2 == null) {
-                                player.object2 = getAllObjectsInRoom(player.room)[i].type;
-                                player.Map[player.room].objects.splice(index, 1);
-
-                            } else if (player.object3 == null) {
-                                player.object3 = getAllObjectsInRoom(player.room)[i].type;
-                                player.Map[player.room].objects.splice(index, 1);
-
                             }
                         }
-                    }else if(contains(TP, getAllObjectsInRoom(player.room)[i].type)) {
-                        player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
+                        if (input.KeyState.N2)
+                        {
+                            input.KeyState.N2 = false;
+                            var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
+                            if (player.object2 == null) {
+                                player.object2 = getAllObjectsInRoom(player.room)[i].type;
+                                player.Map[player.room].objects.splice(index, 1);
+                            }
+                        }
+                        if (input.KeyState.N3)
+                        {
+                            input.KeyState.N3 = false;
+                            var index = player.Map[player.room].objects.indexOf(getAllObjectsInRoom(player.room)[i]);
+                            if (player.object3 == null) {
+                                player.object3 = getAllObjectsInRoom(player.room)[i].type;
+                                player.Map[player.room].objects.splice(index, 1);
+                            }
+                        }                       
                     }
                 }
 
@@ -194,16 +204,25 @@ function WouldCollide(dX, dY) {
                                 }
                             }
                         } else if (contains(TAKEABLE, getAllObjectsInRoom(player.room)[i].type)) {
-                            if (KeyState.ctrlLeft) {
-                                if (typeof player.object1 != undefined) {
-                                    player.object1 = getAllObjectsInRoom(player.room)[i].type;
-                                } else if (typeof player.object2 != undefined) {
-                                    player.object2 = getAllObjectsInRoom(player.room)[i].type;
-                                } else if (typeof player.object3 != undefined) {
-                                    player.object3 = getAllObjectsInRoom(player.room)[i].type;
-                                }
-                                score.value += 70;
+
+                            if (input.KeyState.N1)
+                            {
+                                if (typeof player.object1 != undefined)
+                                    player.object1 = getAllObjectsInRoom(player.room)[i].type;     
+                                  score.value += 70;
                             }
+                            if (input.KeyState.N2)
+                            {
+                                if (typeof player.object2 != undefined)
+                                    player.object2 = getAllObjectsInRoom(player.room)[i].type;
+                                  score.value += 70;
+                            }
+                            if (input.KeyState.N3)
+                            {
+                                if (typeof player.object3 != undefined)
+                                    player.object3 = getAllObjectsInRoom(player.room)[i].type;
+                                  score.value += 70;
+                            }                           
                         }
                     }
                     return true;
@@ -266,4 +285,9 @@ function contains(array, value) {
         }
     }
     return false;
+}
+
+    function toMultiple(i, multiple) {
+        var multi = Math.round(i / multiple) * multiple;
+        return multi;
 }
