@@ -7,6 +7,7 @@
 var MENU = 1000;
 var GAME = 1001;
 var PAUSE = 1002;
+var ANIMATION = 1003;
 
 var Game = {
     'state': MENU,
@@ -61,6 +62,9 @@ function mainLoop()
             menu.Update();
             break;
         case PAUSE:
+            break;
+        case ANIMATION:
+            UpdateAnimation();
             break;
     }
 }
@@ -172,7 +176,6 @@ function CheckCollisions() {
                         }
                     }
                 }
-
             }
         }
     }
@@ -196,6 +199,9 @@ function WouldCollide(dX, dY) {
                         //on cheche la peau d'ours qui est en lien
                         player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
                         initRoom(GroundMap, player.room);
+                        Game.state = ANIMATION;
+                        Time = 0;
+                        CURRENTANIMATION = FALL;
                     } else {
                         if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
                             if (score.hunger < 200) {
