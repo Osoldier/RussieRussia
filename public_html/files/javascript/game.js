@@ -1,3 +1,9 @@
+//##############################################################################
+//Fichier : game
+//Description : Boucle principale et logique du jeu
+//Date : 12.05.2014
+//Version : 1
+//##############################################################################
 var MENU = 1000;
 var GAME = 1001;
 var PAUSE = 1002;
@@ -225,20 +231,28 @@ function WouldCollide(dX, dY) {
                             switch (player.type.CURRENT) {
                                 case player.type.POUTINE:
                                     if (getAllObjectsInRoom(player.room)[i].type == TANK) {
+                                        player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
+                                        player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
                                     }
                                     break;
                                 case player.type.LENINE:
                                     if (getAllObjectsInRoom(player.room)[i].type == LIVRE) {
+                                        player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
+                                        player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
                                     }
                                     break;
                                 case player.type.STALINE:
                                     if (getAllObjectsInRoom(player.room)[i].type == DRAPCOM) {
+                                        player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
+                                        player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
                                     }
                                     break;
                             }
+                            initRoom(GroundMap, player.room);
+                            EnemyList = [];
                         }
                     }
                     return true;
