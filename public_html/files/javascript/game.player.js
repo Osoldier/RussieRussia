@@ -175,6 +175,8 @@ function Player() {
             Game.state = ANIMATION;
             Time = 0;
             CURRENTANIMATION = THEOREMEDELAPIZZA;
+            score.value += 666;
+            score.hunger -= 66,6; 
         }
 
 //##############################################################################
