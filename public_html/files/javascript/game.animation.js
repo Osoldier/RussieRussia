@@ -47,7 +47,7 @@ function UpdateAnimation() {
             DownStair();
             break;
     }
-    if (Time >= 300) {
+    if (Time >= 180) {
         Game.state = GAME;
     }
 }
