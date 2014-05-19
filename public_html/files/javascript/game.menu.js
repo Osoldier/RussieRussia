@@ -18,7 +18,20 @@ function menu() {
     };
     //#####Images#####//
     this.image = new Image();
-    this.image.src = 'files/images/menu.png';
+    this.image.src = 'files/images/menu.jpg';
+
+    this.audio = {
+        'menu': new Audio('files/sounds/menu.ogg'),
+        'game': new Audio('files/sounds/Swagg.ogg')
+    };
+    this.audio.menu.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+    this.audio.game.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
 
 //##############################################################################
 //Verouillage du menu 0.5 secondes
@@ -48,9 +61,12 @@ function menu() {
             //#####Menu titre#####//
             case this.state.TITLE:
                 this.state.CURRENT = e;
-                document.getElementById('soundGame').pause();
-                document.getElementById('soundGame').load();
-                document.getElementById('soundMenu').play();
+                this.audio.menu.play();
+                this.audio.game.pause();
+                /*document.getElementById('soundGame').pause();
+                 document.getElementById('soundGame').load();
+                 document.getElementById('soundMenu').play();
+                 */
                 break;
                 //#####Menu de selection du joueur#####//
             case this.state.SELECT:
@@ -68,9 +84,11 @@ function menu() {
                 //#####Menu en jeu#####//
             case this.state.NOTHING:
                 this.Lock(this.defaultLockTime);
-                document.getElementById('soundMenu').pause();
-                document.getElementById('soundMenu').load();
-                document.getElementById('soundGame').play();
+                this.audio.menu.pause();
+                this.audio.game.play();
+                /*document.getElementById('soundMenu').pause();
+                 document.getElementById('soundMenu').load();
+                 document.getElementById('soundGame').play();*/
                 this.state.CURRENT = e;
                 Game.state = GAME;
                 break;
