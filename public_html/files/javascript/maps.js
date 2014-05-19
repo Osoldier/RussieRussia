@@ -96,7 +96,7 @@ var GroundMap = [
     /* 17 */ new room(LONGER, [new object(980, 350, 50, 60, false, TABLEAU, null)], [new door(TOP, 69, 70, RED, true), new door(BOTTOM, 68, 67, null, false)]),
     /* 18 */ new room(LONGER, [new object(200, 350, 50, 60, false, TABLEAU, null), new object(400, 300, 30, 50, true, CIGARETTE)], [new door(TOP, 67, 68, null, false), new door(BOTTOM, 52, 53, null, false), new door(RIGHT, 51, 50, GREEN, true)]),
     /* 19 */ new room(SQUARED, [new object(400, 600, 32, 32, true, TABLE), new object(600, 35, 50, 60, true, DRAPCOM, "A"), new object(600, 820, 32, 32, false, TABLEAU, null)], [new door(LEFT, 50, 51, GREEN, true), new door(RIGHT, 49, 48, null, false)]),
-    /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, false, PEAUOURS, "G"), new object(600, 35, 64, 64, true, LIVRE, "B"), new object(600, 500, 32, 32, true, CIGARETTE, null)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
+    /* 20 */ new room(SQUARED, [new object(600, 250, 64, 64, false, PEAUOURS, "G"), new object(600, 35, 64, 64, true, LIVRE, "B"), new object(600, 500, 32, 32, true, CIGARETTE)], [new door(LEFT, 48, 49, null, false), new door(RIGHT, 47, 46, null, false)]),
     /* 21 */ new room(SQUARED, [new object(600, 600, 32, 32, true, CAVIAR)], [new door(LEFT, 46, 47, null, false), new door(TOP, 45, 761, null, false), new door(RIGHT, 44, 43, null, false)]),
     /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEFV)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
     /* 23 */ new room(SQUARED, [], [new door(LEFT, 39, 40, null, false), new door(TOP, 38, 76, null, false)]),
@@ -128,7 +128,7 @@ var GroundMap = [
     /* 48 */ new room(SQUARED, [], [new door(LEFT, 130, 129, null, false), new door(TOP, 131, 132, RED, true), new door(BOTTOM, 133, 134, YELLOW, true)]),
     /* 49 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 127, 126, GREEN, true), new door(RIGHT, 129, 130, null, false), new door(BOTTOM, 128, 138, null, false)]),
     /* 50 */ new room(SQUARED, [new object(600, 300, 32, 32, true, CAVIAR)], [new door(LEFT, 124, 123, null, false), new door(RIGHT, 126, 127, GREEN, true), new door(BOTTOM, 125, 143, null, false)]),
-    /* 51 SALLE BOSS => CAVIAR = BOSS */ new room(SQUARED, [new object(600, 200, 32, 32, false, CAVIAR)], [new door(LEFT, 120, 121, YELLOW, true), new door(RIGHT, 123, 124, null, false), new door(TOP, 119, 118, BLUE, true), new door(BOTTOM, 122, 148, null, false)]),
+    /* 51 SALLE BOSS => CAVIAR = BOSS */ new room(SQUARED, [new object(600, 200, 32, 32, true, CAVIAR)], [new door(LEFT, 120, 121, YELLOW, true), new door(RIGHT, 123, 124, null, false), new door(TOP, 119, 118, BLUE, true), new door(BOTTOM, 122, 148, null, false)]),
     /* 52 */ new room(SQUARED, [new object(300, 370, 32, 32, true, CAVIAR), new object(300, 450, 32, 32, true, VODKA), new object(300, 530, 32, 32, true, CIGARETTE), new object(600, 800, 64, 64, true, LIVRE, "C")], [new door(RIGHT, 121, 120, YELLOW, true)]),
     /* 53 */ new room(SQUARED, [new object(500, 250, 32, 32, true, CIGARETTE), new object(270, 400, 64, 64, true, TANK, "C")], [new door(BOTTOM, 132, 131, RED, true)]),
     /* 54 */ new room(SQUARED, [new object(450, 200, 32, 32, true, VODKA), new object(910, 400, 64, 64, true, TANK, "C")], [new door(BOTTOM, 118, 119, BLUE, true)]),
@@ -233,8 +233,7 @@ function dispatchKeys() {
             GroundMap[j].objects.push(new object(600, 400, 32, 32, false, CLEF_3, null));
         } else {
             throw "Illegal Argument"
-        }
-        console.log(i + ": " + j);
+        }        
     }
 }
 
