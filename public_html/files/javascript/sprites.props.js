@@ -18,6 +18,12 @@ var ImagesSprites = {
     MUR:        "N_PaquetC.png", //MUR
     TANK:       "O_Tank.png", //TANK
     DRAPCOM:    "O_DrapeauCom.png", //DRAPCOM
+    DRAPCOMBAS:  "DrapeauComBas.png",
+    DRAPCOMDROITE:  "DrapeauComDroite.png",
+    DRAPCOMGAUCHE:  "DrapeauComGauche.png",
+    LIVREBAS:  "LivreKarlMBas.png",
+    LIVREDROITE:  "KarlMDroite.png",
+    LIVREGAUCHE:  "KarlMGauche.png",
     LIVRE:      "O_LivreKarlM.png", //LIVRE
     OBAMA:      "N_PaquetC.png", //OBAMA
     BENLADEN:   "N_PaquetC.png", //BENLADEN

@@ -18,7 +18,13 @@ var PUIT = "PUIT";
 var MUR = "MUR";
 var TANK = "TANK";
 var DRAPCOM = "DRAPCOM";
+var DRAPCOMBAS = "DRAPCOMBAS";
+var DRAPCOMDROITE = "DRAPCOMDROITE";
+var DRAPCOMGAUCHE = "DRAPCOMGAUCHE";
 var LIVRE = "LIVRE";
+var LIVREBAS = "LIVREBAS";
+var LIVREDROITE = "LIVREDROITE";
+var LIVREGAUCHE = "LIVREGAUCHE";
 var OBAMA = "OBAMA";
 var BENLADEN = "BENLADEN";
 var YANOUKOVIC = "YANOUKOVIC";
@@ -188,7 +194,7 @@ var GroundMap = [
     /* 105 */ new room(LARGER, [], [new door(TOP, 263, 245, null, false), new door(BOTTOM, 264, 280, null, false)]),
     /* 106 */ new room(LARGER, [], [new door(TOP, 265, 252, null, false), new door(BOTTOM, 266, 282, null, false)]),
     /* 107 */ new room(SQUARED, [], [new door(TOP, 267, 255, null, false), new door(BOTTOM, 268, 284, null, false)]),
-    /* 108 */ new room(SQUARED, [new object(600, 450, 64, 64, false, PEAUOURS, "D"), new object(200, 800, 32, 32, true, VODKA), new object(600, 800, 32, 32, true, DRAPCOM, "E")], [new door(TOP, 269, 260, null, false), new door(RIGHT, 270, 271, null, false)]),
+    /* 108 */ new room(SQUARED, [new object(600, 450, 64, 64, false, PEAUOURS, "D"), new object(400, 700, 32, 32, true, VODKA), new object(600, 800, 32, 32, true, DRAPCOM, "E")], [new door(TOP, 269, 260, null, false), new door(RIGHT, 270, 271, null, false)]),
     /* 109 */ new room(LONGER, [], [new door(LEFT, 271, 270, null, false), new door(RIGHT, 272, 273, BLUE, true)]),
     /* 110 */ new room(SQUARED, [new object(600, 400, 32, 32, true, CAVIAR)], [new door(TOP, 274, 262, null, false), new door(BOTTOM, 275, 292, null, false), new door(LEFT, 273, 272, BLUE, true), new door(RIGHT, 276, 277, RED, true)]),
     /* 111 */ new room(LONGER, [], [new door(LEFT, 277, 276, RED, true), new door(RIGHT, 278, 279, null, false)]),
