@@ -16,8 +16,8 @@ function fall() {
         Game.context.fillStyle = "black";
         Game.context.rect(0,0,Game.canvas.width,Game.canvas.height);
         Game.context.fill();
-    for (var i = 0; i <= Time/60; i++) {
-        var vel = 4*(Time-(i*60));
+    for (var i = 0; i <= Time/27; i++) {
+        var vel = 4*(Time-(i*27));
         Game.context.beginPath();
         Game.context.strokeStyle = "white";
         Game.context.lineWidth = 1;
@@ -47,7 +47,7 @@ function UpdateAnimation() {
             DownStair();
             break;
     }
-    if (Time >= 180) {
+    if (Time >= 100) {
         Game.state = GAME;
     }
 }
