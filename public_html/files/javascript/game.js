@@ -222,7 +222,23 @@ function WouldCollide(dX, dY) {
                                 score.value += 70;
                             }
                         } else if (contains(TP, getAllObjectsInRoom(player.room)[i].type)) {
-                            player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
+                            switch (player.type.CURRENT) {
+                                case player.type.POUTINE:
+                                    if (getAllObjectsInRoom(player.room)[i].type == TANK) {
+                                        player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
+                                    }
+                                    break;
+                                case player.type.LENINE:
+                                    if (getAllObjectsInRoom(player.room)[i].type == LIVRE) {
+                                        player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
+                                    }
+                                    break;
+                                case player.type.STALINE:
+                                    if (getAllObjectsInRoom(player.room)[i].type == DRAPCOM) {
+                                        player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec)
+                                    }
+                                    break;
+                            }
                         }
                     }
                     return true;
