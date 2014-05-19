@@ -12,6 +12,8 @@ function Input() {
         'W': false,
         'S': false,
         'A': false,
+        'N': false,
+        'E': false,
         'D': false,
         'G': false,
         'UP': false,
@@ -42,9 +44,13 @@ function Input() {
             case 'G'.charCodeAt():
                 this.KeyState.G = state;
                 break;
-                //#####TOUCHE D#####// 
-            case 'D'.charCodeAt():
-                this.KeyState.D = state;
+                //#####TOUCHE N#####// 
+            case 'N'.charCodeAt():
+                this.KeyState.N = state;
+                break;
+                //#####TOUCHE E#####// 
+            case 'E'.charCodeAt():
+                this.KeyState.E = state;
                 break;
                 //#####TOUCHE W#####// 
             case 'W'.charCodeAt():

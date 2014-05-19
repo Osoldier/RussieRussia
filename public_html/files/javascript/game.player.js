@@ -170,7 +170,7 @@ function Player() {
             menu.SwitchToState(menu.state.PAUSE);
 
 
-        if (input.KeyState.S && input.KeyState.W && input.KeyState.A && input.KeyState.G)
+        if (input.KeyState.S && input.KeyState.E && input.KeyState.N && input.KeyState.A)
         {
             Game.state = ANIMATION;
             Time = 0;
