@@ -169,6 +169,14 @@ function Player() {
         if (input.KeyState.P)
             menu.SwitchToState(menu.state.PAUSE);
 
+
+        if (input.KeyState.S && input.KeyState.W && input.KeyState.A && input.KeyState.G)
+        {
+            Game.state = ANIMATION;
+            Time = 0;
+            CURRENTANIMATION = THEOREMEDELAPIZZA;
+        }
+
 //##############################################################################
 //Inventaire (3 objets)
 //##############################################################################
@@ -208,19 +216,19 @@ function Player() {
                     case this.type.POUTINE:
                         this.projectile.CURRENT = new this.projectile.VODKA(this.x, this.y, this.direction.CURRENT);
                         this.audio.vodka.currentTime = 0;
-                        this.audio.vodka.play();                        
+                        this.audio.vodka.play();
                         break;
                         //#####MACHETTE#####//
                     case this.type.STALINE:
                         this.projectile.CURRENT = new this.projectile.MACHETTE(this.x, this.y, this.direction.CURRENT);
                         this.audio.machette.currentTime = 0;
-                        this.audio.machette.play();                        
+                        this.audio.machette.play();
                         break;
                         //#####FAUCILLE#####//
                     case this.type.LENINE:
                         this.projectile.CURRENT = new this.projectile.FAUCILLE(this.x, this.y, this.direction.CURRENT);
                         this.audio.faucille.currentTime = 0;
-                        this.audio.faucille.play();                     
+                        this.audio.faucille.play();
                         break;
                 }
             }
