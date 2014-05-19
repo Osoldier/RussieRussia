@@ -13,6 +13,7 @@ function Input() {
         'S': false,
         'A': false,
         'D': false,
+        'G': false,
         'UP': false,
         'DOWN': false,
         'LEFT': false,
@@ -28,7 +29,7 @@ function Input() {
         'N2': false,
         'N3': false
     };
-    
+
     //#####Mise à jour de l'etat des touches#####// 
     this.setKeyState = function(e, state) {
         var key = e.keyCode;
@@ -36,6 +37,10 @@ function Input() {
             //#####TOUCHE A#####// 
             case 'A'.charCodeAt():
                 this.KeyState.A = state;
+                break;
+                //#####TOUCHE G#####// 
+            case 'G'.charCodeAt():
+                this.KeyState.G = state;
                 break;
                 //#####TOUCHE D#####// 
             case 'D'.charCodeAt():
