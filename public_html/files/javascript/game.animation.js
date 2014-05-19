@@ -1,3 +1,9 @@
+//##############################################################################
+//Fichier : game.animation
+//Description : Gestion des animations de map
+//Date : 19.05.2014
+//Version : 1
+//##############################################################################
 var CURRENTANIMATION = 0;
 
 var FALL = 0;
