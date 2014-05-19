@@ -94,6 +94,7 @@ function CheckCollisions() {
                         case TOPLEFT:
                         case TOPRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + 14;
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x
                             break;
                         case LEFT:
                             player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 7;
@@ -105,6 +106,7 @@ function CheckCollisions() {
                         case BOTLEFT:
                         case BOTRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 35;
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x
                             break;
                     }
                     player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
