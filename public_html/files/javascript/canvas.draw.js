@@ -66,28 +66,8 @@ function Canvas()
     this.DrawMap = function(map) {
         player.roomInfo = [Game.canvas.width / 2 - (map[player.room].width / 2), Game.canvas.height / 2 - (map[player.room].height / 2), map[player.room].width, map[player.room].height];
         this.DrawBorder();
-        //this.DrawGround();
         this.DrawObjects(map);
         this.DrawDoors(map);
-    };
-
-//##############################################################################
-//Dessine le sol
-//##############################################################################
-    this.DrawGround = function()
-    {
-        var x = player.roomInfo[0];
-        var y = player.roomInfo[1];
-        while (y < player.roomInfo[1] + player.roomInfo[3])
-        {
-            x = player.roomInfo[0];
-            while (x < player.roomInfo[0] + player.roomInfo[2])
-            {
-                Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 142, 824, 50, 50, x, y, 50, 50);
-                x = x + 50;
-            }
-            y = y + 50;
-        }
     };
 
 //##############################################################################
@@ -96,7 +76,13 @@ function Canvas()
     this.DrawObjects = function(map)
     {
         map[player.room].objects.forEach(function(entry) {
-            Game.context.drawImage(canvas.IMAGES[entry.type], entry.x, entry.y, entry.width, entry.height);
+            if (entry.type === PORTECRIMEA)
+            {
+                Game.context.drawImage(canvas.IMAGES[entry.type], 962, 395, 70,110);
+            } else {
+                Game.context.drawImage(canvas.IMAGES[entry.type], entry.x, entry.y, entry.width, entry.height);
+            }
+
         });
     };
 
@@ -212,8 +198,7 @@ function Canvas()
                     }
                     break;
                 case RIGHT:
-                    Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 142, 683, 91, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);
-
+                    Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 142, 683, 91, 140, entry.imgX, entry.imgY, entry.imgwidth, entry.imgHeight);                   
                     if (entry.lock) {
                         switch (entry.color) {
                             case RED:

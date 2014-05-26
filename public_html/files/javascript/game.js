@@ -323,6 +323,5 @@ function contains(array, value) {
 }
 
 function toMultiple(i, multiple) {
-    var multi = Math.round(i / multiple) * multiple;
-    return multi;
+    return Math.round(i / multiple) * multiple;
 }

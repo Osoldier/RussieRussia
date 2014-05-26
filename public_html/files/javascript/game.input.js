@@ -67,15 +67,15 @@ function Input() {
             case 'P'.charCodeAt():
                 this.KeyState.P = state;
                 break;
-                //#####TOUCHE P#####// 
+                //#####TOUCHE 1#####// 
             case '1'.charCodeAt():
                 this.KeyState.N1 = state;
                 break;
-                //#####TOUCHE P#####// 
+                //#####TOUCHE 2#####// 
             case '2'.charCodeAt():
                 this.KeyState.N2 = state;
                 break;
-                //#####TOUCHE P#####// 
+                //#####TOUCHE 3#####// 
             case '3'.charCodeAt():
                 this.KeyState.N3 = state;
                 break;
