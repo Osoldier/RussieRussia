@@ -16,7 +16,7 @@ var ImagesSprites = {
     CLEFV:      "K_V.png",
     PUIT:       "O_puit.png", //PUIT
     MUR:        "N_PaquetC.png", //MUR
-    TANK:       "O_Tank.png", //TANK
+    TANK:       "tiger_1.gif", //TANK
     DRAPCOM:    "O_DrapeauCom.png", //DRAPCOM
     DRAPCOMBAS:  "DrapeauComBas.png",
     DRAPCOMDROITE:  "DrapeauComDroite.png",
