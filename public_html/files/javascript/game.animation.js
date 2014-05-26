@@ -69,6 +69,7 @@ function animation() {
                 break;
                 //#####Monter les escaliers#####// 
             case animation.animation.UPSTAIR:
+                
                 break;
                 //#####Descendre les escaliers#####// 
             case animation.animation.DOWNSTAIR:
