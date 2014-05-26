@@ -5,7 +5,10 @@
 //Version : 1
 //##############################################################################
 var canvas = new Canvas();
-
+/**
+ * Gestion de toute les rendus
+ * @returns {null}
+ */
 function Canvas()
 {
 //##############################################################################
@@ -37,9 +40,10 @@ function Canvas()
         PORTECRIMEA: "PORTECRIMEE.png", //PORTECRIMEA
         CLEF_1: "clef1.png",
         CLEF_2: "clef2.png",
-        CLEF_3: "clef3.png"
+        CLEF_3: "clef3.png",
+        ENDING: "menu/end.png"
     };
-    
+
     this.Initialize = function() {
         for (var key in canvas.IMAGES) {
             var src = "files/images/" + canvas.IMAGES[key];
@@ -47,7 +51,7 @@ function Canvas()
             canvas.IMAGES[key].src = src;
         }
     };
-    
+
 //##############################################################################
 //Efface le canvas
 //##############################################################################
@@ -232,5 +236,14 @@ function Canvas()
                     break;
             }
         });
+    };
+    this.DrawEnd = function() {
+        this.Clear();
+        clearInterval(instance);
+        Game.context.drawImage(this.IMAGES.ENDING, 0, 0, Game.canvas.width, Game.canvas.height);
+        Game.context.font = "40px Georgia";
+        Game.context.fillText("Victoire !", Game.canvas.width/2-500, Game.canvas.height/2-200);
+        Game.context.fillText("Temps: "+time, Game.canvas.width/2-500, Game.canvas.height/2-150);
+        Game.context.fillText("Score: "+score.value, Game.canvas.width/2-500, Game.canvas.height/2-100);
     };
 }

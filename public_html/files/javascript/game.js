@@ -8,6 +8,7 @@ var MENU = 1000;
 var GAME = 1001;
 var PAUSE = 1002;
 var ANIMATION = 1003;
+var ENDING = 1004;
 
 var Game = {
     'state': MENU,
@@ -63,6 +64,9 @@ function mainLoop()
             break;
         case ANIMATION:            
             animation.Update();
+            break;
+        case ENDING:
+            canvas.DrawEnd();
             break;
     }
 }
@@ -174,6 +178,10 @@ function CheckCollisions() {
                                 player.Map[player.room].objects.splice(index, 1);
                             }
                         }
+                    }else if(object.type == PORTECRIMEA) {
+                        if(player.object1 == CLEF_1 && player.object2 == CLEF_2 && player.object3 == CLEF_3) {
+                            Game.state = ENDING;
+                        }
                     }
                 }
             }
@@ -265,14 +273,6 @@ function WouldCollide(dX, dY) {
             }
         }
     }
-}
-/**
- * Fonction temporaire
- * @returns {null}
- */
-function tempChangerSalle() {
-    initRoom(GroundMap, 1 * document.getElementById("salle").value)
-    player.room = 1 * document.getElementById("salle").value;
 }
 
 /**
