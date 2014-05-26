@@ -12,7 +12,7 @@ function Canvas()
 //Chargements des images 
 //##############################################################################
     this.IMAGES = {
-        BORDER_DOOR_GROUND: "borderDoorGround.png",
+        BORDER_DOOR_GROUND: "map/borderDoorGround.png",
         TAPIS: "O_tapis.png", //TAPIS
         TABLE: "O_Table.png", //TABLE
         TABLEAU: "N_PaquetC.png", //TABLEAU
@@ -21,9 +21,8 @@ function Canvas()
         CLEFR: "K_R.png",
         CLEFJ: "K_J.png",
         CLEFV: "K_V.png",
-        PUIT: "O_puit.png", //PUIT
-        MUR: "N_PaquetC.png", //MUR
-        TANK: "O_Tank.png", //TANK
+        PUIT: "O_puit.png", //PUIT       
+        TANK: "tiger_1.gif", //TANK
         DRAPCOM: "O_DrapeauCom.png", //DRAPCOM
         DRAPCOMBAS: "DrapeauComBas.png",
         DRAPCOMDROITE: "DrapeauComDroite.png",
@@ -31,12 +30,7 @@ function Canvas()
         LIVREBAS: "LivreKarlMBas.png",
         LIVREDROITE: "KarlMDroite.png",
         LIVREGAUCHE: "KarlMGauche.png",
-        LIVRE: "O_LivreKarlM.png", //LIVRE
-        OBAMA: "N_PaquetC.png", //OBAMA
-        BENLADEN: "N_PaquetC.png", //BENLADEN
-        YANOUKOVIC: "N_PaquetC.png", //YANOUKOVIC
-        FEMINISTE: "bear.png", //FEMINISTE
-        OURS: "N_PaquetC.png", //OURS
+        LIVRE: "O_LivreKarlM.png", //LIVRE   
         VODKA: "N_Vodka.png", //VODKA
         CAVIAR: "N_Caviar.png", //CAVIAR
         CIGARETTE: "N_PaquetC.png", //CIGARETTE
@@ -114,7 +108,7 @@ function Canvas()
 
         //#####Salle longue#####//
         if (player.roomInfo[2] == 500 && player.roomInfo[3] == 700) //LONGER
-            Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 884, 0, 682, 884, x - 91, y - 91, 682, 884);
+            Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 884, 0, 682, 880, x - 91, y - 91, 682, 884);
 
         //#####Salle large#####// 
         if (player.roomInfo[2] == 700 && player.roomInfo[3] == 500) //LARGER

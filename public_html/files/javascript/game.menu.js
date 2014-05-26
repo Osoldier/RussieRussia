@@ -18,7 +18,7 @@ function menu() {
     };
     //#####Images#####//
     this.image = new Image();
-    this.image.src = 'files/images/menu.jpg';
+    this.image.src = 'files/images/menu/menu.jpg';
     
     //#####Musique#####//
     this.audio = {

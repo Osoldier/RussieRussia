@@ -15,7 +15,6 @@ var CLEFR = "CLEFR";
 var CLEFV = "CLEFV";
 var CLEFJ = "CLEFJ";
 var PUIT = "PUIT";
-var MUR = "MUR";
 var TANK = "TANK";
 var DRAPCOM = "DRAPCOM";
 var DRAPCOMBAS = "DRAPCOMBAS";
@@ -25,11 +24,6 @@ var LIVRE = "LIVRE";
 var LIVREBAS = "LIVREBAS";
 var LIVREDROITE = "LIVREDROITE";
 var LIVREGAUCHE = "LIVREGAUCHE";
-var OBAMA = "OBAMA";
-var BENLADEN = "BENLADEN";
-var YANOUKOVIC = "YANOUKOVIC";
-var FEMINISTE = "FEMINISTE";
-var OURS = "OURS";
 var VODKA = "VODKA";
 var CAVIAR = "CAVIAR";
 var CIGARETTE = "CIGARETTE";
@@ -82,7 +76,7 @@ var CRIMEE = 12;
 //La Map en entier
 var GroundMap = [
     /* THE GROUND FLOOR */
-    /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
+    /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 1, 2, null, false)]),
     /* 1 */ new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, "A"), new object(600, 100, 32, 32, false, CLEFR)], [new door(LEFT, 2, 1, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
     /* 2 */ new room(LONGER, [new object(300, 200, 32, 32, true, DRAPCOM, null)], [new door(LEFT, 4, 3, null, false), new door(RIGHT, 5, 6, null, false)]),
     /* 3 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "B")], [new door(LEFT, 6, 5, null, false), new door(RIGHT, 7, 8, null, false)]),
@@ -159,7 +153,7 @@ var GroundMap = [
     /* 72 */ new room(SQUARED, [new object(400, 400, 32, 32, true, CIGARETTE)], [new door(RIGHT, 227, 228, RED, true), new door(BOTTOM, 226, 236, null, false)]),
     /* 73 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR), new object(400, 400, 64, 64, false, PEAUOURS, "J")], [new door(LEFT, 228, 227, RED, true), new door(RIGHT, 230, 231, YELLOW, true), new door(BOTTOM, 229, 239, null, false)]),
     /* 74 */ new room(SQUARED, [], [new door(LEFT, 231, 230, YELLOW, true), new door(RIGHT, 233, 234, null, false), new door(TOP, 232, 217, null, false)]),
-    /* 75 */ new room(SQUARED, [new object(300, 300, 32, 32, true, CIGARETTE), new object(970, 400, 64, 64, true,DRAPCOM, "B"), new object(500, 500, 32, 32, true, CAVIAR), new object(600, 300, 64, 64, false, PEAUOURS, "K")], [new door(LEFT, 234, 233, null, false), new door(TOP, 235, 219, GREEN, true)]),
+    /* 75 */ new room(SQUARED, [new object(300, 300, 32, 32, true, CIGARETTE), new object(970, 400, 64, 64, true, DRAPCOM, "B"), new object(500, 500, 32, 32, true, CAVIAR), new object(600, 300, 64, 64, false, PEAUOURS, "K")], [new door(LEFT, 234, 233, null, false), new door(TOP, 235, 219, GREEN, true)]),
     /* 76 */ new room(SQUARED, [new object(300, 400, 32, 32, true, CAVIAR), new object(500, 600, 32, 32, true, VODKA)], [new door(TOP, 236, 226, null, false), new door(RIGHT, 237, 238, null, false)]),
     /* 77 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(LEFT, 238, 237, null, false), new door(TOP, 239, 229, null, false)]),
     /* THE ATTIC */
@@ -233,13 +227,16 @@ function dispatchKeys() {
         var j = Math.floor(Math.random() * GroundMap.length);
         if (i == 0) {
             GroundMap[j].objects.push(new object(600, 400, 32, 32, false, CLEF_1, null));
+            console.log('Salle 1 : ' + j);
         } else if (i == 1) {
             GroundMap[j].objects.push(new object(600, 400, 32, 32, false, CLEF_2, null));
+            console.log('Salle 2 : ' + j);
         } else if (i == 2) {
             GroundMap[j].objects.push(new object(600, 400, 32, 32, false, CLEF_3, null));
+            console.log('Salle 3 : ' + j);
         } else {
             throw "Illegal Argument"
-        }        
+        }
     }
 }
 

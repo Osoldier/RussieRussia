@@ -11,12 +11,12 @@ function score() {
     this.hunger = 200;
     this.flagSize = 150;
     this.lifeSprite = new Image();
-    this.lifeSprite.src = 'files/images/poupee.png';
+    this.lifeSprite.src = 'files/images/score/poupee.png';
     this.inventory = {};
     this.canvas = null;
     this.context = null;
     this.background = new Image();
-    this.background.src = 'files/images/paper.png';
+    this.background.src = 'files/images/score/paper.png';
 
     this.Initialize = function() {
         this.canvas = document.getElementById('score');
