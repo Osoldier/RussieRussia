@@ -21,8 +21,7 @@ function Canvas()
         CLEFR: "K_R.png",
         CLEFJ: "K_J.png",
         CLEFV: "K_V.png",
-        PUIT: "O_puit.png", //PUIT
-        MUR: "N_PaquetC.png", //MUR
+        PUIT: "O_puit.png", //PUIT       
         TANK: "O_Tank.png", //TANK
         DRAPCOM: "O_DrapeauCom.png", //DRAPCOM
         DRAPCOMBAS: "DrapeauComBas.png",
@@ -31,12 +30,7 @@ function Canvas()
         LIVREBAS: "LivreKarlMBas.png",
         LIVREDROITE: "KarlMDroite.png",
         LIVREGAUCHE: "KarlMGauche.png",
-        LIVRE: "O_LivreKarlM.png", //LIVRE
-        OBAMA: "N_PaquetC.png", //OBAMA
-        BENLADEN: "N_PaquetC.png", //BENLADEN
-        YANOUKOVIC: "N_PaquetC.png", //YANOUKOVIC
-        FEMINISTE: "bear.png", //FEMINISTE
-        OURS: "N_PaquetC.png", //OURS
+        LIVRE: "O_LivreKarlM.png", //LIVRE   
         VODKA: "N_Vodka.png", //VODKA
         CAVIAR: "N_Caviar.png", //CAVIAR
         CIGARETTE: "N_PaquetC.png", //CIGARETTE
