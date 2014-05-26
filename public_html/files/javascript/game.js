@@ -62,7 +62,7 @@ function mainLoop()
             break;
         case PAUSE:
             break;
-        case ANIMATION:            
+        case ANIMATION:
             animation.Update();
             break;
         case ENDING:
@@ -96,7 +96,7 @@ function CheckCollisions() {
                         case TOPLEFT:
                         case TOPRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y + 14;
-                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + (getAllDoorsInRoom(player.room)[i].width/2)
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + (getAllDoorsInRoom(player.room)[i].width / 2)
                             break;
                         case LEFT:
                             player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + getAllDoorsInRoom(player.room)[i].width + 7;
@@ -108,7 +108,7 @@ function CheckCollisions() {
                         case BOTLEFT:
                         case BOTRIGHT:
                             player.y = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).y - getAllDoorsInRoom(player.room)[i].height - 35;
-                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + (getAllDoorsInRoom(player.room)[i].width/2)
+                            player.x = getDoorWithId(getAllDoorsInRoom(player.room)[i].arrival).x + (getAllDoorsInRoom(player.room)[i].width / 2)
                             break;
                     }
                     player.room = getRoomIdWithDoor(getAllDoorsInRoom(player.room)[i].arrival);
@@ -178,8 +178,8 @@ function CheckCollisions() {
                                 player.Map[player.room].objects.splice(index, 1);
                             }
                         }
-                    }else if(object.type == PORTECRIMEA) {
-                        if(player.object1 == CLEF_1 && player.object2 == CLEF_2 && player.object3 == CLEF_3) {
+                    } else if (object.type == PORTECRIMEA) {
+                        if (player.object1 == CLEF_1 && player.object2 == CLEF_2 && player.object3 == CLEF_3) {
                             Game.state = ENDING;
                         }
                     }
@@ -208,7 +208,7 @@ function WouldCollide(dX, dY) {
                         player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
                         initRoom(GroundMap, player.room);
                         Game.state = ANIMATION;
-                        animation.animation.current = animation.animation.FALL;                        
+                        animation.animation.current = animation.animation.FALL;
                     } else {
                         if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
                             if (score.hunger < 200) {
@@ -241,27 +241,54 @@ function WouldCollide(dX, dY) {
                                 score.value += 70;
                             }
                         } else if (contains(TP, getAllObjectsInRoom(player.room)[i].type)) {
+                            console.log(((dX / Math.abs(dX)) * 75) + ", " + ((dY / Math.abs(dY)) * 75));
+                            console.log(dX + ", " + dY);
                             switch (player.type.CURRENT) {
                                 case player.type.POUTINE:
                                     if (getAllObjectsInRoom(player.room)[i].type == TANK) {
-                                        player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
-                                        player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
+                                        if (dX != 0 && (dY == 0)) {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + ((dX / Math.abs(dX)) * 75);
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
+                                        } else if (dY != 0 && (dX == 0)) {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x;
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y + ((dY / Math.abs(dY)) * 75);
+                                        } else {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + ((dX / Math.abs(dX)) * 75);
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y + ((dY / Math.abs(dY)) * 75);
+                                        }
+
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
                                     }
                                     break;
                                 case player.type.LENINE:
                                     if (getAllObjectsInRoom(player.room)[i].type == LIVRE) {
-                                        player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
-                                        player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
+                                        if (dX != 0 && (dY == 0)) {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + ((dX / Math.abs(dX)) * 75);
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
+                                        } else if (dY != 0 && (dX == 0)) {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x;
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y + ((dY / Math.abs(dY)) * 75);
+                                        } else {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + ((dX / Math.abs(dX)) * 75);
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y + ((dY / Math.abs(dY)) * 75);
+                                        }
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
                                     }
                                     break;
                                 case player.type.STALINE:
                                     if (getAllObjectsInRoom(player.room)[i].type == DRAPCOM) {
-                                        player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
-                                        player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
+                                        if (dX != 0 && (dY == 0)) {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + ((dX / Math.abs(dX)) * 75);
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
+                                        } else if (dY != 0 && (dX == 0)) {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x;
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y + ((dY / Math.abs(dY)) * 75);
+                                        } else {
+                                            player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + ((dX / Math.abs(dX)) * 75);
+                                            player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y + ((dY / Math.abs(dY)) * 75);
+                                        }
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
-                                       }
+                                    }
                                     break;
                             }
                             initRoom(GroundMap, player.room);
