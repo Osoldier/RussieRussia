@@ -1,7 +1,7 @@
 //##############################################################################
 //Fichier : game.js
 //Description : Boucle principale et logique du jeu
-//Date : 12.05.2014
+//Date : 26.05.2014
 //Version : 1
 //##############################################################################
 var MENU = 1000;
@@ -29,9 +29,7 @@ function Initialize() {
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//       
     score.Initialize();
-    //#####Sprites#####//
-    loadSprites();
-    loadImages();
+    canvas.Initialize();
     dispatchKeys();
     initRoom(GroundMap, player.room);
     Game.timer = setInterval("mainLoop();", 40);
