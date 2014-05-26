@@ -158,6 +158,7 @@ function Player() {
         'machette': new Audio('files/sounds/machette.ogg'),
         'faucille': new Audio('files/sounds/faucille.ogg'),
         'vodkaBreak': new Audio('files/sounds/vodkaBreak.ogg'),
+        'Ouch': new Audio('files/sounds/Ouch2.ogg'),
     };
 
     /**

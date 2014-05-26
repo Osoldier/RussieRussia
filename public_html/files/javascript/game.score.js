@@ -31,6 +31,8 @@ function score() {
             player.life--;
             this.hunger = 200;
             if (player.life <= 0) {
+                player.audio.Ouch.currentTime = 0;
+                player.audio.Ouch.play();
                 player.room = 9;
                 player.life = 3;
                 player.object1 = null;
@@ -72,23 +74,23 @@ function score() {
         this.context.rect(20 + ukSize, 650 - 200, ukSize, 200 - this.hunger);
         this.context.fill();
         //FIN_UKRAINE
-        
+
         //OBJETS
         var beginObject = 60;
         var space = 5;
-        if(player.object1 != null) {
+        if (player.object1 != null) {
             this.context.drawImage(canvas.IMAGES[player.object1], beginObject, 85, 32, 32);
         }
-        if(player.object2 != null) {
-            this.context.drawImage(canvas.IMAGES[player.object2], beginObject+32+space, 85, 32, 32);
+        if (player.object2 != null) {
+            this.context.drawImage(canvas.IMAGES[player.object2], beginObject + 32 + space, 85, 32, 32);
         }
-        if(player.object3 != null) {
-            this.context.drawImage(canvas.IMAGES[player.object3], beginObject+32+32+space, 85, 32, 32);
+        if (player.object3 != null) {
+            this.context.drawImage(canvas.IMAGES[player.object3], beginObject + 32 + 32 + space, 85, 32, 32);
         }
-        this.context.font="20px Georgia";
+        this.context.font = "20px Georgia";
         this.context.fillStyle = "red"
-        this.context.fillText(time,60, 350);
-        this.context.fillText("Score: "+this.value,60, 300);
+        this.context.fillText(time, 60, 350);
+        this.context.fillText("Score: " + this.value, 60, 300);
     };
 }
 
@@ -100,20 +102,20 @@ function changeTime() {
     var minute = timeSplited[1];
     var second = timeSplited[2];
     second++;
-    if(second==60) {
+    if (second == 60) {
         second = '0';
         minute++;
-        if(minute == 60){
+        if (minute == 60) {
             minute = '0';
             hour++;
         }
     }
-	hour = '0'+hour;
-	hour = hour.toString().substr(-2, 2);
-	minute = '0'+minute;
-	minute = minute.toString().substr(-2, 2);
-	second = '0'+second;
-	second = second.toString().substr(-2, 2);
-    time = hour+':'+minute+':'+second;
-} 
-var instance = self.setInterval(changeTime ,1000);
+    hour = '0' + hour;
+    hour = hour.toString().substr(-2, 2);
+    minute = '0' + minute;
+    minute = minute.toString().substr(-2, 2);
+    second = '0' + second;
+    second = second.toString().substr(-2, 2);
+    time = hour + ':' + minute + ':' + second;
+}
+var instance = self.setInterval(changeTime, 1000);
