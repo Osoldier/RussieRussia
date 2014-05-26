@@ -12,7 +12,7 @@ function Canvas()
 //Chargements des images 
 //##############################################################################
     this.IMAGES = {
-        BORDER_DOOR_GROUND: "borderDoorGround.png",
+        BORDER_DOOR_GROUND: "map/borderDoorGround.png",
         TAPIS: "O_tapis.png", //TAPIS
         TABLE: "O_Table.png", //TABLE
         TABLEAU: "N_PaquetC.png", //TABLEAU
