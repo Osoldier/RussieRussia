@@ -14,6 +14,7 @@ function menu() {
         'PAUSE': 2,
         'END': 3,
         'NOTHING': 4,
+        'FINISH': 5,
         'CURRENT': 0
     };
     //#####Images#####//
@@ -91,6 +92,15 @@ function menu() {
                 this.state.CURRENT = e;
                 Game.state = MENU;
                 break;
+                 //#####Menu de fin#####//
+            case this.state.FINISH:
+                if (!this.locked)
+                {
+                    this.state.CURRENT = e;
+                    Game.state = MENU;
+                    this.Lock(this.defaultLockTime);
+                }
+                break;
         }
     };
 
@@ -161,6 +171,18 @@ function menu() {
                     }
                 }
                 break;
+                 //#####Menu de fin#####//
+            case this.state.FINISH:
+                if (!this.locked)
+                {
+                    //#####Aller vers le menu titre#####//
+                    if (input.KeyState.ESCAPE)
+                    {
+                        this.SwitchToState(this.state.TITLE);
+                        this.Lock(this.defaultLockTime);
+                    }
+                }
+                break;
         }
 
 //##############################################################################
@@ -187,6 +209,10 @@ function menu() {
                 //#####Menu game over#####//
             case this.state.END:
                 Game.context.drawImage(this.image, 0, this.state.END * 900, 1248, 900, 0, 0, 1248, 900);
+                break;
+                //#####Menu de fin#####//
+                case this.state.FINISH:
+                Game.context.drawImage(this.image, 0, this.state.FINISH * 900, 1248, 900, 0, 0, 1248, 900);
                 break;
         }
     };
