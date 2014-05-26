@@ -149,9 +149,9 @@ function Player() {
         'staline': new Image(),
         'poutine': new Image()
     };
-    this.sprites.lenine.src = 'files/images/spriteLenine.png';
-    this.sprites.staline.src = 'files/images/spriteStaline.png';
-    this.sprites.poutine.src = 'files/images/spritePoutine.png';
+    this.sprites.lenine.src = 'files/images/sprites/spriteLenine.png';
+    this.sprites.staline.src = 'files/images/sprites/spriteStaline.png';
+    this.sprites.poutine.src = 'files/images/sprites/spritePoutine.png';
 
     this.audio = {
         'vodka': new Audio('files/sounds/vodka.ogg'),
