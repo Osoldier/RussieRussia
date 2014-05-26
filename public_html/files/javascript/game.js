@@ -178,10 +178,6 @@ function CheckCollisions() {
                                 player.Map[player.room].objects.splice(index, 1);
                             }
                         }
-                    } else if (object.type == PORTECRIMEA) {
-                        if (player.object1 == CLEF_1 && player.object2 == CLEF_2 && player.object3 == CLEF_3) {
-                            Game.state = ENDING;
-                        }
                     }
                 }
             }
@@ -210,6 +206,11 @@ function WouldCollide(dX, dY) {
                         Game.state = ANIMATION;
                         animation.animation.current = animation.animation.FALL;
                     } else {
+                        if (getAllObjectsInRoom(player.room)[i].type == PORTECRIMEA) {
+                            if (player.object1 == CLEF_1 && player.object2 == CLEF_2 && player.object3 == CLEF_3) {
+                                Game.state = ENDING;
+                            }
+                        }
                         if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
                             if (score.hunger < 200) {
                                 score.hunger += 30;

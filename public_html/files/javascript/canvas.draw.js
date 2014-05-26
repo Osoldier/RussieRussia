@@ -227,8 +227,8 @@ function Canvas()
         clearInterval(instance);
         Game.context.drawImage(this.IMAGES.ENDING, 0, 0, Game.canvas.width, Game.canvas.height);
         Game.context.font = "40px Georgia";
-        Game.context.fillText("Victoire !", Game.canvas.width/2-500, Game.canvas.height/2-200);
-        Game.context.fillText("Temps: "+time, Game.canvas.width/2-500, Game.canvas.height/2-150);
-        Game.context.fillText("Score: "+score.value, Game.canvas.width/2-500, Game.canvas.height/2-100);
+        Game.context.fillText("Victoire !", Game.canvas.width/2-500, Game.canvas.height/2-250);
+        Game.context.fillText("Temps: "+time, Game.canvas.width/2-500, Game.canvas.height/2-200);
+        Game.context.fillText("Score: "+score.value, Game.canvas.width/2-500, Game.canvas.height/2-150);
     };
 }
