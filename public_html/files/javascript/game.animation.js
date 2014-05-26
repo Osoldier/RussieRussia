@@ -18,6 +18,16 @@ function animation() {
     this.time = 0;
     this.maxTime = 100;
 
+    this.escalier = {
+        'images': {
+            'nwar': new Image(),
+            'blanc': new Image()
+        },
+        'current': 0
+    };
+    this.escalier.images.nwar.src = 'files/images/escalier/escalierNWAR.png';
+    this.escalier.images.blanc.src = 'files/images/escalier/escalierBLANC.png';
+
     this.pizza = {
         'images': {
             'p1': new Image(),
@@ -69,7 +79,49 @@ function animation() {
                 break;
                 //#####Monter les escaliers#####// 
             case animation.animation.UPSTAIR:
-                
+                Game.context.beginPath();
+                Game.context.fillStyle = "black";
+                Game.context.rect(0, 0, Game.canvas.width, Game.canvas.height);
+                Game.context.fill();
+                if (animation.escalier.current >= 0 && animation.escalier.current <= 5)
+                {
+                    animation.maxTime = 10000;
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.nwar, 0, 0, 1248, 900);
+
+                } else if (animation.escalier.current >= 6 && animation.escalier.current <= 10)
+                {
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.blanc, 0, 0, 1248, 900);
+                } else if (animation.escalier.current >= 11 && animation.escalier.current <= 15)
+                {
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.nwar, 0, 0, 1248, 900);
+                }
+                else if (animation.escalier.current >= 16 && animation.escalier.current <= 20)
+                {
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.blanc, 0, 0, 1248, 900);
+                }
+                else if (animation.escalier.current >= 21 && animation.escalier.current <= 25)
+                {
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.nwar, 0, 0, 1248, 900);
+                }
+                else if (animation.escalier.current >= 26 && animation.escalier.current <= 30)
+                {
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.blanc, 0, 0, 1248, 900);
+                }
+                else if (animation.escalier.current >= 31 && animation.escalier.current <= 35)
+                {
+                    animation.escalier.current++;
+                    Game.context.drawImage(animation.escalier.images.nwar, 0, 0, 1248, 900);
+                }
+                else {
+                    animation.escalier.current = 0;
+                    animation.maxTime = 20;
+                }
                 break;
                 //#####Descendre les escaliers#####// 
             case animation.animation.DOWNSTAIR:

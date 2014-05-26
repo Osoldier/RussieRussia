@@ -14,7 +14,9 @@ function Input() {
         'A': false,
         'N': false,
         'E': false,
-        'D': false,        
+        'T': false,
+        'K': false,
+        'D': false,
         'UP': false,
         'DOWN': false,
         'LEFT': false,
@@ -24,6 +26,7 @@ function Input() {
         'CTRL_LEFT': false,
         'L': false,
         'P': false,
+        'R': false,
         'Q': false,
         'SHIFT': false,
         'N1': false,
@@ -43,9 +46,17 @@ function Input() {
             case 'D'.charCodeAt():
                 this.KeyState.D = state;
                 break;
+                //#####TOUCHE R#####// 
+            case 'R'.charCodeAt():
+                this.KeyState.R = state;
+                break;
                 //#####TOUCHE N#####// 
             case 'N'.charCodeAt():
                 this.KeyState.N = state;
+                break;
+                //#####TOUCHE T#####// 
+            case 'T'.charCodeAt():
+                this.KeyState.T = state;
                 break;
                 //#####TOUCHE E#####// 
             case 'E'.charCodeAt():
@@ -62,6 +73,10 @@ function Input() {
                 //#####TOUCHE L#####// 
             case 'L'.charCodeAt():
                 this.KeyState.L = state;
+                break;
+                //#####TOUCHE K#####// 
+            case 'K'.charCodeAt():
+                this.KeyState.K = state;
                 break;
                 //#####TOUCHE P#####// 
             case 'P'.charCodeAt():

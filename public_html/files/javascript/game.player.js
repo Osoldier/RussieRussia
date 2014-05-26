@@ -8,6 +8,7 @@ var player = new Player();
 
 function Player() {
     this.Map = GroundMap;
+    this.cheat = true;
     this.room = 9;
     this.roomInfo = new Array();
     this.time = 0;
@@ -171,13 +172,38 @@ function Player() {
             menu.SwitchToState(menu.state.PAUSE);
 
 
+        if (input.KeyState.T && input.KeyState.E && input.KeyState.L && input.KeyState.R && player.cheat)
+        {
+            input.KeyState.T = false;
+            input.KeyState.E = false;
+            input.KeyState.L = false;
+            input.KeyState.R = false;
+            var idRoom = prompt('TELEPORTATION KOM 1 MAGICIEN MDR', "9");
+            initRoom(GroundMap, 1 * idRoom)
+            player.room = 1 * idRoom;
+        }
+
+        if (input.KeyState.K && input.KeyState.R && input.KeyState.E && input.KeyState.N && input.KeyState.L && player.cheat)
+        {
+            input.KeyState.K = false;
+            input.KeyState.E = false;
+            input.KeyState.R = false;
+            input.KeyState.N = false;    
+            input.KeyState.L = false;
+            score.hunger = 200;
+            score.life = 3;
+        }
+
+
         if (input.KeyState.S && input.KeyState.E && input.KeyState.N && input.KeyState.A)
         {
             Game.state = ANIMATION;
-            animation.animation.current = animation.animation.THEOREMEDELAPIZZA;            
+            animation.animation.current = animation.animation.THEOREMEDELAPIZZA;
             score.value += 666;
             score.hunger -= 166, 6;
         }
+
+
 
 //##############################################################################
 //Inventaire (3 objets)
