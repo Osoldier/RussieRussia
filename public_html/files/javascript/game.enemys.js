@@ -23,19 +23,19 @@ function enemy(x, y, type, dir) {
     this.frame = 0;
     switch (this.type) {
         case NINJA:
-            this.sprite.src = 'files/images/Sprite4.png';
+            this.sprite.src = 'files/images/sprites/SpriteNinja.png';
             break;
         case DESERT:
-            this.sprite.src = 'files/images/Sprite7.png';
+            this.sprite.src = 'files/images/sprites/SpriteDesert.png';
             break;
         case GHOST:
-            this.sprite.src = 'files/images/Sprite8.png';
+            this.sprite.src = 'files/images/sprites/SpriteGhost.png';
             break;
         case SERPENT:
-            this.sprite.src = 'files/images/spriteOurs.png';
+             this.sprite.src = 'files/images/sprites/SpriteNinja.png';
             break;
         default:
-            this.sprite.src = 'files/images/Sprite4.png';
+            this.sprite.src = 'files/images/sprites/SpriteNinja.png';
             break;
     }
     this.Update = function() {
