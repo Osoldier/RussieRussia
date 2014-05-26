@@ -256,7 +256,7 @@ function WouldCollide(dX, dY) {
                                         player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
                                         player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
-                                    }
+                                       }
                                     break;
                             }
                             initRoom(GroundMap, player.room);
