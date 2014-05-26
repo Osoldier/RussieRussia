@@ -22,7 +22,7 @@ function Canvas()
         CLEFJ: "K_J.png",
         CLEFV: "K_V.png",
         PUIT: "O_puit.png", //PUIT       
-        TANK: "O_Tank.png", //TANK
+        TANK: "tiger_1.gif", //TANK
         DRAPCOM: "O_DrapeauCom.png", //DRAPCOM
         DRAPCOMBAS: "DrapeauComBas.png",
         DRAPCOMDROITE: "DrapeauComDroite.png",

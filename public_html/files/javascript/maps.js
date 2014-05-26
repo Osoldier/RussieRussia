@@ -82,7 +82,7 @@ var CRIMEE = 12;
 //La Map en entier
 var GroundMap = [
     /* THE GROUND FLOOR */
-    /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 0, 1, null, false)]),
+    /* 0 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "A")], [new door(RIGHT, 1, 2, null, false)]),
     /* 1 */ new room(SQUARED, [new object(600, 400, 32, 32, true, TABLE, null), new object(500, 100, 64, 64, true, TANK, "A"), new object(600, 100, 32, 32, false, CLEFR)], [new door(LEFT, 2, 1, null, false), new door(BOTTOM, 37, 36, null, false), new door(RIGHT, 3, 4, null, false)]),
     /* 2 */ new room(LONGER, [new object(300, 200, 64, 64, true, DRAPCOM, null)], [new door(LEFT, 4, 3, null, false), new door(RIGHT, 5, 6, null, false)]),
     /* 3 */ new room(LONGER, [new object(700, 400, 64, 64, true, PUIT, "B")], [new door(LEFT, 6, 5, null, false), new door(RIGHT, 7, 8, null, false)]),
