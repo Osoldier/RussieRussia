@@ -114,7 +114,7 @@ function Canvas()
 
         //#####Salle longue#####//
         if (player.roomInfo[2] == 500 && player.roomInfo[3] == 700) //LONGER
-            Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 884, 0, 682, 884, x - 91, y - 91, 682, 884);
+            Game.context.drawImage(canvas.IMAGES.BORDER_DOOR_GROUND, 884, 0, 682, 880, x - 91, y - 91, 682, 884);
 
         //#####Salle large#####// 
         if (player.roomInfo[2] == 700 && player.roomInfo[3] == 500) //LARGER
