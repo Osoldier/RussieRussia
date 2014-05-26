@@ -1,7 +1,7 @@
 //##############################################################################
 //Fichier : game.js
 //Description : Boucle principale et logique du jeu
-//Date : 12.05.2014
+//Date : 26.05.2014
 //Version : 1
 //##############################################################################
 var MENU = 1000;
@@ -29,9 +29,7 @@ function Initialize() {
     Game.context = Game.canvas.getContext('2d');
     //#####PLAYER#####//       
     score.Initialize();
-    //#####Sprites#####//
-    loadSprites();
-    loadImages();
+    canvas.Initialize();
     dispatchKeys();
     initRoom(GroundMap, player.room);
     Game.timer = setInterval("mainLoop();", 40);
@@ -63,8 +61,8 @@ function mainLoop()
             break;
         case PAUSE:
             break;
-        case ANIMATION:
-            UpdateAnimation();
+        case ANIMATION:            
+            animation.Update();
             break;
     }
 }
@@ -202,8 +200,7 @@ function WouldCollide(dX, dY) {
                         player.room = getRoomIdWithObjectTypeAndSpec(PEAUOURS, getAllObjectsInRoom(player.room)[i].spec);
                         initRoom(GroundMap, player.room);
                         Game.state = ANIMATION;
-                        Time = 0;
-                        CURRENTANIMATION = FALL;
+                        animation.animation.current = animation.animation.FALL;                        
                     } else {
                         if (contains(EATEABLES, getAllObjectsInRoom(player.room)[i].type)) {
                             if (score.hunger < 200) {
@@ -256,7 +253,7 @@ function WouldCollide(dX, dY) {
                                         player.x = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).x + 75;
                                         player.y = getObjectWithTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false).y;
                                         player.room = getRoomIdWithObjectTypeAndSpec(getAllObjectsInRoom(player.room)[i].type, getAllObjectsInRoom(player.room)[i].spec, false);
-                                    }
+                                       }
                                     break;
                             }
                             initRoom(GroundMap, player.room);

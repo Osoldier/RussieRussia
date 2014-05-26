@@ -1,7 +1,7 @@
 //##############################################################################
 //Fichier : game.score.js
 //Description : Gestion du score / vie
-//Date : 19.05.2014
+//Date : 26.05.2014
 //Version : 1
 //##############################################################################
 var score = new score();
@@ -77,13 +77,13 @@ function score() {
         var beginObject = 60;
         var space = 5;
         if(player.object1 != null) {
-            this.context.drawImage(ImagesSprites[player.object1], beginObject, 85, 32, 32);
+            this.context.drawImage(canvas.IMAGES[player.object1], beginObject, 85, 32, 32);
         }
         if(player.object2 != null) {
-            this.context.drawImage(ImagesSprites[player.object2], beginObject+32+space, 85, 32, 32);
+            this.context.drawImage(canvas.IMAGES[player.object2], beginObject+32+space, 85, 32, 32);
         }
         if(player.object3 != null) {
-            this.context.drawImage(ImagesSprites[player.object3], beginObject+32+32+space, 85, 32, 32);
+            this.context.drawImage(canvas.IMAGES[player.object3], beginObject+32+32+space, 85, 32, 32);
         }
         this.context.font="20px Georgia";
         this.context.fillStyle = "red"

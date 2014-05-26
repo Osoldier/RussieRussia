@@ -107,7 +107,7 @@ var GroundMap = [
     /* 22 */ new room(LONGER, [new object(700, 300, 32, 32, false, CLEFV)], [new door(BOTTOM, 42, 66, GREEN, true), new door(TOP, 41, 184, null, false), new door(LEFT, 43, 44, null, true), new door(RIGHT, 40, 39, null, false)]),
     /* 23 */ new room(SQUARED, [], [new door(LEFT, 39, 40, null, false), new door(TOP, 38, 76, null, false)]),
     /* 24 */ new room(LARGER, [], [new door(TOP, 53, 52, null, false), new door(BOTTOM, 54, 55, null, false)]),
-    /* 25 */ new room(LARGER, [new object(300, 450, 64, 64, true, DRAPCOM, "B")], [new door(TOP, 66, 435, GREEN, true), new door(BOTTOM, 65, 64, null, false)]),
+    /* 25 */ new room(LARGER, [new object(310, 450, 64, 64, true, DRAPCOM, "B")], [new door(TOP, 66, 435, GREEN, true), new door(BOTTOM, 65, 64, null, false)]),
     /* 26 */ new room(SQUARED, [new object(280, 90, 64, 64, true, TANK, "A"), new object(350, 400, 32, 32, true, TABLE), new object(350, 450, 32, 32, true, CAVIAR)], [new door(TOP, 55, 54, null, false), new door(RIGHT, 56, 57, null, false), new door(BOTTOM, 71, 72, BLUE, true)]),
     /* 27 */ new room(LONGER, [new object(500, 500, 32, 32, true, CAVIAR), new object(520, 500, 32, 32, true, CIGARETTE)], [new door(LEFT, 57, 56, null, false), new door(RIGHT, 58, 59, null, false)]),
     /* 28 */ new room(LONGER, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(LEFT, 59, 58, null, false), new door(RIGHT, 60, 61, null, false)]),
@@ -159,7 +159,7 @@ var GroundMap = [
     /* 72 */ new room(SQUARED, [new object(400, 400, 32, 32, true, CIGARETTE)], [new door(RIGHT, 227, 228, RED, true), new door(BOTTOM, 226, 236, null, false)]),
     /* 73 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR), new object(400, 400, 64, 64, false, PEAUOURS, "J")], [new door(LEFT, 228, 227, RED, true), new door(RIGHT, 230, 231, YELLOW, true), new door(BOTTOM, 229, 239, null, false)]),
     /* 74 */ new room(SQUARED, [], [new door(LEFT, 231, 230, YELLOW, true), new door(RIGHT, 233, 234, null, false), new door(TOP, 232, 217, null, false)]),
-    /* 75 */ new room(SQUARED, [new object(300, 300, 32, 32, true, CIGARETTE), new object(400, 400, 64, 64, true, DRAPCOM, "B"), new object(500, 500, 32, 32, true, CAVIAR), new object(600, 300, 64, 64, false, PEAUOURS, "K")], [new door(LEFT, 234, 233, null, false), new door(TOP, 235, 219, GREEN, true)]),
+    /* 75 */ new room(SQUARED, [new object(300, 300, 32, 32, true, CIGARETTE), new object(970, 400, 64, 64, true,DRAPCOM, "B"), new object(500, 500, 32, 32, true, CAVIAR), new object(600, 300, 64, 64, false, PEAUOURS, "K")], [new door(LEFT, 234, 233, null, false), new door(TOP, 235, 219, GREEN, true)]),
     /* 76 */ new room(SQUARED, [new object(300, 400, 32, 32, true, CAVIAR), new object(500, 600, 32, 32, true, VODKA)], [new door(TOP, 236, 226, null, false), new door(RIGHT, 237, 238, null, false)]),
     /* 77 */ new room(SQUARED, [new object(500, 500, 32, 32, true, CAVIAR)], [new door(LEFT, 238, 237, null, false), new door(TOP, 239, 229, null, false)]),
     /* THE ATTIC */
@@ -490,8 +490,4 @@ function initRoom(map, id) {
         entry.imgX = imgX;
         entry.imgY = imgY;
     });
-}
-//DERNIER RECOURS
-function ToString(item) {
-
 }
